@@ -21,6 +21,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import Badge from '@mui/material/Badge';
 import InfoIcon from '@mui/icons-material/Info';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import hero1 from './image/hero-1.png';
+import hero2 from './image/hero-2.jpg';
+import hero3 from './image/hero-3.jpg';
 
 
 
@@ -52,9 +55,17 @@ const App = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 3000,
-    autoplaySpeed: 3000,
+    speed: 4000,
+    autoplaySpeed: 2000,
     cssEase: "linear"
+  };
+
+  const herosettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
   };
 
   return (
@@ -268,22 +279,43 @@ const App = () => {
             <h3 style={{ margin: 0, cursor: 'pointer' }}><LocalShippingIcon className='header-icon' sx={{ fontSize: '35px',padding:'5px',color:'white'}} /></h3>
           </Box>
       </AppBar>
+      {/* header end */}
+
+      {/* main start */}
+
+
+      {/* hero section start */}
+
+      <Box className='hero-slider' sx={{ width: '100%', position: 'relative' }}>
+      <div className="slider-container">
+        <Slider {...herosettings}>
+          <div>
+            <img src={hero1} alt="Hero 1" style={{ width: '100%' }} />
+          </div>
+          <div>
+            <img src={hero2} alt="Hero 2" style={{ width: '100%' }} />
+          </div>
+          <div>
+            <img src={hero3} alt="Hero 3" style={{ width: '100' }} />
+            
+          </div>
+          <div>
+            <h3>4</h3>
+          </div>
+        </Slider>
+      </div>
+    </Box>
+
+
+      {/* hero section end */}
+
+
+      {/* main end */}
 
     </>
   )
 }
 
-// header section end
-// main start
-
-// hero section start
-
-
-
-
-
-// hero section end
-// main end
 
 export default App
 
