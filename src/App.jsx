@@ -24,6 +24,10 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import hero1 from './image/hero-1.png';
 import hero2 from './image/hero-2.jpg';
 import hero3 from './image/hero-3.jpg';
+import hero4 from './image/hero-4.jpg';
+
+import sofa1 from './image/sofa-1.jpg';
+import Grid from '@mui/material/Grid';
 
 
 
@@ -70,7 +74,7 @@ const App = () => {
 
   return (
     <>
-    {/* header section start */}
+      {/* header section start */}
       <AppBar position="static" color="white" sx={{ backgroundColor: 'black', boxShadow: 'none', color: 'white', padding: '5px 0' }}>
         <Container maxWidth="xl">
           <div className="slider-container">
@@ -265,19 +269,19 @@ const App = () => {
           />
         </Box>
 
-          <Box
-            className="utilityLinks"
-            sx={{
-              display: 'flex',
-              gap: 3,
-              alignItems: 'center',
-              
+        <Box
+          className="utilityLinks"
+          sx={{
+            display: 'flex',
+            gap: 3,
+            alignItems: 'center',
 
-            }}
-          >
-            <h3 style={{ margin: 0, cursor: 'pointer'}}><InfoIcon className='header-icon' sx={{ fontSize: '35px',padding:'5px',color:'white' }} /></h3>
-            <h3 style={{ margin: 0, cursor: 'pointer' }}><LocalShippingIcon className='header-icon' sx={{ fontSize: '35px',padding:'5px',color:'white'}} /></h3>
-          </Box>
+
+          }}
+        >
+          <h3 style={{ margin: 0, cursor: 'pointer' }}><InfoIcon className='header-icon' sx={{ fontSize: '35px', padding: '5px', color: 'white' }} /></h3>
+          <h3 style={{ margin: 0, cursor: 'pointer' }}><LocalShippingIcon className='header-icon' sx={{ fontSize: '35px', padding: '5px', color: 'white' }} /></h3>
+        </Box>
       </AppBar>
       {/* header end */}
 
@@ -287,28 +291,52 @@ const App = () => {
       {/* hero section start */}
 
       <Box className='hero-slider' sx={{ width: '100%', position: 'relative' }}>
-      <div className="slider-container">
-        <Slider {...herosettings}>
-          <div>
-            <img src={hero1} alt="Hero 1" style={{ width: '100%' }} />
-          </div>
-          <div>
-            <img src={hero2} alt="Hero 2" style={{ width: '100%' }} />
-          </div>
-          <div>
-            <img src={hero3} alt="Hero 3" style={{ width: '100' }} />
-            
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-        </Slider>
-      </div>
-    </Box>
+        <div className="slider-container">
+          <Slider {...herosettings}>
+            <div>
+              <img src={hero1} alt="Hero 1" style={{ width: '100%' }} />
+            </div>
+            <div>
+              <img src={hero2} alt="Hero 2" style={{ width: '100%' }} />
+            </div>
+            <div>
+              <img src={hero3} alt="Hero 3" style={{ width: '100%' }} />
 
+            </div>
+            <div>
+              <img src={hero4} alt="Hero 4" style={{ width: '100%' }} />
+
+            </div>
+          </Slider>
+        </div>
+      </Box>
 
       {/* hero section end */}
 
+      <Box sx={{ textAlign: 'center', padding: '50px 0' }}>
+        <h1 className='topic-title' style={{ fontFamily: 'math', borderBottom: '2px solid black', display: "inline-block" }}>
+          Style your space with ease
+        </h1>
+      </Box>
+
+      <Box>
+        
+      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid size={2}>
+         <a href=""><img src={sofa1} alt="" style={{width:"100%"}} /></a>
+        </Grid>
+        <Grid size={2}>
+        <a href=""><img src={sofa1} alt="" style={{width:"100%"}} /></a>
+        </Grid>
+        <Grid size={2}>
+        <a href=""><img src={sofa1} alt="" style={{width:"100%"}} /></a>
+        </Grid>
+        <Grid size={6}>
+         
+         
+        </Grid>
+      </Grid>
+      </Box>
 
       {/* main end */}
 
