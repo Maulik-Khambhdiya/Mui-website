@@ -25,9 +25,22 @@ import hero1 from './image/hero-1.png';
 import hero2 from './image/hero-2.jpg';
 import hero3 from './image/hero-3.jpg';
 import hero4 from './image/hero-4.jpg';
-
+import bed1 from './image/bed-1.jpg';
 import sofa1 from './image/sofa-1.jpg';
+import dinningtable from './image/dinningtable.jpg';
+import chair from './image/chair.jpg';
+import tvunit from './image/tv-unit.jpg';
+import cupboard from './image/cupboard.jpg';
+import ceil from './image/ceil.jpg';
+import coffeetable from './image/coffee-table.jpg';
+import studytable from './image/study-table.jpg'
+import temple from './image/temple.jpg'
+import newarrival from './image/new-arrival.jpg'
+import bookshelve from './image/bookshelve.jpg'
 import Grid from '@mui/material/Grid';
+import lampImage from './image/lamp original.jpg';
+import lamphoveredImage from './image/lamp hover.jpg';
+
 
 
 
@@ -71,6 +84,7 @@ const App = () => {
     slidesToShow: 1,
     slidesToScroll: 1
   };
+
 
   return (
     <>
@@ -320,23 +334,105 @@ const App = () => {
       </Box>
 
       <Box>
-        
-      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        <Grid size={2}>
-         <a href=""><img src={sofa1} alt="" style={{width:"100%"}} /></a>
-        </Grid>
-        <Grid size={2}>
-        <a href=""><img src={sofa1} alt="" style={{width:"100%"}} /></a>
-        </Grid>
-        <Grid size={2}>
-        <a href=""><img src={sofa1} alt="" style={{width:"100%"}} /></a>
-        </Grid>
-        <Grid size={6}>
-         
-         
-        </Grid>
-      </Grid>
+        <Container>
+          <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ textAlign: 'center' }}>
+            <Grid size={2}>
+              <a href=""><img src={newarrival} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>What's New?</span>
+            </Grid>
+
+            <Grid size={2} >
+              <a href=""><img src={sofa1} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Sofa</span>
+            </Grid>
+
+            <Grid size={2}>
+              <a href=""><img src={bed1} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Bed</span>
+            </Grid>
+
+            <Grid size={2}>
+              <a href=""><img src={dinningtable} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Dining Table</span>
+            </Grid>
+
+            <Grid size={2}>
+              <a href=""><img src={chair} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Chair</span>
+            </Grid>
+
+            <Grid size={2}>
+              <a href=""><img src={tvunit} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Tv Unit</span>
+            </Grid>
+
+            <Grid size={2}>
+              <a href=""><img src={cupboard} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Cupboard</span>
+            </Grid>
+
+            <Grid size={2}>
+              <a href=""><img src={ceil} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Ceiling</span>
+            </Grid>
+
+            <Grid size={2}>
+              <a href=""><img src={coffeetable} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Coffee Table</span>
+            </Grid>
+
+            <Grid size={2}>
+              <a href=""><img src={studytable} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Study Table</span>
+            </Grid>
+
+            <Grid size={2}>
+              <a href=""><img src={temple} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Temple</span>
+            </Grid>
+
+            <Grid size={2}>
+              <a href=""><img src={bookshelve} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Book Shelves</span>
+            </Grid>
+          </Grid>
+        </Container>
       </Box>
+
+
+      <Box sx={{ textAlign: 'center', padding: '50px 0' }}>
+        <h1 className='topic-title' style={{ fontFamily: 'math', borderBottom: '2px solid black', display: "inline-block" }}>
+          Best Sellers
+        </h1>
+
+        <p style={{ fontSize: '18px', padding: '10px 0', fontWeight: '500' }}>A favorite among fans. Yours next?</p>
+
+      </Box>
+
+      <Grid container spacing={2}>
+        <Grid size={{ xs: 6, md: 3}}>
+        <Box sx={{
+        ":hover": {
+          backgroundImage: `url(${lamphoveredImage})`
+        }
+      }}>
+        <img src={lampImage}  alt="" />
+      </Box>
+        </Grid>
+
+         <Grid size={{ xs: 6, md: 3 }}>
+        <Box sx={{
+        ":hover": {
+          backgroundImage: `url(${lamphoveredImage})`
+        }
+      }}>
+        <img src={lampImage}  alt="" />
+      </Box>
+        </Grid>
+
+      </Grid>
+
+      
 
       {/* main end */}
 
