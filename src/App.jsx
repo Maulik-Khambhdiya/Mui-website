@@ -38,9 +38,16 @@ import temple from './image/temple.jpg'
 import newarrival from './image/new-arrival.jpg'
 import bookshelve from './image/bookshelve.jpg'
 import Grid from '@mui/material/Grid';
-import lampImage from './image/lamp original.jpg';
+import cocochair from './image/coco-chair.jpg';
 import lamphoveredImage from './image/lamp hover.jpg';
-
+import wallmirror from './image/wall-mirror.jpg';
+import staircase from './image/staircase.jpg';
+import appposter from './image/appointment-poster.jpg';
+import blacksofa from './image/blacksofa.avif';
+import bluesofa from './image/bluesofa.avif';
+import redksofa from './image/redsofa.avif';
+import creamsofa from './image/greensofa.webp';
+import greensofa from './image/greensofa.webp';
 
 
 
@@ -327,112 +334,222 @@ const App = () => {
 
       {/* hero section end */}
 
-      <Box sx={{ textAlign: 'center', padding: '50px 0' }}>
-        <h1 className='topic-title' style={{ fontFamily: 'math', borderBottom: '2px solid black', display: "inline-block" }}>
-          Style your space with ease
-        </h1>
+      <Box sx={{ margin: "50px 0" }}>
+
+        <Box sx={{ textAlign: 'center', padding: '50px 0' }}>
+          <h1 className='topic-title' style={{ fontFamily: 'math', borderBottom: '2px solid black', display: "inline-block" }}>
+            Style your space with ease
+          </h1>
+        </Box>
+
+        <Box>
+          <Container>
+            <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ textAlign: 'center' }}>
+              <Grid size={{ xs: 3, sm: 3, md: 2 }}>
+                <a href=""><img src={newarrival} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+                <span style={{ fontWeight: 'bold', fontFamily: "cursive", fontSize: '14px' }}>What's New?</span>
+              </Grid>
+
+              <Grid size={{ xs: 3, sm: 3, md: 2 }}>
+                <a href=""><img src={sofa1} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+                <span style={{ fontWeight: 'bold', fontFamily: "cursive", fontSize: '14px' }}>Sofa</span>
+              </Grid>
+
+              <Grid size={{ xs: 3, sm: 3, md: 2 }}>
+                <a href=""><img src={bed1} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+                <span style={{ fontWeight: 'bold', fontFamily: "cursive", fontSize: '14px' }}>Bed</span>
+              </Grid>
+
+              <Grid size={{ xs: 3, sm: 3, md: 2 }}>
+                <a href=""><img src={dinningtable} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+                <span style={{ fontWeight: 'bold', fontFamily: "cursive", fontSize: '14px' }}>Dining Table</span>
+              </Grid>
+
+              <Grid size={{ xs: 3, sm: 3, md: 2 }}>
+                <a href=""><img src={chair} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+                <span style={{ fontWeight: 'bold', fontFamily: "cursive", fontSize: '14px' }}>Chair</span>
+              </Grid>
+
+              <Grid size={{ xs: 3, sm: 3, md: 2 }}>
+                <a href=""><img src={tvunit} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+                <span style={{ fontWeight: 'bold', fontFamily: "cursive", fontSize: '14px' }}>Tv Unit</span>
+              </Grid>
+
+              <Grid size={{ xs: 3, sm: 3, md: 2 }}>
+                <a href=""><img src={cupboard} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+                <span style={{ fontWeight: 'bold', fontFamily: "cursive", fontSize: '14px' }}>Cupboard</span>
+              </Grid>
+
+              <Grid size={{ xs: 3, sm: 3, md: 2 }}>
+                <a href=""><img src={ceil} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+                <span style={{ fontWeight: 'bold', fontFamily: "cursive", fontSize: '14px' }}>Ceiling</span>
+              </Grid>
+
+              <Grid size={{ xs: 3, sm: 3, md: 2 }}>
+                <a href=""><img src={coffeetable} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+                <span style={{ fontWeight: 'bold', fontFamily: "cursive", fontSize: '14px' }}>Coffee Table</span>
+              </Grid>
+
+              <Grid size={{ xs: 3, sm: 3, md: 2 }}>
+                <a href=""><img src={studytable} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+                <span style={{ fontWeight: 'bold', fontFamily: "cursive", fontSize: '14px' }}>Study Table</span>
+              </Grid>
+
+              <Grid size={{ xs: 3, sm: 3, md: 2 }}>
+                <a href=""><img src={temple} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+                <span style={{ fontWeight: 'bold', fontFamily: "cursive", fontSize: '14px' }}>Temple</span>
+              </Grid>
+
+              <Grid size={{ xs: 3, sm: 3, md: 2 }}>
+                <a href=""><img src={bookshelve} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
+                <span style={{ fontWeight: 'bold', fontFamily: "cursive", fontSize: '14px' }}>Book Shelves</span>
+              </Grid>
+            </Grid>
+          </Container>
+        </Box>
       </Box>
 
+      {/* best seller section start */}
+
+      <Box sx={{ margin: "50px 0" }}>
+        <Box sx={{ textAlign: 'center', padding: '50px 0' }}>
+          <h1 className='topic-title' style={{ fontFamily: 'math', borderBottom: '2px solid black', display: "inline-block" }}>
+            Best Sellers
+          </h1>
+
+          <p style={{ fontSize: '18px', padding: '10px 0', fontWeight: '500' }}>A favorite among fans. Yours next?</p>
+
+        </Box>
+
+        <Container>
+          <Grid container spacing={2} >
+
+            <Grid size={{ lg: 3, xs: 12, md: 6, sm: 6 }}>
+              <Box sx={{ boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)" }}>
+
+                <img src={lamphoveredImage} alt="" style={{ width: "100%" }} />
+
+
+                <Box className="image-detail" sx={{ padding: '10px 15px ' }}>
+
+                  <h2 style={{ paddingBottom: "10px", fontFamily: "sans-serif", fontSize: "20px" }}>Magical Lunar Lamp</h2>
+
+                  <span style={{ display: 'block' }}><p style={{ textDecoration: 'line-through', color: 'grey', fontWeight: "500", fontSize: '16px', display: 'inline-block', paddingRight: "10px" }}>$ 300</p> $250</span>
+
+                  <button className='cart-button' style={{ marginTop: "10px", width: "100%", padding: '10px 15px', backgroundColor: "white", border: "1px solid black", fontFamily: "sans-serif", fontWeight: "bold" }}>Add To Cart</button>
+
+                </Box>
+              </Box>
+            </Grid>
+
+            <Grid size={{ lg: 3, xs: 12, md: 6, sm: 6 }}>
+              <Box sx={{ boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)" }}>
+
+                <img src={cocochair} alt="" style={{ width: "100%" }} />
+
+
+                <Box className="image-detail" sx={{ padding: '10px 15px ' }}>
+
+                  <h2 style={{ paddingBottom: "10px", fontFamily: "sans-serif", fontSize: "20px" }}>Coconut Shape Chair</h2>
+
+                  <span style={{ display: 'block' }}><p style={{ textDecoration: 'line-through', color: 'grey', fontWeight: "500", fontSize: '16px', display: 'inline-block', paddingRight: "10px" }}>$ 500</p> $450</span>
+
+                  <button className='cart-button' style={{ marginTop: "10px", width: "100%", padding: '10px 15px', backgroundColor: "white", border: "1px solid black", fontFamily: "sans-serif", fontWeight: "bold" }}>Add To Cart</button>
+
+                </Box>
+              </Box>
+            </Grid>
+
+            <Grid size={{ lg: 3, xs: 12, md: 6, sm: 6 }}>
+              <Box sx={{ boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)" }}>
+
+                <img src={wallmirror} alt="" style={{ width: "100%" }} />
+
+
+                <Box className="image-detail" sx={{ padding: '10px 15px ' }}>
+
+                  <h2 style={{ paddingBottom: "10px", fontFamily: "sans-serif", fontSize: "20px" }}>Cat Wall-Mirror</h2>
+
+                  <span style={{ display: 'block' }}><p style={{ textDecoration: 'line-through', color: 'grey', fontWeight: "500", fontSize: '16px', display: 'inline-block', paddingRight: "10px" }}>$ 200</p> $150</span>
+
+                  <button className='cart-button' style={{ marginTop: "10px", width: "100%", padding: '10px 15px', backgroundColor: "white", border: "1px solid black", fontFamily: "sans-serif", fontWeight: "bold" }}>Add To Cart</button>
+
+                </Box>
+              </Box>
+            </Grid>
+
+            <Grid size={{ lg: 3, xs: 12, md: 6, sm: 6 }}>
+              <Box sx={{ boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)" }}>
+
+                <img src={staircase} alt="" style={{ width: "100%" }} />
+
+
+                <Box className="image-detail" sx={{ padding: '10px 15px ' }}>
+
+                  <h2 style={{ paddingBottom: "10px", fontFamily: "sans-serif", fontSize: "20px" }}>Ascent Staircase</h2>
+
+                  <span style={{ display: 'block' }}><p style={{ textDecoration: 'line-through', color: 'grey', fontWeight: "500", fontSize: '16px', display: 'inline-block', paddingRight: "10px" }}>$ 1000</p> $850</span>
+
+                  <button className='cart-button' style={{ marginTop: "10px", width: "100%", padding: '10px 15px', backgroundColor: "white", border: "1px solid black", fontFamily: "sans-serif", fontWeight: "bold" }}>Add To Cart</button>
+
+                </Box>
+              </Box>
+            </Grid>
+
+          </Grid>
+
+        </Container>
+      </Box>
+      {/* best seller section end */}
+
+      {/* make an appointment section  start*/}
+      <Box sx={{ margin: "100px 0" }}></Box>
+      <Container>
+
+        <Grid container spacing={2} sx={{ backgroundColor: "GrayText" }}>
+
+          <Grid size={7}>
+            <img src={appposter} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </Grid>
+
+          <Grid size={5} sx={{ margin: "auto 0", padding: "50px" }}>
+            <h3 style={{ padding: "20px 0" }}>MODERN LIGHTING</h3>
+            <h1 style={{ fontSize: "45px" }}>ONLINE DESIGN SERVICES</h1>
+            <p style={{ padding: "20px 0", fontSize: "18px", fontWeight: "500" }}>Get free help from our certified lighting design experts with any lighting projects</p>
+
+            <Button variant="contained" sx={{ fontSize: "15px", backgroundColor: "black", borderRadius: "0", padding: "10px 25px", ":hover": { backgroundColor: "white", color: "black" } }}>Make An Appointment</Button>
+          </Grid>
+        </Grid>
+
+      </Container>
+
+      {/* make an appointment section end */}
+
+      {/* sofa section start */}
       <Box>
         <Container>
-          <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ textAlign: 'center' }}>
-            <Grid size={2}>
-              <a href=""><img src={newarrival} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
-              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>What's New?</span>
-            </Grid>
+          <Box sx={{ textAlign: 'center', padding: '50px 0' }}>
+            <h1 className='topic-title' style={{ fontFamily: 'math', borderBottom: '2px solid black', display: "inline-block" }}>
+              Shop sofas by color
+            </h1>
 
-            <Grid size={2} >
-              <a href=""><img src={sofa1} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
-              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Sofa</span>
-            </Grid>
+          </Box>
 
-            <Grid size={2}>
-              <a href=""><img src={bed1} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
-              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Bed</span>
-            </Grid>
+          <Box>
+          <Grid container spacing={2}>
 
-            <Grid size={2}>
-              <a href=""><img src={dinningtable} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
-              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Dining Table</span>
-            </Grid>
-
-            <Grid size={2}>
-              <a href=""><img src={chair} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
-              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Chair</span>
-            </Grid>
-
-            <Grid size={2}>
-              <a href=""><img src={tvunit} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
-              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Tv Unit</span>
-            </Grid>
-
-            <Grid size={2}>
-              <a href=""><img src={cupboard} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
-              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Cupboard</span>
-            </Grid>
-
-            <Grid size={2}>
-              <a href=""><img src={ceil} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
-              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Ceiling</span>
-            </Grid>
-
-            <Grid size={2}>
-              <a href=""><img src={coffeetable} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
-              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Coffee Table</span>
-            </Grid>
-
-            <Grid size={2}>
-              <a href=""><img src={studytable} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
-              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Study Table</span>
-            </Grid>
-
-            <Grid size={2}>
-              <a href=""><img src={temple} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
-              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Temple</span>
-            </Grid>
-
-            <Grid size={2}>
-              <a href=""><img src={bookshelve} alt="" style={{ width: "100%", borderRadius: '50%' }} /></a>
-              <span style={{ fontWeight: 'bold', fontFamily: "sans-serif", fontSize: '14px' }}>Book Shelves</span>
-            </Grid>
+          <Grid size={2} sx={{position:"relative"}}>
+            <img src={greensofa} alt="" style={{width:"100%"}} />
+            <button style={{position:"absolute"}}>Green Sofa</button>
           </Grid>
+
+            </Grid>
+          </Box>
         </Container>
       </Box>
 
 
-      <Box sx={{ textAlign: 'center', padding: '50px 0' }}>
-        <h1 className='topic-title' style={{ fontFamily: 'math', borderBottom: '2px solid black', display: "inline-block" }}>
-          Best Sellers
-        </h1>
-
-        <p style={{ fontSize: '18px', padding: '10px 0', fontWeight: '500' }}>A favorite among fans. Yours next?</p>
-
-      </Box>
-
-      <Grid container spacing={2}>
-        <Grid size={{ xs: 6, md: 3}}>
-        <Box sx={{
-        ":hover": {
-          backgroundImage: `url(${lamphoveredImage})`
-        }
-      }}>
-        <img src={lampImage}  alt="" />
-      </Box>
-        </Grid>
-
-         <Grid size={{ xs: 6, md: 3 }}>
-        <Box sx={{
-        ":hover": {
-          backgroundImage: `url(${lamphoveredImage})`
-        }
-      }}>
-        <img src={lampImage}  alt="" />
-      </Box>
-        </Grid>
-
-      </Grid>
-
-      
+      {/* sofa section end */}
 
       {/* main end */}
 
