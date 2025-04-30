@@ -26,3 +26,12 @@
     color: white;
 }
 
+.last-detail a:hover{
+    color: blueviolet !important;
+}
+
+.footer-detail ul li a:hover{
+   text-decoration: underline !important;
+   text-decoration-color: white !important;
+
+}
