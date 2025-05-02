@@ -35,3 +35,25 @@
    text-decoration-color: white !important;
 
 }
+@media (max-width:850px) {
+    .footer-img{
+        width: 20%;
+    }
+}
+
+@media (max-width:600px) {
+    .footer-img{
+        width: 40%;
+    }
+}
+
+.css-1delowj-MuiImageListItemBar-titleWrap{
+    padding: 0px !important;
+}
+
+@media (max-width: 353px) {
+   .btn{
+    font-size: 12px !important;
+   }
+}
+

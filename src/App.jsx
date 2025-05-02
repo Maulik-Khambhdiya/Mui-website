@@ -80,68 +80,92 @@ import img12 from './image/balcony.jpg';
 
 
 
+
 const pages = ['NEW', 'FURNITURE', 'LIGHTING', 'DECOR', 'COLLECTION', 'OUR STORY'];
 const itemData = [
   {
-    img: img1 ,
+    img: img1,
     title: 'Bed',
-    author: 'Pavel Nekoranec',
-    button: <button>Add to Cart</button>
+    product:'Unique Wooden Bed',
+    price:'$ 100',
+    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", ":hover": { backgroundColor: "black", color: "white"}}} >Add to Cart</Button>
   },
   {
     img: img2,
     title: 'Books',
-    author: 'Pavel Nekoranec',
+    product:'Luxuries Bed',
+    price: '$ 200',
+    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
   },
   {
     img: img3,
     title: 'Sink',
-    author: 'Charles Deluvio',
+    product:'Dressing Table With Round-Mirror',
+    price:'$ 85',
+    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
   },
   {
     img: img4,
     title: 'Kitchen',
-    author: 'Christian Mackie',
+    product:'Hidden Box For AC',
+    price:'$ 50',
+    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
   },
   {
     img: img5,
     title: 'Blinds',
-    author: 'Darren Richardson',
+    product:'High Qulity Materail Sofa set',
+    price:'$ 100',
+    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
   },
   {
     img: img6,
     title: 'Chairs',
-    author: 'Taylor Simpson',
+    product:'Office Working Table',
+    price:'$ 40',
+    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
   },
   {
     img: img7,
     title: 'Laptop',
-    author: 'Ben Kolde',
+    product:'Sky Blue Ceiling',
+    price:'$ 150',
+    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
   },
   {
     img: img8,
     title: 'Doors',
-    author: 'Philipp Berndt',
+    product:'Dream Bed For Children',
+    price:'$ 130',
+    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
   },
   {
     img: img9,
     title: 'Coffee',
-    author: 'Jen P.',
+    product:'Pleasures Bathroom Design',
+    price:'$ 180',
+    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
   },
   {
     img: img10,
     title: 'Storage',
-    author: 'Douglas Sheppard',
+    product:'Wall Art',
+    price:'$ 30',
+    button: <Button className='btn'   sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
   },
   {
     img: img11,
     title: 'Candle',
-    author: 'Fi Bell',
+    product:'Wooden Book Sheleve',
+    price:'$ 55',
+    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
   },
   {
     img: img12,
     title: 'Coffee table',
-    author: 'Hutomo Abrianto',
+    product:'Swing For Balcony',
+    price:'$ 25',
+    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
   },
 ];
 
@@ -187,7 +211,11 @@ const App = () => {
   return (
     <>
       {/* header section start */}
-      <AppBar position="static" color="white" sx={{ backgroundColor: 'black', boxShadow: 'none', color: 'white', padding: '5px 0' }}>
+      <AppBar position="static" color="white" sx={{
+        backgroundColor: 'black', boxShadow: 'none', color: 'white', padding: '5px 0', '@media (max-width:1140px)': {
+          display: 'none',
+        }
+      }}>
         <Container maxWidth="xl">
           <div className="slider-container">
             <Slider {...settings}>
@@ -229,6 +257,7 @@ const App = () => {
                 letterSpacing: '.3rem',
                 color: 'inherit',
                 textDecoration: 'none',
+
               }}
             >
 
@@ -290,10 +319,10 @@ const App = () => {
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'space-around' } }}>
               {pages.map((page) => (
-                <Button
+                <Button className="2222222222222222"
                   key={page}
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'black', display: 'block', fontWeight: 'bold', borderRadius: '0px', ":hover": { background: 'linear-gradient(to right, black,grey, black)', color: 'white', borderRadius: '0px' }, fontFamily: 'sans-serif' }}
+                  sx={{ my: 2, color: 'black', display: 'block', fontWeight: 'bold', borderRadius: '0px', ":hover": { background: 'linear-gradient(to right, black,grey, black)', color: 'white', borderRadius: '0px' }, fontFamily: 'sans-serif', }}
 
                 >
                   {page}
@@ -442,10 +471,26 @@ const App = () => {
       <Box sx={{ margin: "50px 0" }}>
 
         <Box sx={{ textAlign: 'center', padding: '50px 0' }}>
-          <h1 className='topic-title' style={{ fontFamily: 'math', borderBottom: '2px solid black', display: "inline-block" }}>
+          <Typography
+            variant="h4"
+            component="h1"
+            sx={{
+              fontFamily: 'math',
+              borderBottom: '2px solid black',
+              display: 'inline-block',
+              fontWeight: "bold",
+              fontSize: {
+                xs: '20px',
+                sm: '28px',
+                md: '36px',
+              },
+
+            }}
+          >
             Style your space with ease
-          </h1>
+          </Typography>
         </Box>
+
 
         <Box>
           <Container>
@@ -629,15 +674,42 @@ const App = () => {
       {/* best seller section start */}
 
       <Box sx={{ margin: "50px 0" }}>
-        <Box sx={{ textAlign: 'center', padding: '50px 0' }}>
-          <h1 className='topic-title' style={{ fontFamily: 'math', borderBottom: '2px solid black', display: "inline-block" }}>
-            Best Sellers
-          </h1>
+        <Container>
+          <Box sx={{ textAlign: 'center', padding: '50px 0' }}>
+            <Typography
+              variant="h4"
+              component="h1"
+              sx={{
+                fontFamily: 'math',
+                borderBottom: '2px solid black',
+                display: 'inline-block',
+                fontWeight: "bold",
+                fontSize: {
+                  xs: '20px',
+                  sm: '28px',
+                  md: '36px',
+                },
+              }}
+            >
+              Best Sellers
+            </Typography>
 
-          <p style={{ fontSize: '18px', padding: '10px 0', fontWeight: '500' }}>A favorite among fans. Yours next?</p>
+            <Typography
+              sx={{
+                fontSize: {
+                  xs: '12px',
+                  sm: '14px',
+                  md: '18px',
+                },
+                padding: '10px 0',
+                fontWeight: 500,
+              }}
+            >
+              A favorite among fans. Yours next?
+            </Typography>
+          </Box>
 
-        </Box>
-
+        </Container>
         <Container>
           <Grid container spacing={2} >
 
@@ -725,12 +797,12 @@ const App = () => {
 
           <Grid container spacing={2} sx={{ backgroundColor: "GrayText" }}>
 
-            <Grid size={{ lg: 7, xs: 12, md: 5, sm: 12 }}>
+            <Grid size={{ lg: 7, xs: 12, md: 7, sm: 12 }}>
               <img src={appposter} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </Grid>
 
             <Grid size={{ lg: 5, xs: 12, md: 5, sm: 12 }} sx={{ margin: "auto 0", padding: "50px" }}>
-              <h3 style={{ padding: "20px 0" }}>MODERN LIGHTING</h3>
+              <h3 style={{ padding: "20px 0" }}  >MODERN LIGHTING</h3>
               <h1 style={{ fontSize: "45px" }}>ONLINE DESIGN SERVICES</h1>
               <p style={{ padding: "20px 0", fontSize: "18px", fontWeight: "500" }}>Get free help from our certified lighting design experts with any lighting projects</p>
 
@@ -746,10 +818,24 @@ const App = () => {
       <Box sx={{ margin: "100px 0" }}>
         <Container>
           <Box sx={{ textAlign: 'center', padding: '50px 0' }}>
-            <h1 className='topic-title' style={{ fontFamily: 'math', borderBottom: '2px solid black', display: "inline-block" }}>
-              Shop sofas by color
-            </h1>
+            <Typography
+              variant="h4"
+              component="h1"
+              sx={{
+                fontFamily: 'math',
+                borderBottom: '2px solid black',
+                display: 'inline-block',
+                fontWeight: "bold",
+                fontSize: {
+                  xs: '20px',
+                  sm: '28px',
+                  md: '36px',
+                },
 
+              }}
+            >
+              Shop sofas by color
+            </Typography>
           </Box>
 
           <Box>
@@ -888,7 +974,7 @@ const App = () => {
 
       {/* discount banner */}
       <Box>
-       <a href=""><img src={disbanner} alt="" style={{width:"100%"}} /></a> 
+        <a href=""><img src={disbanner} alt="" style={{ width: "100%" }} /></a>
       </Box>
       {/* discount banner */}
 
@@ -896,29 +982,47 @@ const App = () => {
 
       <Box>
         <Container>
-        <Box sx={{ textAlign: 'center', padding: '50px 0' }}>
-          <h1 className='topic-title' style={{ fontFamily: 'math', borderBottom: '2px solid black', display: "inline-block" }}>
-          Bed Room Furniture
-          </h1>
-        </Box>
 
-        <Box sx={{ width: "100%"}}>
-      <ImageList variant="masonry" cols={3} gap={8}>
-        {itemData.map((item) => (
-          <ImageListItem key={item.img}>
-            <a href="">
-            <img
-              srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-              src={`${item.img}?w=248&fit=crop&auto=format`}
-              alt={item.title}
-              loading="lazy"
-              style={{width:"100%"}}
-            /></a>
-            <ImageListItemBar position="below" title={item.author} />
-          </ImageListItem>
-        ))}
-      </ImageList>
-    </Box>
+          <Box sx={{ textAlign: 'center', padding: '50px 0' }}>
+            <Typography
+              variant="h4"
+              component="h1"
+              sx={{
+                fontFamily: 'math',
+                borderBottom: '2px solid black',
+                display: 'inline-block',
+                fontWeight: "bold",
+                fontSize: {
+                  xs: '20px',
+                  sm: '28px',
+                  md: '36px',
+                },
+
+              }}
+            >
+              Bed Room Furniture
+            </Typography>
+          </Box>
+
+          <Box sx={{ width: "100%" }}>
+            <ImageList variant="masonry" cols={3} gap={8}>
+              {itemData.map((item) => (
+                <ImageListItem key={item.img}  sx={{":hover":{boxShadow:"0 0 8px black"}}}>
+                  <a href="">
+                    <img
+                      srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                      src={`${item.img}?w=248&fit=crop&auto=format`}
+                      alt={item.title}
+                      loading="lazy"
+                      style={{ width: "100%" }}
+                    /></a>
+                    <ImageListItemBar position="below" sx={{fontFamily:"robot", fontWeight:"600"}} title={item.product} />
+                    <ImageListItemBar position="below" title={item.price} />
+                  <ImageListItemBar position="below" title={item.button} />
+                </ImageListItem>
+              ))}
+            </ImageList>
+          </Box>
         </Container>
       </Box>
       {/* product section end */}
@@ -963,11 +1067,13 @@ const App = () => {
       <Box sx={{ backgroundColor: "black", padding: "80px 0" }}>
         <Container>
           <Box className="footer-detail">
+
+
             <Grid container spacing={2}>
 
-              <Grid size={3} sx={{ borderRight: "1px solid white" }}>
+              <Grid size={{ lg: 3, md: 3, sm: 12 }} sx={{ borderRight: {xs:"none",sm:"none",md:"1px solid white"}}}>
                 <Box>
-                  <img src={logo} alt="" style={{ width: "50%" }} />
+                  <img className='footer-img' src={logo} alt="" style={{ width: "50%" }} />
                 </Box>
                 <Box className="Contact-detail">
                   <h1 style={{ color: "white", fontSize: "28px", padding: "25px 0 10px 0", display: "inline-block", borderBottom: "1px solid white" }}>Contact Us :</h1>
@@ -982,46 +1088,56 @@ const App = () => {
 
               </Grid>
 
-              <Grid size={3}>
-                <h3 style={{ padding: "0px 5px", display: "inline-block", color: "black", fontSize: "28px", marginBottom: "30px", backgroundColor: "white" }}>Information</h3>
-                <ul>
-                  <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Customer Stories</a></li>
-                  <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Events</a></li>
-                  <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Featured Projects</a></li>
-                  <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>About Us</a></li>
-                  <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>FAQs</a></li>
-                  <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Gifting</a></li>
-                </ul>
+
+              <Grid size={{ lg: 9, md: 9, sm: 12 }}>
+                <Grid container spacing={2}>
+
+                  <Grid size={{ lg: 4, md: 4, sm: 12 }}>
+                    <h3 style={{ padding: "0px 5px", display: "inline-block", color: "black", fontSize: "28px", marginBottom: "30px", backgroundColor: "white" }}>Information</h3>
+                    <ul>
+                      <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Customer Stories</a></li>
+                      <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Events</a></li>
+                      <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Featured Projects</a></li>
+                      <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>About Us</a></li>
+                      <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>FAQs</a></li>
+                      <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Gifting</a></li>
+                    </ul>
+                  </Grid>
+
+                  <Grid size={{ lg: 4, md: 4, sm: 12 }}>
+                    <h3 style={{ padding: "0px 5px", display: "inline-block", color: "black", fontSize: "28px", marginBottom: "30px", backgroundColor: "white" }}>Category</h3>
+                    <ul>
+                      <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Furniture</a></li>
+                      <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Lighting</a></li>
+                      <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Decor</a></li>
+
+                    </ul>
+                  </Grid>
+
+                  <Grid item xs={12} sm={12} md={4} lg={4}>
+                    <h3 style={{ padding: "0px 5px", display: "inline-block", color: "black", fontSize: "28px", marginBottom: "30px", backgroundColor: "white" }}>
+                      Our Stores
+                    </h3>
+                    <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                      {["Jodhpur", "Hyderabad", "Bengaluru", "Ahmedabad", "Nagpur"].map((city, index) => (
+                        <li key={index} style={{ padding: "8px 0" }}>
+                          <a href="#" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>
+                            {city}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </Grid>
+
+                </Grid>
               </Grid>
 
-
-
-              <Grid size={3}>
-                <h3 style={{ padding: "0px 5px", display: "inline-block", color: "black", fontSize: "28px", marginBottom: "30px", backgroundColor: "white" }}>Category</h3>
-                <ul>
-                  <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Furniture</a></li>
-                  <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Lighting</a></li>
-                  <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Decor</a></li>
-
-                </ul>
-              </Grid>
-
-              <Grid size={3}>
-                <h3 style={{ padding: "0px 5px", display: "inline-block", color: "black", fontSize: "28px", marginBottom: "30px", backgroundColor: "white" }}>Our Stores</h3>
-                <ul>
-                  <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Jodhpur</a></li>
-                  <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Hyderabad</a></li>
-                  <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Bengaluru</a></li>
-                  <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Ahmedabad</a></li>
-                  <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Nagpur</a></li>
-
-                </ul>
-              </Grid>
             </Grid>
 
 
           </Box>
           <hr style={{ color: "white", margin: "15px 0" }} />
+
 
           <Box>
             <Box className="social-app" sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
