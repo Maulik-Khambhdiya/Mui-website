@@ -21,9 +21,10 @@ import Badge from '@mui/material/Badge';
 import InfoIcon from '@mui/icons-material/Info';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import Tooltip from '@mui/material/Tooltip';
+import { Link } from '@mui/material';
 
 
-const pages = [{ page: 'NEW', path: '/new' },
+const pages = [{ page: 'HOME', path: '/new' },
     { page: 'FURNITURE', path: '/furniture' },
     { page: 'LIGHTING', path: '/lighting' },
     { page: 'DECOR', path: '/decor' },
@@ -145,7 +146,7 @@ const Header = () => {
               >
                 {pages.map((page) => (
                   <MenuItem key={page} onClick={handleCloseNavMenu} >
-                    <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
+                    <Typography sx={{ textAlign: 'center' }}>{page.page}</Typography>
                   </MenuItem>
                 ))}
               </Menu>
@@ -172,14 +173,14 @@ const Header = () => {
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'space-around' } }}>
               {pages.map((page) => (
-                <Button 
+                <Link href={page.path} sx={{textDecoration:"none"}}> <Button 
                   key={page}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'black', display: 'block', fontWeight: 'bold', borderRadius: '0px', ":hover": { background: 'linear-gradient(to right, black,grey, black)', color: 'white', borderRadius: '0px' }, fontFamily: 'sans-serif', }}
 
                 >
-                  {page}
-                </Button>
+                {page.page}
+                </Button></Link>
               ))}
             </Box>
 
