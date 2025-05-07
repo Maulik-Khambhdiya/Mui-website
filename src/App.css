@@ -23,9 +23,15 @@
 
 .prepostbutton .slick-arrow{
     display: block !important;
-    background-color: black;
+  
+    
 }
 
+.prepostbutton .slick-arrow:hover{
+    display: block !important;
+    
+    
+}
 .prepostbutton .slick-dots{
     display: block !important;
 }
@@ -33,6 +39,7 @@
 .cart-button:hover{
     background-color: black !important;
     color: white;
+   
 }
 
 .last-detail a:hover{

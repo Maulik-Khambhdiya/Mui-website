@@ -11,8 +11,9 @@ import {
   Route,
 } from "react-router-dom";
 import Furniture from './pages/Furniture';
-import New from './pages/New';
+
 import Lighting from './pages/Lighting';
+import Story from './pages/Story';
 
 const App = () => {
 
@@ -28,10 +29,6 @@ const App = () => {
             <Home />
           </Route>
 
-          {/* <Route path='/new'>
-            <New />
-          </Route> */}
-
           <Route path='/furniture'>
             <Furniture />
           </Route>
@@ -40,6 +37,9 @@ const App = () => {
             <Lighting />
           </Route>
 
+          <Route path='/ourstory'>
+            <Story />
+          </Route>
         </Switch>
 
 
