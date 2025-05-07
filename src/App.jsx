@@ -37,9 +37,10 @@ const App = () => {
             <Lighting />
           </Route>
 
-          <Route path='/ourstory'>
+          <Route path='/our-story'>
             <Story />
           </Route>
+
         </Switch>
 
 
