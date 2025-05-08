@@ -14,6 +14,7 @@ import Furniture from './pages/Furniture';
 
 import Lighting from './pages/Lighting';
 import Story from './pages/Story';
+import Decor from './pages/Decor';
 
 const App = () => {
 
@@ -25,7 +26,7 @@ const App = () => {
 
         <Switch>
 
-          <Route exact path='/new'>
+          <Route exact path='/'>
             <Home />
           </Route>
 
@@ -35,6 +36,10 @@ const App = () => {
 
           <Route path='/lighting'>
             <Lighting />
+          </Route>
+
+          <Route path='/decor'>
+            <Decor />
           </Route>
 
           <Route path='/our-story'>

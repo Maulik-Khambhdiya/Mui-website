@@ -24,7 +24,7 @@ import Tooltip from '@mui/material/Tooltip';
 import { Link } from '@mui/material';
 
 
-const pages = [{ page: 'HOME', path: '/new' },
+const pages = [{ page: 'HOME', path: '/' },
     { page: 'FURNITURE', path: '/furniture' },
     { page: 'LIGHTING', path: '/lighting' },
     { page: 'DECOR', path: '/decor' },
@@ -97,7 +97,7 @@ const Header = () => {
       <AppBar position="static" sx={{ backgroundColor: 'white', boxShadow: 'none', margin: '5px 0' }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <img src={logo} alt="" style={{ width: '12%' }} />
+          <img src={logo} alt="" style={{ width: '12%' }} />
             <Typography
               variant="h6"
               noWrap

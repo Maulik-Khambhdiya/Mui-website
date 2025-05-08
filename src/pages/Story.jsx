@@ -6,7 +6,7 @@ const Story = () => {
         <>
 
             <Container>
-                <Box sx={{ textAlign: 'center', padding: '50px 0' }}>
+                <Box sx={{ textAlign: 'center', padding: '60px 0 50px 0' }}>
                     <Typography
                         variant="h4"
                         component="h1"
@@ -29,7 +29,7 @@ const Story = () => {
                 </Box>
 
 
-                <Box sx={{ padding: "30px 30px" }}>
+                <Box sx={{ padding: "30px 30px 60px 30px" }}>
                     <Typography sx={{
                         fontFamily: 'math',
                         fontSize: {
