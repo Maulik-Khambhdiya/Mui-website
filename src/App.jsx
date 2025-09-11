@@ -15,6 +15,7 @@ import Furniture from './pages/Furniture';
 import Lighting from './pages/Lighting';
 import Story from './pages/Story';
 import Decor from './pages/Decor';
+import Helppage from './pages/Helppage';
 
 const App = () => {
 
@@ -44,6 +45,10 @@ const App = () => {
 
           <Route path='/our-story'>
             <Story />
+          </Route>
+
+          <Route path='/helppage'>
+            <Helppage />
           </Route>
 
         </Switch>

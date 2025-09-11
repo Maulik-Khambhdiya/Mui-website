@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -22,49 +22,106 @@ import InfoIcon from '@mui/icons-material/Info';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import Tooltip from '@mui/material/Tooltip';
 import { Link } from '@mui/material';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import { Field, Form, Formik } from 'formik';
 
 
 const pages = [{ page: 'HOME', path: '/' },
-    { page: 'FURNITURE', path: '/furniture' },
-    { page: 'LIGHTING', path: '/lighting' },
-    { page: 'DECOR', path: '/decor' },
-    { page: 'COLLECTION', path: '/collection' },
-    { page: 'OUR STORY', path: '/our-story' }];
+{ page: 'FURNITURE', path: '/furniture' },
+{ page: 'LIGHTING', path: '/lighting' },
+{ page: 'DECOR', path: '/decor' },
+{ page: 'COLLECTION', path: '/collection' },
+{ page: 'OUR STORY', path: '/our-story' },
+]
+
+
+
 
 const Header = () => {
 
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-      const [anchorElUser, setAnchorElUser] = React.useState(null);
-      const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-      };
-      const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-      };
-    
-      const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-      };
-    
-      const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-      };
-    
-      const settings = {
-        dots: true,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true,
-        speed: 4000,
-        autoplaySpeed: 2000,
-        cssEase: "linear"
-      };
+  const [ini, setIni] = useState({
+    email: "",
+    password: ""
+  })
+
+
+  //-----------------------------add to cart drawer start----------------//
+  const [cartDrawerOpen, setCartDrawerOpen] = React.useState(false);
+  const toggleCartDrawer = (open) => (event) => {
+    if (
+      event &&
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
+    ) {
+      return;
+    }
+    setCartDrawerOpen(open);
+  };
+
+  //-----------------------------add to cart drawer end----------------//
+
+
+
+
+  //-----------------------------silder code start----------------//
+
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 4000,
+    autoplaySpeed: 2000,
+    cssEase: "linear"
+  };
+  //-----------------------------silder code end----------------//
+
+  //-----------------------------sigup form menu start----------------//
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  //-----------------------------sigup form menu start----------------//
+
+
 
 
   return (
     <>
-     {/* header section start */}
+      {/* header section start */}
       <AppBar position="static" color="white" sx={{
         backgroundColor: 'black', boxShadow: 'none', color: 'white', padding: '5px 0', '@media (max-width:1140px)': {
           display: 'none',
@@ -97,7 +154,7 @@ const Header = () => {
       <AppBar position="static" sx={{ backgroundColor: 'white', boxShadow: 'none', margin: '5px 0' }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-          <img src={logo} alt="" style={{ width: '12%' }} />
+            <img src={logo} alt="" style={{ width: '12%' }} />
             <Typography
               variant="h6"
               noWrap
@@ -173,40 +230,203 @@ const Header = () => {
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'space-around' } }}>
               {pages.map((page) => (
-                <Link href={page.path} sx={{textDecoration:"none"}}> <Button 
+                <Link href={page.path} sx={{ textDecoration: "none" }}> <Button
                   key={page}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'black', display: 'block', fontWeight: 'bold', borderRadius: '0px', ":hover": { background: 'linear-gradient(to right, black,grey, black)', color: 'white', borderRadius: '0px' }, fontFamily: 'sans-serif', }}
 
                 >
-                {page.page}
+                  {page.page}
                 </Button></Link>
               ))}
             </Box>
 
             <Box>
               <ul style={{ display: 'flex', flexWrap: 'flex-wrap' }}>
-                <li style={{ margin: '0 10px' }}><a href="">
+                <li style={{ margin: '0 10px' }}>
                   <Tooltip title="My Profile">
-                    <AccountCircleIcon sx={{ padding: "5px", fontSize: 35, color: 'black', ":hover": { backgroundColor: "black", color: "white", borderRadius: "50%" } }} />
+                    <React.Fragment>
+                      <Button onClick={handleClickOpen} sx={{ backgroundColor: "transparent", border: "none" }}>
+                        <AccountCircleIcon sx={{ padding: "5px", fontSize: 35, color: 'black', ":hover": { backgroundColor: "black", color: "white", borderRadius: "50%" } }} />
+
+                      </Button>
+
+                      <Dialog
+                        open={open}
+                        onClose={handleClose}
+                        maxWidth="sm"
+                        fullWidth
+                        PaperProps={{
+                          sx: {
+                            backgroundColor: '#383636ff', // background matches theme
+                            borderRadius: 3,
+                            padding: 3,
+                            boxShadow: '0 8px 24px rgba(255, 255, 255, 0.1)',
+                            color: 'white', // text color
+                          },
+                        }}
+                      >
+                        <DialogTitle
+                          sx={{
+                            textAlign: "center",
+                            fontWeight: 'bold',
+                            color: 'white',
+                            fontSize: '1.8rem',
+                          }}
+                          id="alert-dialog-title"
+                        >
+                          {"Sign In"}
+                        </DialogTitle>
+                        <DialogContent>
+                          <DialogContentText id="alert-dialog-description"
+                            sx={{ mb: 2, color: 'white' }}>
+                            <Formik
+
+                              initialValues={ini}
+                            >
+                              <Form>
+                                <Field
+                                  name='email'
+                                  placeholder="Email"
+                                  style={{
+                                    width: '100%',
+                                    padding: '10px',
+                                    fontSize: '16px',
+                                    marginBottom: '16px',
+                                    borderRadius: '6px',
+                                    border: '1px solid #ccc',
+                                  }}
+                                />
+                                <Field
+                                  name='password'
+                                  placeholder="Password"
+                                  type="password"
+                                  style={{
+                                    width: '100%',
+                                    padding: '10px',
+                                    fontSize: '16px',
+                                    marginBottom: '24px',
+                                    borderRadius: '6px',
+                                    border: '1px solid #ccc',
+                                  }}
+                                />
+                                <button
+                                  type="submit"
+                                  style={{
+                                    width: '100%',
+                                    padding: '12px',
+                                    backgroundColor: '#1976d2',
+                                    color: 'white',
+                                    border: 'none',
+                                    borderRadius: '6px',
+                                    fontSize: '16px',
+                                    cursor: 'pointer',
+                                  }}
+                                >
+                                  Submit
+                                </button>
+                              </Form>
+                            </Formik>
+                          </DialogContentText>
+                        </DialogContent>
+                        <DialogActions sx={{ justifyContent: 'center' }}>
+                          <Button
+                            onClick={handleClose}
+                            sx={{
+                              color: '#1976d2',
+                              fontWeight: 'bold',
+                            }}
+                          >
+                            Cancel
+                          </Button>
+                        </DialogActions>
+                      </Dialog>
+
+                    </React.Fragment>
                   </Tooltip>
 
-                </a></li>
+                </li>
+
+                <li style={{ margin: '0 10px' }}>
+                  <Button onClick={() => setCartDrawerOpen(true)} sx={{ backgroundColor: "transparent", border: "none", minWidth: 0 }}>
+                    <Tooltip title="Cart">
+                      <Badge badgeContent={4} color="secondary">
+                        <ShoppingCartIcon
+                          sx={{
+                            padding: "5px",
+                            fontSize: 35,
+                            color: 'black',
+                            ":hover": { backgroundColor: "black", color: "white", borderRadius: "50%" }
+                          }}
+                        />
+                      </Badge>
+                    </Tooltip>
+                  </Button>
+                </li>
+
+                <SwipeableDrawer
+                  anchor="right"
+                  open={cartDrawerOpen}
+                  onClose={toggleCartDrawer(false)}
+                  onOpen={toggleCartDrawer(true)}
+                >
+                  <Box
+                    sx={{
+                      width: 300,
+                      padding: 2,
+                      backgroundColor: 'black', // background
+                      height: '100%',
+                      color: 'white',           // text color
+                    }}
+                    role="presentation"
+                    onClick={toggleCartDrawer(false)}
+                    onKeyDown={toggleCartDrawer(false)}
+                  >
+                    <Typography variant="h6" gutterBottom sx={{ color: 'white' }}>
+                      Your Cart
+                    </Typography>
+                    <List>
+                      <ListItem>
+                        <ListItemText primary="Item 1" secondary="Quantity: 1" sx={{ color: 'white' }} />
+                      </ListItem>
+                      <ListItem>
+                        <ListItemText primary="Item 2" secondary="Quantity: 2" sx={{ color: 'white' }} />
+                      </ListItem>
+                    </List>
+                    <Button
+                      variant="contained"
+                      fullWidth
+                      sx={{
+                        backgroundColor: 'white',
+                        color: 'black',
+                        fontWeight: 'bold',
+                        '&:hover': {
+                          backgroundColor: '#f5f5f5',
+                        },
+                      }}
+                    >
+                      Checkout
+                    </Button>
+                  </Box>
+
+                </SwipeableDrawer>
+
 
                 <li style={{ margin: '0 10px' }}><a href="">
-                  <Tooltip title="Cart">
-                    <Badge badgeContent={4} color="secondary">
-                      <ShoppingCartIcon sx={{ padding: "5px", fontSize: 35, color: 'black', ":hover": { backgroundColor: "black", color: "white", borderRadius: "50%" } }} />
-                    </Badge>
-                  </Tooltip>
-                </a></li>
-
-                <li style={{ margin: '0 10px' }}><a href="">
-                  <Tooltip title="Favourite">
-                    <Badge badgeContent={2} color="primary">
-                      <FavoriteBorderIcon sx={{ padding: "5px", fontSize: 35, color: 'black', ":hover": { backgroundColor: "black", color: "white", borderRadius: "50%" } }} />
-                    </Badge>
-                  </Tooltip>
+                  <Button sx={{ backgroundColor: "transparent", border: "none", minWidth: 0 }}>
+                    <Tooltip title="Favourite">
+                      <Badge badgeContent={2} color="primary">
+                        <FavoriteBorderIcon
+                          sx={{
+                            padding: "5px",
+                            fontSize: 35,
+                            color: 'black',
+                            ":hover": { backgroundColor: "black", color: "white", borderRadius: "50%" }
+                          }}
+                        />
+                      </Badge>
+                    </Tooltip>
+                  </Button>
                 </a></li>
               </ul>
             </Box>
