@@ -6,7 +6,7 @@ const Helppage = () => {
   return (
     <Box sx={{ maxWidth: 800, margin: 'auto', padding: 4 }}>
       <Typography variant="h3" gutterBottom sx={{ textAlign: 'center', fontWeight: 'bold' }}>
-        Welcome to Luxi Loom Help Center
+        Welcome Our Help Center
       </Typography>
       <Typography variant="subtitle1" gutterBottom sx={{ textAlign: 'center', mb: 4 }}>
         Your go-to place for all questions about our premium furniture.
@@ -17,44 +17,44 @@ const Helppage = () => {
         Frequently Asked Questions
       </Typography>
 
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography>How can I place an order?</Typography>
+      <Accordion sx={{ backgroundColor: "black", color: "white" }}>
+        <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}>
+          <Typography >How can I place an order?</Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails sx={{ backgroundColor: "skyblue", color: "black" }}>
           <Typography>
             To place an order, browse our catalog, select the furniture you like, add it to your cart, and follow the checkout process.
           </Typography>
         </AccordionDetails>
       </Accordion>
 
-      <Accordion>
+      <Accordion sx={{ backgroundColor: "white", color: "balck" }}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography>What payment methods do you accept?</Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails sx={{ backgroundColor: "skyblue", color: "black" }}>
           <Typography>
             We accept all major credit/debit cards, PayPal, and bank transfers.
           </Typography>
         </AccordionDetails>
       </Accordion>
 
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+      <Accordion sx={{ backgroundColor: "black", color: "white" }}>
+        <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}>
           <Typography>Can I track my order?</Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails sx={{ backgroundColor: "skyblue", color: "black" }}>
           <Typography>
             Yes, after placing your order, you'll receive a tracking number via email to follow your shipment.
           </Typography>
         </AccordionDetails>
       </Accordion>
 
-      <Accordion>
+      <Accordion sx={{ backgroundColor: "white", color: "balck" }}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography>How do I care for my furniture?</Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails sx={{ backgroundColor: "skyblue", color: "black" }}>
           <Typography>
             Our furniture care guide recommends cleaning with a soft cloth and avoiding harsh chemicals. For specific materials, please check the product details.
           </Typography>
@@ -70,10 +70,16 @@ const Helppage = () => {
           Contact our customer support team — we’re happy to assist!
         </Typography>
         <Button
-          variant="contained"
-          color="primary"
+          sx={{
+            mb: 1,
+            backgroundColor: 'black',
+            color: 'white',
+            '&:hover': {
+              backgroundColor: '#333', // dark grey on hover for subtle effect
+              color: 'white',
+            },
+          }}
           href="mailto:support@luxiloom.com"
-          sx={{ mb: 1 }}
         >
           Email Support
         </Button>

@@ -14,21 +14,22 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import { Link } from '@mui/material';
 
 
 const Footer = () => {
   return (
-   <>
-    {/* footer start */}
+    <>
+      {/* footer start */}
 
-    <Box sx={{ backgroundColor: "black", padding: "80px 0" }}>
+      <Box sx={{ backgroundColor: "black", padding: "80px 0" }}>
         <Container>
           <Box className="footer-detail">
 
 
             <Grid container spacing={2}>
 
-              <Grid size={{ lg: 3, md: 3, sm: 12 }} sx={{ borderRight: {xs:"none",sm:"none",md:"1px solid white"}}}>
+              <Grid size={{ lg: 3, md: 3, sm: 12 }} sx={{ borderRight: { xs: "none", sm: "none", md: "1px solid white" } }}>
                 <Box>
                   <img className='footer-img' src={logo} alt="" style={{ width: "50%" }} />
                 </Box>
@@ -52,7 +53,8 @@ const Footer = () => {
                   <Grid size={{ lg: 4, md: 4, sm: 12 }}>
                     <h3 style={{ padding: "0px 5px", display: "inline-block", color: "black", fontSize: "28px", marginBottom: "30px", backgroundColor: "white" }}>Information</h3>
                     <ul>
-                      <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Customer Stories</a></li>
+                      <li style={{ padding: "8px 0" }}><a href="/customerStory" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Customer Stories</a></li>
+                      
                       <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Events</a></li>
                       <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Featured Projects</a></li>
                       <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>About Us</a></li>
@@ -118,8 +120,8 @@ const Footer = () => {
 
       {/* footer end */}
 
-   
-   </>
+
+    </>
   )
 }
 

@@ -32,6 +32,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Field, Form, Formik } from 'formik';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 const pages = [{ page: 'HOME', path: '/' },
@@ -117,6 +118,13 @@ const Header = () => {
   //-----------------------------sigup form menu start----------------//
 
 
+  //------------------------help amd track section start--------------//
+
+  const [openDialog, setOpenDialog] = useState(null); // 'help' or 'track'
+
+  const handleOpen = (type) => () => setOpenDialog(type);
+  const handleClose1 = () => setOpenDialog(null);
+  //------------------------help amd track section start--------------//
 
 
   return (
@@ -489,27 +497,77 @@ const Header = () => {
           />
         </Box>
 
+
+
         <Box
           className="utilityLinks"
           sx={{
             display: 'flex',
             gap: 3,
             alignItems: 'center',
-
-
           }}
         >
-          <h3 style={{ margin: 0, cursor: 'pointer' }}>
-            <Tooltip title="Help">
+          {/* Help Button */}
+          <Tooltip title="Help">
+            <h3 style={{ margin: 0, cursor: 'pointer' }} onClick={handleOpen('help')}>
               <InfoIcon className='header-icon' sx={{ fontSize: '35px', padding: '5px', color: 'white' }} />
-            </Tooltip>
-          </h3>
+            </h3>
+          </Tooltip>
 
-          <h3 style={{ margin: 0, cursor: 'pointer' }}>
-            <Tooltip title="Track My Order">
+          {/* Track My Order Button */}
+          <Tooltip title="Track My Order">
+            <h3 style={{ margin: 0, cursor: 'pointer' }} onClick={handleOpen('track')}>
               <LocalShippingIcon className='header-icon' sx={{ fontSize: '35px', padding: '5px', color: 'white' }} />
-            </Tooltip>
-          </h3>
+            </h3>
+          </Tooltip>
+
+          {/* Help Dialog */}
+          <Dialog open={openDialog === 'help'} onClose={handleClose1}>
+            <DialogTitle>
+              Help
+              <IconButton
+                aria-label="close"
+                onClick={handleClose1}
+                sx={{
+                  position: 'absolute',
+                  right: 8,
+                  top: 8,
+                  color: (theme) => theme.palette.grey[500],
+                }}
+              >
+                <CloseIcon />
+              </IconButton>
+            </DialogTitle>
+            <DialogContent dividers>
+              <Typography>
+                <Link href='/helppage'>Click here to get Help....</Link>
+              </Typography>
+            </DialogContent>
+          </Dialog>
+
+          {/* Track My Order Dialog */}
+          <Dialog open={openDialog === 'track'} onClose={handleClose1}>
+            <DialogTitle>
+              Track My Order
+              <IconButton
+                aria-label="close"
+                onClick={handleClose1}
+                sx={{
+                  position: 'absolute',
+                  right: 8,
+                  top: 8,
+                  color: (theme) => theme.palette.grey[500],
+                }}
+              >
+                <CloseIcon />
+              </IconButton>
+            </DialogTitle>
+            <DialogContent dividers>
+              <Typography>
+                This is the Track My Order dialog. You can put order tracking UI or input here.
+              </Typography>
+            </DialogContent>
+          </Dialog>
         </Box>
       </AppBar>
       {/* header end */}

@@ -16,6 +16,7 @@ import Lighting from './pages/Lighting';
 import Story from './pages/Story';
 import Decor from './pages/Decor';
 import Helppage from './pages/Helppage';
+import CustomerStories from './pages/CustomerStories';
 
 const App = () => {
 
@@ -49,6 +50,10 @@ const App = () => {
 
           <Route path='/helppage'>
             <Helppage />
+          </Route>
+
+          <Route path='/customerStory'>
+            <CustomerStories />
           </Route>
 
         </Switch>
