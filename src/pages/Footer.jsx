@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import logo from '../image/logo-1.jpg';
@@ -14,10 +14,55 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import { Link } from '@mui/material';
+
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from "@mui/material";
+
+const branchDetails = {
+  Jodhpur: {
+    address: "123 Jodhpur St, Rajasthan",
+    phone: "+91 12345 67890",
+    email: "jodhpur@store.com",
+  },
+  Hyderabad: {
+    address: "456 Hyderabad Rd, Telangana",
+    phone: "+91 98765 43210",
+    email: "hyderabad@store.com",
+  },
+  Bengaluru: {
+    address: "789 Bengaluru Ave, Karnataka",
+    phone: "+91 54321 98765",
+    email: "bangalore@store.com",
+  },
+  Ahmedabad: {
+    address: "321 Ahmedabad Blvd, Gujarat",
+    phone: "+91 11223 33445",
+    email: "ahmedabad@store.com",
+  },
+  Nagpur: {
+    address: "654 Nagpur Lane, Maharashtra",
+    phone: "+91 99887 77665",
+    email: "nagpur@store.com",
+  },
+};
 
 
 const Footer = () => {
+
+  //----------------Branch Detail DailogBox start----------------
+  const [open, setOpen] = useState(false);
+  const [selectedBranch, setSelectedBranch] = useState(null);
+
+  const handleClick = (branch, e) => {
+    e.preventDefault(); // prevent default anchor navigation
+    setSelectedBranch(branch);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedBranch(null);
+  };
+  //----------------Branch Detail DailogBox start----------------
   return (
     <>
       {/* footer start */}
@@ -54,9 +99,9 @@ const Footer = () => {
                     <h3 style={{ padding: "0px 5px", display: "inline-block", color: "black", fontSize: "28px", marginBottom: "30px", backgroundColor: "white" }}>Information</h3>
                     <ul>
                       <li style={{ padding: "8px 0" }}><a href="/customerStory" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Customer Stories</a></li>
-                      
-                      <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Events</a></li>
-                      <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Featured Projects</a></li>
+
+                      <li style={{ padding: "8px 0" }}><a href="/event" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Events</a></li>
+                      <li style={{ padding: "8px 0" }}><a href="/featuredProject" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Featured Projects</a></li>
                       <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>About Us</a></li>
                       <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>FAQs</a></li>
                       <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Gifting</a></li>
@@ -66,27 +111,55 @@ const Footer = () => {
                   <Grid size={{ lg: 4, md: 4, sm: 12 }}>
                     <h3 style={{ padding: "0px 5px", display: "inline-block", color: "black", fontSize: "28px", marginBottom: "30px", backgroundColor: "white" }}>Category</h3>
                     <ul>
-                      <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Furniture</a></li>
-                      <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Lighting</a></li>
-                      <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Decor</a></li>
+                      <li style={{ padding: "8px 0" }}><a href="/furniture" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Furniture</a></li>
+                      <li style={{ padding: "8px 0" }}><a href="/lighting" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Lighting</a></li>
+                      <li style={{ padding: "8px 0" }}><a href="/decor" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Decor</a></li>
 
                     </ul>
                   </Grid>
+                  <Grid container spacing={2} >
+                    <Grid item lg={4} md={4} sm={12}>
+                      <h3 style={{ color: "black", fontSize: 28, marginBottom: 30, backgroundColor: "white", padding: "0 5px" }}>
+                        Our Stores
+                      </h3>
 
-                  <Grid item xs={12} sm={12} md={4} lg={4}>
-                    <h3 style={{ padding: "0px 5px", display: "inline-block", color: "black", fontSize: "28px", marginBottom: "30px", backgroundColor: "white" }}>
-                      Our Stores
-                    </h3>
-                    <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                      {["Jodhpur", "Hyderabad", "Bengaluru", "Ahmedabad", "Nagpur"].map((city, index) => (
-                        <li key={index} style={{ padding: "8px 0" }}>
-                          <a href="#" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>
-                            {city}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
+                      <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                        {Object.keys(branchDetails).map((branch) => (
+                          <li key={branch} style={{ padding: "8px 0" }}>
+                            <a
+                              href="#"
+                              onClick={(e) => handleClick(branch, e)}
+                              style={{ color: "white", fontFamily: "system-ui", fontSize: 16, fontWeight: 500, cursor: "pointer" }}
+                            >
+                              {branch}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </Grid>
+
+                    {/* Dialog showing branch details */}
+                    <Dialog open={open} onClose={handleClose} >
+
+                      <DialogTitle>{selectedBranch} Branch Details</DialogTitle>
+                      <DialogContent dividers>
+                        {selectedBranch && (
+                          <div style={{ minWidth: 300 }}>
+                            <p><strong>Address:</strong> {branchDetails[selectedBranch].address}</p>
+                            <p><strong>Phone:</strong> {branchDetails[selectedBranch].phone}</p>
+                            <p><strong>Email:</strong> {branchDetails[selectedBranch].email}</p>
+                          </div>
+                        )}
+                      </DialogContent>
+                      <DialogActions>
+                        <Button onClick={handleClose} variant="contained" color="primary">
+                          Close
+                        </Button>
+                      </DialogActions>
+                    </Dialog>
+
                   </Grid>
+
 
                 </Grid>
               </Grid>

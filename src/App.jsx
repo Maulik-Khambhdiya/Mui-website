@@ -17,6 +17,8 @@ import Story from './pages/Story';
 import Decor from './pages/Decor';
 import Helppage from './pages/Helppage';
 import CustomerStories from './pages/CustomerStories';
+import EventPage from './pages/EventPage';
+import FeaturedProject from './pages/FeaturedProject';
 
 const App = () => {
 
@@ -54,6 +56,14 @@ const App = () => {
 
           <Route path='/customerStory'>
             <CustomerStories />
+          </Route>
+
+           <Route path='/event'>
+            <EventPage />
+          </Route>
+
+           <Route path='/featuredProject'>
+            <FeaturedProject />
           </Route>
 
         </Switch>

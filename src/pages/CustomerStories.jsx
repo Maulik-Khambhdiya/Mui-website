@@ -87,35 +87,40 @@ const CustomerStories = () => {
                         <Grid item xs={12} md={4} key={index}>
                             <Card
                                 sx={{
-                                    bgcolor: '#f9f9f9',
-                                    boxShadow: '0 2px 12px rgba(0,0,0,0.05)',
-                                    border: '1px solid #e0e0e0',
+                                    bgcolor: '#f5f5f5',             // soft light gray background
+                                    boxShadow: '0 4px 20px rgba(0,0,0,0.1)', // softer, larger shadow
+                                    borderRadius: 3,                // rounded corners for modern look
                                     height: '100%',
+                                    p: 3,                          // padding inside card
+                                    textAlign: 'center',           // center all text
+                                    transition: 'transform 0.3s ease',
+                                    '&:hover': {
+                                        transform: 'translateY(-5px)', // subtle lift on hover
+                                        boxShadow: '0 8px 30px rgba(0,0,0,0.15)'
+                                    }
                                 }}
                             >
                                 <CardMedia
                                     component="img"
-
                                     image={story.image}
                                     alt={`Photo from ${story.name}`}
                                     sx={{
-                                        width: "30%"
+                                        width: 140,
+                                        height: 140,
+                                        borderRadius: '50%',
+                                        objectFit: 'cover',
+                                        margin: '0 auto 16px',       // center + margin bottom spacing
+                                        border: '3px solid #1976d2'  // optional colored border for pop
                                     }}
                                 />
-                                <CardContent>
-                                    <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+                                <CardContent sx={{ p: 0 }}>
+                                    <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#222' }}>
                                         {story.name}
                                     </Typography>
-                                    <Typography
-                                        variant="subtitle2"
-                                        sx={{ color: '#777', mb: 1 }}
-                                    >
+                                    <Typography variant="subtitle2" sx={{ color: '#555', mb: 1 }}>
                                         {story.location} • {story.product}
                                     </Typography>
-                                    <Typography
-                                        variant="body2"
-                                        sx={{ color: '#444', fontStyle: 'italic' }}
-                                    >
+                                    <Typography variant="body2" sx={{ color: '#444', fontStyle: 'italic' }}>
                                         “{story.quote}”
                                     </Typography>
                                 </CardContent>
