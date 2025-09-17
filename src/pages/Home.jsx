@@ -61,93 +61,93 @@ const itemData = [
   {
     img: img1,
     title: 'Bed',
-    product:'Unique Wooden Bed',
-    price:'$ 100',
-    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", ":hover": { backgroundColor: "black", color: "white"}}} >Add to Cart</Button>
+    product: 'Unique Wooden Bed',
+    price: '$ 100',
+    button: <Button className='btn' sx={{ fontWeight: "500", textTransform: "capitalize", width: "100%", fontSize: "15px", color: "black", border: "1px solid black", backgroundColor: "white", borderRadius: "0", ":hover": { backgroundColor: "black", color: "white" } }} >Add to Cart</Button>
   },
   {
     img: img2,
     title: 'Books',
-    product:'Luxuries Bed',
+    product: 'Luxuries Bed',
     price: '$ 200',
-    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
+    button: <Button className='btn' sx={{ fontWeight: "500", textTransform: "capitalize", width: "100%", fontSize: "15px", color: "black", border: "1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" } }} >Add to Cart</Button>
   },
   {
     img: img3,
     title: 'Sink',
-    product:'Dressing Table With Round-Mirror',
-    price:'$ 85',
-    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
+    product: 'Dressing Table With Round-Mirror',
+    price: '$ 85',
+    button: <Button className='btn' sx={{ fontWeight: "500", textTransform: "capitalize", width: "100%", fontSize: "15px", color: "black", border: "1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" } }} >Add to Cart</Button>
   },
   {
     img: img4,
     title: 'Kitchen',
-    product:'Hidden Box For AC',
-    price:'$ 50',
-    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
+    product: 'Hidden Box For AC',
+    price: '$ 50',
+    button: <Button className='btn' sx={{ fontWeight: "500", textTransform: "capitalize", width: "100%", fontSize: "15px", color: "black", border: "1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" } }} >Add to Cart</Button>
   },
   {
     img: img5,
     title: 'Blinds',
-    product:'High Qulity Materail Sofa set',
-    price:'$ 100',
-    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
+    product: 'High Qulity Materail Sofa set',
+    price: '$ 100',
+    button: <Button className='btn' sx={{ fontWeight: "500", textTransform: "capitalize", width: "100%", fontSize: "15px", color: "black", border: "1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" } }} >Add to Cart</Button>
   },
   {
     img: img6,
     title: 'Chairs',
-    product:'Office Working Table',
-    price:'$ 40',
-    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
+    product: 'Office Working Table',
+    price: '$ 40',
+    button: <Button className='btn' sx={{ fontWeight: "500", textTransform: "capitalize", width: "100%", fontSize: "15px", color: "black", border: "1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" } }} >Add to Cart</Button>
   },
   {
     img: img7,
     title: 'Laptop',
-    product:'Sky Blue Ceiling',
-    price:'$ 150',
-    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
+    product: 'Sky Blue Ceiling',
+    price: '$ 150',
+    button: <Button className='btn' sx={{ fontWeight: "500", textTransform: "capitalize", width: "100%", fontSize: "15px", color: "black", border: "1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" } }} >Add to Cart</Button>
   },
   {
     img: img8,
     title: 'Doors',
-    product:'Dream Bed For Children',
-    price:'$ 130',
-    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
+    product: 'Dream Bed For Children',
+    price: '$ 130',
+    button: <Button className='btn' sx={{ fontWeight: "500", textTransform: "capitalize", width: "100%", fontSize: "15px", color: "black", border: "1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" } }} >Add to Cart</Button>
   },
   {
     img: img9,
     title: 'Coffee',
-    product:'Pleasures Bathroom Design',
-    price:'$ 180',
-    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
+    product: 'Pleasures Bathroom Design',
+    price: '$ 180',
+    button: <Button className='btn' sx={{ fontWeight: "500", textTransform: "capitalize", width: "100%", fontSize: "15px", color: "black", border: "1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" } }} >Add to Cart</Button>
   },
   {
     img: img10,
     title: 'Storage',
-    product:'Wall Art',
-    price:'$ 30',
-    button: <Button className='btn'   sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
+    product: 'Wall Art',
+    price: '$ 30',
+    button: <Button className='btn' sx={{ fontWeight: "500", textTransform: "capitalize", width: "100%", fontSize: "15px", color: "black", border: "1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" } }} >Add to Cart</Button>
   },
   {
     img: img11,
     title: 'Candle',
-    product:'Wooden Book Sheleve',
-    price:'$ 55',
-    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
+    product: 'Wooden Book Sheleve',
+    price: '$ 55',
+    button: <Button className='btn' sx={{ fontWeight: "500", textTransform: "capitalize", width: "100%", fontSize: "15px", color: "black", border: "1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" } }} >Add to Cart</Button>
   },
   {
     img: img12,
     title: 'Coffee table',
-    product:'Swing For Balcony',
-    price:'$ 25',
-    button: <Button className='btn'  sx={{fontWeight:"500",textTransform:"capitalize", width:"100%",fontSize: "15px",color:"black",border:"1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" }}} >Add to Cart</Button>
+    product: 'Swing For Balcony',
+    price: '$ 25',
+    button: <Button className='btn' sx={{ fontWeight: "500", textTransform: "capitalize", width: "100%", fontSize: "15px", color: "black", border: "1px solid black", backgroundColor: "white", borderRadius: "0", padding: "5px 5px", ":hover": { backgroundColor: "black", color: "white" } }} >Add to Cart</Button>
   },
 ];
 
 
 const Home = () => {
 
-    
+
   const herosettings = {
     dots: true,
     infinite: true,
@@ -157,8 +157,8 @@ const Home = () => {
   };
 
   return (
-   <>
-    {/* main start */}
+    <>
+      {/* main start */}
 
 
       {/* hero section start */}
@@ -725,7 +725,7 @@ const Home = () => {
           <Box sx={{ width: "100%" }}>
             <ImageList variant="masonry" cols={3} gap={8}>
               {itemData.map((item) => (
-                <ImageListItem key={item.img}  sx={{":hover":{boxShadow:"0 0 8px black"}}}>
+                <ImageListItem key={item.img} sx={{ ":hover": { boxShadow: "0 0 8px black" } }}>
                   <a href="">
                     <img
                       srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
@@ -734,8 +734,8 @@ const Home = () => {
                       loading="lazy"
                       style={{ width: "100%" }}
                     /></a>
-                    <ImageListItemBar position="below" sx={{fontFamily:"robot", fontWeight:"600"}} title={item.product} />
-                    <ImageListItemBar position="below" title={item.price} />
+                  <ImageListItemBar position="below" sx={{ fontFamily: "robot", fontWeight: "600", padding: "0 0 0 15px" }} title={item.product} />
+                  <ImageListItemBar sx={{ padding: "0 0 0 15px"}} position="below" title={item.price} />
                   <ImageListItemBar position="below" title={item.button} />
                 </ImageListItem>
               ))}
@@ -779,7 +779,7 @@ const Home = () => {
 
       {/* service section end */}
       {/* main end */}
-   </>
+    </>
   )
 }
 

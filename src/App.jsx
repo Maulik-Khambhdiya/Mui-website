@@ -19,6 +19,9 @@ import Helppage from './pages/Helppage';
 import CustomerStories from './pages/CustomerStories';
 import EventPage from './pages/EventPage';
 import FeaturedProject from './pages/FeaturedProject';
+import TermsAndConditions  from './pages/TermsAndConditions';
+import SitemapPage from './pages/SitemapPage ';
+import ShippingAndReturns from './pages/ShippingAndReturns';
 
 const App = () => {
 
@@ -45,6 +48,7 @@ const App = () => {
           <Route path='/decor'>
             <Decor />
           </Route>
+          
 
           <Route path='/our-story'>
             <Story />
@@ -64,6 +68,18 @@ const App = () => {
 
            <Route path='/featuredProject'>
             <FeaturedProject />
+          </Route>
+
+          <Route path='/termsandcondition'>
+            <TermsAndConditions />
+          </Route>
+
+          <Route path='/sitemap'>
+            <SitemapPage />
+          </Route>
+
+          <Route path='/shippingandreturn'>
+            <ShippingAndReturns />
           </Route>
 
         </Switch>

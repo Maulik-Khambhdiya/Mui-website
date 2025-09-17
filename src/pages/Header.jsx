@@ -35,6 +35,8 @@ import { Field, Form, Formik } from 'formik';
 import CloseIcon from '@mui/icons-material/Close';
 
 
+
+
 const pages = [{ page: 'HOME', path: '/' },
 { page: 'FURNITURE', path: '/furniture' },
 { page: 'LIGHTING', path: '/lighting' },
@@ -570,6 +572,8 @@ const Header = () => {
           </Dialog>
         </Box>
       </AppBar>
+
+
       {/* header end */}
     </>
   )

@@ -102,9 +102,9 @@ const Footer = () => {
 
                       <li style={{ padding: "8px 0" }}><a href="/event" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Events</a></li>
                       <li style={{ padding: "8px 0" }}><a href="/featuredProject" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Featured Projects</a></li>
-                      <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>About Us</a></li>
-                      <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>FAQs</a></li>
-                      <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Gifting</a></li>
+                      <li style={{ padding: "8px 0" }}><a href="/our-story" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>About Us</a></li>
+                      <li style={{ padding: "8px 0" }}><a href="/helppage" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>FAQs</a></li>
+                      {/* <li style={{ padding: "8px 0" }}><a href="" style={{ color: "white", fontFamily: "system-ui", fontSize: "16px", fontWeight: "500" }}>Gifting</a></li> */}
                     </ul>
                   </Grid>
 
@@ -185,7 +185,7 @@ const Footer = () => {
 
             </Box>
             <Box className="last-detail" sx={{ textAlign: "center", paddingTop: "10px" }}>
-              <p style={{ color: "white" }}>Copyright 2025 <span style={{ fontFamily: "cursive", fontWeight: "600", padding: "0 8px" }}>Luxi-Loom</span> PVT. LTD. | <a href="" style={{ color: "white" }}>Terms & Conditions</a> | <a href="" style={{ color: "white" }}>Shipping & Return</a> | <a href="" style={{ color: "white" }}>Sitemap</a></p>
+              <p style={{ color: "white" }}>Copyright 2025 <span style={{ fontFamily: "cursive", fontWeight: "600", padding: "0 8px" }}>Luxi-Loom</span> PVT. LTD. | <a href="/termsandcondition" style={{ color: "white" }}>Terms & Conditions</a> | <a href="/shippingandreturn" style={{ color: "white" }}>Shipping & Return</a> | <a href="/sitemap" style={{ color: "white" }}>Sitemap</a></p>
             </Box>
           </Box>
         </Container>

@@ -1,11 +1,41 @@
 import { Box, Container, Typography } from '@mui/material'
 import React from 'react'
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Link from '@mui/material/Link';
+import { Link as RouterLink } from 'react-router-dom';
+
+
+function handleClick(event) {
+    event.preventDefault();
+    console.info('You clicked a breadcrumb.');
+}
+
+
+
 
 const Story = () => {
     return (
         <>
 
             <Container>
+                <Box>
+                    <div role="presentation" onClick={handleClick}>
+                        <Breadcrumbs aria-label="breadcrumb">
+                            <Link sx={{ fontSize: "18px" }} component={RouterLink} to="/" underline="hover" color="black" >
+                                Home
+                            </Link>
+                            <Link
+                                underline="hover"
+                                color="black"
+                                href="/our-story"
+                            >
+                                About Us
+                            </Link>
+
+                        </Breadcrumbs>
+                    </div>
+                </Box>
+
                 <Box sx={{ textAlign: 'center', padding: '60px 0 50px 0' }}>
                     <Typography
                         variant="h4"
@@ -101,7 +131,7 @@ const Story = () => {
                             md: '20px',
                         },
                     }}>
-                       Our customers are at the heart of everything we do. We design our collections to adapt to a range of aesthetics—from cozy and eclectic to sleek and modern—so you can curate a home that reflects who you are. With Luxiloom, you’re not just furnishing a room; you’re creating a living experience full of warmth, elegance, and personality.
+                        Our customers are at the heart of everything we do. We design our collections to adapt to a range of aesthetics—from cozy and eclectic to sleek and modern—so you can curate a home that reflects who you are. With Luxiloom, you’re not just furnishing a room; you’re creating a living experience full of warmth, elegance, and personality.
                     </Typography>
 
                 </Box>

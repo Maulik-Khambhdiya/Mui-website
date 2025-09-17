@@ -13,7 +13,15 @@ import walllight5 from '../image/walllight5.jpg';
 import walllight6 from '../image/walllight6.jpg';
 import React from "react";
 
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Link from '@mui/material/Link';
+import { Link as RouterLink } from 'react-router-dom';
 
+
+function handleClick(event) {
+    event.preventDefault();
+    console.info('You clicked a breadcrumb.');
+}
 
 
 
@@ -22,6 +30,25 @@ const Lighting = () => {
     return (
         <>
             <Container>
+
+                <Box>
+                    <div role="presentation" onClick={handleClick}>
+                        <Breadcrumbs aria-label="breadcrumb">
+                            <Link sx={{ fontSize: "18px" }} component={RouterLink} to="/" underline="hover" color="black" >
+                                Home
+                            </Link>
+                            <Link
+                                underline="hover"
+                                color="black"
+                                href="/lighting"
+                            >
+                                Lighting
+                            </Link>
+
+                        </Breadcrumbs>
+                    </div>
+                </Box>
+
                 {/* ceiling lighting  section start*/}
                 <Box sx={{ textAlign: 'center', padding: '50px 0' }}>
                     <Typography
@@ -47,7 +74,7 @@ const Lighting = () => {
                 <Box sx={{ padding: '30px 0' }}>
 
                     <Grid container spacing={2}>
-                        <Grid size={{lg:4,md:4,sm:6,xs:12}}>
+                        <Grid size={{ lg: 4, md: 4, sm: 6, xs: 12 }}>
                             <Box sx={{
                                 padding: "18px",
                                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -69,7 +96,7 @@ const Lighting = () => {
                             </Box>
                         </Grid>
 
-                        <Grid size={{lg:4,md:4,sm:6,xs:12}}>
+                        <Grid size={{ lg: 4, md: 4, sm: 6, xs: 12 }}>
                             <Box sx={{
                                 padding: "18px",
                                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -91,7 +118,7 @@ const Lighting = () => {
                             </Box>
                         </Grid>
 
-                        <Grid size={{lg:4,md:4,sm:6,xs:12}}>
+                        <Grid size={{ lg: 4, md: 4, sm: 6, xs: 12 }}>
                             <Box sx={{
                                 padding: "18px",
                                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -113,7 +140,7 @@ const Lighting = () => {
                             </Box>
                         </Grid>
 
-                        <Grid size={{lg:4,md:4,sm:6,xs:12}}>
+                        <Grid size={{ lg: 4, md: 4, sm: 6, xs: 12 }}>
                             <Box sx={{
                                 padding: "18px",
                                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -135,7 +162,7 @@ const Lighting = () => {
                             </Box>
                         </Grid>
 
-                        <Grid size={{lg:4,md:4,sm:6,xs:12}}>
+                        <Grid size={{ lg: 4, md: 4, sm: 6, xs: 12 }}>
                             <Box sx={{
                                 padding: "18px",
                                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -157,7 +184,7 @@ const Lighting = () => {
                             </Box>
                         </Grid>
 
-                        <Grid size={{lg:4,md:4,sm:6,xs:12}}>
+                        <Grid size={{ lg: 4, md: 4, sm: 6, xs: 12 }}>
                             <Box sx={{
                                 padding: "18px",
                                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -181,7 +208,7 @@ const Lighting = () => {
                     </Grid>
 
 
-                   
+
 
 
                 </Box>
@@ -214,7 +241,7 @@ const Lighting = () => {
                 <Box sx={{ padding: '30px 0' }}>
 
                     <Grid container spacing={2}>
-                        <Grid size={{lg:4,md:4,sm:6,xs:12}}>
+                        <Grid size={{ lg: 4, md: 4, sm: 6, xs: 12 }}>
                             <Box sx={{
                                 padding: "18px",
                                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -236,7 +263,7 @@ const Lighting = () => {
                             </Box>
                         </Grid>
 
-                        <Grid size={{lg:4,md:4,sm:6,xs:12}}>
+                        <Grid size={{ lg: 4, md: 4, sm: 6, xs: 12 }}>
                             <Box sx={{
                                 padding: "18px",
                                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -258,7 +285,7 @@ const Lighting = () => {
                             </Box>
                         </Grid>
 
-                        <Grid size={{lg:4,md:4,sm:6,xs:12}}>
+                        <Grid size={{ lg: 4, md: 4, sm: 6, xs: 12 }}>
                             <Box sx={{
                                 padding: "18px",
                                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -280,7 +307,7 @@ const Lighting = () => {
                             </Box>
                         </Grid>
 
-                        <Grid size={{lg:4,md:4,sm:6,xs:12}}>
+                        <Grid size={{ lg: 4, md: 4, sm: 6, xs: 12 }}>
                             <Box sx={{
                                 padding: "18px",
                                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -302,7 +329,7 @@ const Lighting = () => {
                             </Box>
                         </Grid>
 
-                        <Grid size={{lg:4,md:4,sm:6,xs:12}}>
+                        <Grid size={{ lg: 4, md: 4, sm: 6, xs: 12 }}>
                             <Box sx={{
                                 padding: "18px",
                                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -324,7 +351,7 @@ const Lighting = () => {
                             </Box>
                         </Grid>
 
-                        <Grid size={{lg:4,md:4,sm:6,xs:12}}>
+                        <Grid size={{ lg: 4, md: 4, sm: 6, xs: 12 }}>
                             <Box sx={{
                                 padding: "18px",
                                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -348,7 +375,7 @@ const Lighting = () => {
                     </Grid>
 
 
-                   
+
 
 
                 </Box>

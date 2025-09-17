@@ -1,5 +1,15 @@
 import React from 'react'
 import { Container, Typography, Grid, Card, CardContent, Button, Box } from '@mui/material';
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Link from '@mui/material/Link';
+import { Link as RouterLink } from 'react-router-dom';
+
+
+function handleClick(event) {
+    event.preventDefault();
+    console.info('You clicked a breadcrumb.');
+}
+
 
 const events = [
     {
@@ -32,7 +42,27 @@ const events = [
 
 const EventPage = () => {
     return (
+        <>
         <Container maxWidth="lg" sx={{ py: 8 }}>
+
+            <Box>
+                    <div role="presentation" onClick={handleClick}>
+                        <Breadcrumbs aria-label="breadcrumb">
+                            <Link sx={{ fontSize: "18px" }} component={RouterLink} to="/" underline="hover" color="black" >
+                                Home
+                            </Link>
+                            <Link
+                                underline="hover"
+                                color="black"
+                                href="/event"
+                            >
+                                Event
+                            </Link>
+
+                        </Breadcrumbs>
+                    </div>
+                </Box>
+
             {/* Hero Section */}
             <Box
                 sx={{
@@ -92,6 +122,7 @@ const EventPage = () => {
                 ))}
             </Grid>
         </Container>
+        </>
     )
 }
 

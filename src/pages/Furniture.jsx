@@ -4,11 +4,38 @@ import modern from '../image/modern.jpg'
 import classic from '../image/classic.jpg'
 import rustic from '../image/rustic.jpg'
 
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Link from '@mui/material/Link';
+import { Link as RouterLink } from 'react-router-dom';
+
+
+function handleClick(event) {
+  event.preventDefault();
+  console.info('You clicked a breadcrumb.');
+}
+
 const Furniture = () => {
   return (
     <>
 
       <Container>
+        <Box>
+          <div role="presentation" onClick={handleClick}>
+            <Breadcrumbs aria-label="breadcrumb">
+              <Link sx={{ fontSize: "18px" }} component={RouterLink} to="/" underline="hover" color="black" >
+                Home
+              </Link>
+              <Link
+                underline="hover"
+                color="black"
+                href="/furniture"
+              >
+                Furniture
+              </Link>
+
+            </Breadcrumbs>
+          </div>
+        </Box>
 
         <Box sx={{ textAlign: 'center', padding: '50px 0' }}>
           <Typography
@@ -45,9 +72,9 @@ const Furniture = () => {
           </Typography>
         </Box>
 
-        <Box sx={{ padding: {lg:'50px 0 60px 0',md:'40px 0 30px 0'} }}>
+        <Box sx={{ padding: { lg: '50px 0 60px 0', md: '40px 0 30px 0' } }}>
           <Grid container spacing={2}>
-            <Grid size={{lg:4,md:6,xs:12}}>
+            <Grid size={{ lg: 4, md: 6, xs: 12 }}>
               <Box
                 sx={{
                   position: "relative",
@@ -67,7 +94,7 @@ const Furniture = () => {
                   className="image"
                   style={{
                     width: "100%",
-                 
+
                     transition: "filter 0.3s ease",
                   }}
                 />
@@ -95,7 +122,7 @@ const Furniture = () => {
             </Grid>
 
 
-            <Grid size={{lg:4,md:6,xs:12}}>
+            <Grid size={{ lg: 4, md: 6, xs: 12 }}>
               <Box
                 sx={{
                   position: "relative",
@@ -115,7 +142,7 @@ const Furniture = () => {
                   className="image"
                   style={{
                     width: "100%",
-                    
+
                     transition: "filter 0.3s ease",
                   }}
                 />
@@ -144,7 +171,7 @@ const Furniture = () => {
 
 
 
-            <Grid size={{lg:4,md:6,xs:12}}>
+            <Grid size={{ lg: 4, md: 6, xs: 12 }}>
               <Box
                 sx={{
                   position: "relative",
