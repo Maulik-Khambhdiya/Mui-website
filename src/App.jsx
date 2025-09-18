@@ -22,6 +22,7 @@ import FeaturedProject from './pages/FeaturedProject';
 import TermsAndConditions  from './pages/TermsAndConditions';
 import SitemapPage from './pages/SitemapPage ';
 import ShippingAndReturns from './pages/ShippingAndReturns';
+import RugsAndMats from './pages/RugsAndMats';
 
 const App = () => {
 
@@ -47,6 +48,10 @@ const App = () => {
 
           <Route path='/decor'>
             <Decor />
+          </Route>
+
+          <Route path='/rugsandmats'>
+            <RugsAndMats />
           </Route>
           
 

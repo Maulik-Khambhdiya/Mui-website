@@ -41,7 +41,7 @@ const pages = [{ page: 'HOME', path: '/' },
 { page: 'FURNITURE', path: '/furniture' },
 { page: 'LIGHTING', path: '/lighting' },
 { page: 'DECOR', path: '/decor' },
-{ page: 'COLLECTION', path: '/collection' },
+{ page: 'Rugs And Mats', path: '/rugsandmats' },
 { page: 'OUR STORY', path: '/our-story' },
 ]
 
