@@ -33,6 +33,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Field, Form, Formik } from 'formik';
 import CloseIcon from '@mui/icons-material/Close';
+import { color } from 'framer-motion';
 
 
 
@@ -266,13 +267,14 @@ const Header = () => {
                         onClose={handleClose}
                         maxWidth="sm"
                         fullWidth
+                        
                         PaperProps={{
                           sx: {
-                            backgroundColor: '#383636ff', // background matches theme
+                            backgroundColor: '#ffffffff',
                             borderRadius: 3,
                             padding: 3,
                             boxShadow: '0 8px 24px rgba(255, 255, 255, 0.1)',
-                            color: 'white', // text color
+                            color: 'white',
                           },
                         }}
                       >
@@ -280,25 +282,38 @@ const Header = () => {
                           sx={{
                             textAlign: "center",
                             fontWeight: 'bold',
-                            color: 'white',
-                            fontSize: '1.8rem',
+                            color: 'black',
+                            fontSize: '2.2rem',
+                            position: 'relative',
                           }}
                           id="alert-dialog-title"
                         >
                           {"Sign In"}
-                        </DialogTitle>
-                        <DialogContent>
-                          <DialogContentText id="alert-dialog-description"
-                            sx={{ mb: 2, color: 'white' }}>
-                            <Formik
+                          <IconButton
+                            aria-label="close"
+                            onClick={handleClose}
+                            sx={{
 
-                              initialValues={ini}
-                            >
-                              <Form>
+                              position: 'absolute',
+                              right: 8,
+                              top: 8,
+                              color: 'black',
+                            }}
+                          >
+                            <CloseIcon />
+                          </IconButton>
+                        </DialogTitle>
+
+                        <DialogContent>
+                          <DialogContentText id="alert-dialog-description" sx={{ textAlign: "center", mb: 2, color: 'white' }}>
+                            <Formik initialValues={ini}>
+                              <Form style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
                                 <Field
                                   name='email'
                                   placeholder="Email"
                                   style={{
+                                    background: "#000000ea",
+                                    color: "white",
                                     width: '100%',
                                     padding: '10px',
                                     fontSize: '16px',
@@ -312,6 +327,8 @@ const Header = () => {
                                   placeholder="Password"
                                   type="password"
                                   style={{
+                                    background: "#000000ea",
+                                    color: "white",
                                     width: '100%',
                                     padding: '10px',
                                     fontSize: '16px',
@@ -320,36 +337,30 @@ const Header = () => {
                                     border: '1px solid #ccc',
                                   }}
                                 />
+
+
+                                <input style={{ color: "black" }} type="file" name="" id="" />
+                                <br />
+
                                 <button
                                   type="submit"
-                                  style={{
-                                    width: '100%',
-                                    padding: '12px',
-                                    backgroundColor: '#1976d2',
-                                    color: 'white',
-                                    border: 'none',
-                                    borderRadius: '6px',
-                                    fontSize: '16px',
-                                    cursor: 'pointer',
-                                  }}
+                                  className="submit-btn"
                                 >
                                   Submit
                                 </button>
                               </Form>
                             </Formik>
+                            <Typography sx={{ marginTop: "25px", fontSize: "14px", color: "black" }}>Not a memeber? <Link sx={{
+                              fontWeight: "500", padding: "5px", borderRadius: "5px", ":hover": {
+                                cursor: "pointer",
+                                backgroundColor: "black",
+                                color: "white"
+                              }
+                            }}>Signup Now</Link></Typography>
                           </DialogContentText>
+
+
                         </DialogContent>
-                        <DialogActions sx={{ justifyContent: 'center' }}>
-                          <Button
-                            onClick={handleClose}
-                            sx={{
-                              color: '#1976d2',
-                              fontWeight: 'bold',
-                            }}
-                          >
-                            Cancel
-                          </Button>
-                        </DialogActions>
                       </Dialog>
 
                     </React.Fragment>
