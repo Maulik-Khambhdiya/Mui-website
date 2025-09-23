@@ -23,6 +23,8 @@ import TermsAndConditions  from './pages/TermsAndConditions';
 import SitemapPage from './pages/SitemapPage ';
 import ShippingAndReturns from './pages/ShippingAndReturns';
 import RugsAndMats from './pages/RugsAndMats';
+import Dashboard from './pages/Dashboard';
+import CreateForm from './pages/CreateForm';
 
 const App = () => {
 
@@ -36,6 +38,10 @@ const App = () => {
 
           <Route exact path='/'>
             <Home />
+          </Route>
+
+          <Route path='/createform'>
+            <CreateForm />
           </Route>
 
           <Route path='/furniture'>
@@ -85,6 +91,10 @@ const App = () => {
 
           <Route path='/shippingandreturn'>
             <ShippingAndReturns />
+          </Route>
+
+           <Route path='/dashboard'>
+            <Dashboard />
           </Route>
 
         </Switch>

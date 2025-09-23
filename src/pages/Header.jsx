@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -34,7 +34,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { Field, Form, Formik } from 'formik';
 import CloseIcon from '@mui/icons-material/Close';
 import { color } from 'framer-motion';
-
+import { useHistory } from 'react-router-dom';
 
 
 
@@ -128,6 +128,33 @@ const Header = () => {
   const handleOpen = (type) => () => setOpenDialog(type);
   const handleClose1 = () => setOpenDialog(null);
   //------------------------help amd track section start--------------//
+
+
+  //------------------start handle login------------------------------------//
+  const [role, setRole] = useState(null);
+  const history = useHistory();
+  useEffect(() => {
+
+    const savedRole = localStorage.getItem('role');
+    if (savedRole) {
+      setRole(savedRole);
+    }
+  }, []);
+
+  const handleLogin = () => {
+    const userRole = 'admin'
+
+    localStorage.setItem('role', userRole);
+
+
+    setRole(userRole);
+    if (userRole === "admin") {
+      history.push('/dashboard');
+    } else {
+      history.push('/');
+    }
+  }
+  //------------------end handle login------------------------------------//
 
 
   return (
@@ -267,7 +294,7 @@ const Header = () => {
                         onClose={handleClose}
                         maxWidth="sm"
                         fullWidth
-                        
+
                         PaperProps={{
                           sx: {
                             backgroundColor: '#ffffffff',
@@ -306,7 +333,7 @@ const Header = () => {
 
                         <DialogContent>
                           <DialogContentText id="alert-dialog-description" sx={{ textAlign: "center", mb: 2, color: 'white' }}>
-                            <Formik initialValues={ini}>
+                            <Formik initialValues={ini} onSubmit={handleLogin}>
                               <Form style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
                                 <Field
                                   name='email'
@@ -339,9 +366,8 @@ const Header = () => {
                                 />
 
 
-                                <input style={{ color: "black" }} type="file" name="" id="" />
-                                <br />
-
+                                {/* <input style={{ color: "black" }} type="file" name="" id="" />
+                                <br /> */}
                                 <button
                                   type="submit"
                                   className="submit-btn"
@@ -350,13 +376,13 @@ const Header = () => {
                                 </button>
                               </Form>
                             </Formik>
-                            <Typography sx={{ marginTop: "25px", fontSize: "14px", color: "black" }}>Not a memeber? <Link sx={{
+                            <Typography sx={{ marginTop: "25px", fontSize: "14px", color: "black" }}>Not a memeber? <Link href="/createform" sx={{
                               fontWeight: "500", padding: "5px", borderRadius: "5px", ":hover": {
                                 cursor: "pointer",
                                 backgroundColor: "black",
                                 color: "white"
                               }
-                            }}>Signup Now</Link></Typography>
+                            }}>Create account</Link></Typography>
                           </DialogContentText>
 
 
