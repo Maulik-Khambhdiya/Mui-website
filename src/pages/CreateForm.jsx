@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import {
     Box,
@@ -14,8 +14,8 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const CreateForm = () => {
 
-    const history=useHistory()
-    const [list,setList]=useState([])
+    const history = useHistory()
+    const [list, setList] = useState([])
     const [ini, setIni] = useState({
         name: "",
         email: "",
@@ -23,9 +23,13 @@ const CreateForm = () => {
         profile: ""
     })
 
-    const viewData=()=>{
+    useEffect(() => {
+        viewData()
+    }, [])
+
+    const viewData = () => {
         axios.get("http://localhost:3000/users/signup/")
-        .then((res) => {
+            .then((res) => {
 
                 setList(res.data.data)
                 //console.log(res.data.data);
@@ -40,27 +44,42 @@ const CreateForm = () => {
 
 
     const handleSubmit = (values, { resetForm }) => {
-       axios.post("http://localhost:3000/users/signup/", values, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
+        axios.post("http://localhost:3000/users/signup/", values, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+            .then((res) => {
+                console.log("Data added successfully");
+                resetForm()
+                viewData()
+                history.push('/');
+
             })
-                .then(() => {
-                    console.log("Data added successfully");
-                    resetForm()
-                    viewData()
-                   
-                })
 
-                .catch((error) => {
-                    console.log(error);
-                })
-        }
+            .catch((error) => {
+                console.log(error);
+            })
+    }
 
-    
+
+    const deleteData = (deleteId) => {
+        axios.delete(`http://localhost:3000/users/signup/${deleteId}`)
+            .then(() => {
+                console.log("User Deleted Successfully");
+                viewData()
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+
+    }
+
+
+
 
     return (
-       <> <Box
+        <> <Box
             sx={{
 
                 maxWidth: 400,
@@ -82,7 +101,7 @@ const CreateForm = () => {
                 onSubmit={handleSubmit}
             >
                 {({ setFieldValue }) => (
-                       <Form encType='multipart/form-data'>
+                    <Form encType='multipart/form-data'>
 
                         <Box sx={{ mb: 2 }}>
                             <Field
@@ -144,10 +163,44 @@ const CreateForm = () => {
                         >
                             Create Account
                         </Button>
+
+
                     </Form>
                 )}
             </Formik>
+
+            <br />
+            <table border={1}>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Profile</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+
+                {
+                    list.map((item, index) => (
+                        <tr>
+                            <td>{index + 1}</td>
+                            <td>{item.name}</td>
+                            <td>{item.email}</td>
+                            <td>{item.password}</td>
+                            <td>{item.profile}</td>
+                            <td><button onClick={() => deleteData(item._id)}>Delete</button></td>
+                            {/* <td><button onClick={() => editData(item)}>Edit</button></td> */}
+
+                        </tr>
+                    ))
+                }
+            </table>
         </Box></>
+
+
+
+
     );
 };
 

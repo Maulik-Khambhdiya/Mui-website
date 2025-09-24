@@ -27,14 +27,13 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Field, Form, Formik } from 'formik';
 import CloseIcon from '@mui/icons-material/Close';
-import { color } from 'framer-motion';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 
 
@@ -50,11 +49,6 @@ const pages = [{ page: 'HOME', path: '/' },
 
 
 const Header = () => {
-
-  const [ini, setIni] = useState({
-    email: "",
-    password: ""
-  })
 
 
   //-----------------------------add to cart drawer start----------------//
@@ -133,6 +127,15 @@ const Header = () => {
   //------------------start handle login------------------------------------//
   const [role, setRole] = useState(null);
   const history = useHistory();
+
+  const [list, setList] = useState([])
+  const [ini, setIni] = useState({
+    email: "",
+    password: ""
+  })
+
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZDNkYTIyOTQyYTA0OTRhNGQ5ZGFmMCIsImlhdCI6MTc1ODcxNDQxNn0.wMt0i29Uw7i6yixucpWqQ_M9uWg3YiQwjwJg91INvnU'
+
   useEffect(() => {
 
     const savedRole = localStorage.getItem('role');
@@ -141,18 +144,43 @@ const Header = () => {
     }
   }, []);
 
-  const handleLogin = () => {
-    const userRole = 'admin'
+  const handleLogin = (values, { resetForm }) => {
+    try {
 
-    localStorage.setItem('role', userRole);
+      axios.post("http://localhost:3000/users/signup/login", values, {
+        headers:
+        {
+          Authorization: token
+        }
+      })
+        .then(() => {
+          console.log("Login Successful");
+          resetForm()
+          history.push('/')
+        })
+        .catch((error) => {
+          console.log(error);
+
+        })
+
+      const userRole = 'user'
+
+      localStorage.setItem('role', userRole);
 
 
-    setRole(userRole);
-    if (userRole === "admin") {
-      history.push('/dashboard');
-    } else {
-      history.push('/');
+      setRole(userRole);
+      if (userRole === "admin") {
+        history.push('/dashboard');
+      } else {
+        history.push('/');
+      }
+
+    } catch (error) {
+       console.error("Login failed:", error);
+        alert("Login failed. Please check credentials.");
     }
+
+
   }
   //------------------end handle login------------------------------------//
 
