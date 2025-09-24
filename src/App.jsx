@@ -19,11 +19,11 @@ import Helppage from './pages/Helppage';
 import CustomerStories from './pages/CustomerStories';
 import EventPage from './pages/EventPage';
 import FeaturedProject from './pages/FeaturedProject';
-import TermsAndConditions  from './pages/TermsAndConditions';
+import TermsAndConditions from './pages/TermsAndConditions';
 import SitemapPage from './pages/SitemapPage ';
 import ShippingAndReturns from './pages/ShippingAndReturns';
 import RugsAndMats from './pages/RugsAndMats';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './admin/Dashboard';
 import CreateForm from './pages/CreateForm';
 
 const App = () => {
@@ -36,7 +36,7 @@ const App = () => {
 
         <Switch>
 
-          <Route exact path='/'>
+          {/* <Route exact path='/'>
             <Home />
           </Route>
 
@@ -59,7 +59,7 @@ const App = () => {
           <Route path='/rugsandmats'>
             <RugsAndMats />
           </Route>
-          
+
 
           <Route path='/our-story'>
             <Story />
@@ -73,11 +73,11 @@ const App = () => {
             <CustomerStories />
           </Route>
 
-           <Route path='/event'>
+          <Route path='/event'>
             <EventPage />
           </Route>
 
-           <Route path='/featuredProject'>
+          <Route path='/featuredProject'>
             <FeaturedProject />
           </Route>
 
@@ -91,9 +91,9 @@ const App = () => {
 
           <Route path='/shippingandreturn'>
             <ShippingAndReturns />
-          </Route>
+          </Route> */}
 
-           <Route path='/dashboard'>
+          <Route path='/dashboard'>
             <Dashboard />
           </Route>
 
