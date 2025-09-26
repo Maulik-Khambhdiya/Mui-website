@@ -23,12 +23,12 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 const drawerWidth = 240;
 
-const Dashboard = ({children}) => {
+const Dashboard = ({ children }) => {
 
-  
+
   const icon = [<DashboardIcon sx={{ fontSize: "32px" }} />, <DeviceHubIcon sx={{ fontSize: "32px" }} />, <GroupAddIcon sx={{ fontSize: "32px" }} />, <StarsIcon sx={{ fontSize: "32px" }} />, <PaidIcon sx={{ fontSize: "32px" }} />]
 
-  const arrayName = [{ name: "Dashboard", path: "/home" }, { name: "Class / Stream", path: "/streamclass" }, { name: "Student Details", path: "/add-student" }, { name: "Academic Performance", path: "/academyperformance" }, { name: "Fees Details", path: "feesdetails" }]
+  const arrayName = [{ name: "Dashboard", path: "/" }, { name: "Offer Header", path: "/offerheader" }, { name: "Student Details", path: "/add-student" }, { name: "Academic Performance", path: "/academyperformance" }, { name: "Fees Details", path: "feesdetails" }]
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
@@ -60,7 +60,7 @@ const Dashboard = ({children}) => {
           <Link href={text.path} sx={{ textDecoration: "none" }}>
             <ListItem key={text} disablePadding>
 
-              <ListItemButton  sx={{
+              <ListItemButton sx={{
                 ":hover": {
                   backgroundColor: "#1976d2",
                   color: "white",
@@ -115,7 +115,7 @@ const Dashboard = ({children}) => {
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
 
               <Box>
-                <Link href="/home">
+                <Link href="/productdashboard">
                   <Typography sx={{ color: "white" }} variant="h6" noWrap component="div">
                     Student Record Dashboard
                   </Typography>
@@ -124,17 +124,16 @@ const Dashboard = ({children}) => {
               </Box>
 
               <Link href="/"><Button
-
                 sx={{
-                  color:"white",
-                   ":hover": {
+                  color: "white",
+                  ":hover": {
                     backgroundColor: "ButtonShadow",
                     color: "black",
-                    
+
                   }
                 }}
               >
-               <LogoutIcon></LogoutIcon>
+                <LogoutIcon></LogoutIcon>
               </Button></Link>
 
 
@@ -188,9 +187,12 @@ const Dashboard = ({children}) => {
           sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
         >
           <Toolbar />
-          {children}
-          {/* // get the data using children */}
 
+          {/* // get the data using children */}
+          {/* <h1>test</h1>
+          <h2>hello</h2>
+          <h2>hello</h2> */}
+          {children}
         </Box>
       </Box>
     </>

@@ -24,7 +24,10 @@ import SitemapPage from './pages/SitemapPage ';
 import ShippingAndReturns from './pages/ShippingAndReturns';
 import RugsAndMats from './pages/RugsAndMats';
 import Dashboard from './admin/Dashboard';
+import Header1 from './admin/Header1';
 import CreateForm from './pages/CreateForm';
+
+
 
 const App = () => {
 
@@ -32,7 +35,7 @@ const App = () => {
     <>
       <Router>
 
-        <Header />
+        {/* <Header /> */}
 
         <Switch>
 
@@ -93,16 +96,34 @@ const App = () => {
             <ShippingAndReturns />
           </Route> */}
 
-          <Route path='/dashboard'>
-            <Dashboard />
+          {/* ----------------------------------------------------------- */}
+          {/* <Route path='/admin'>
+            <Admin />
+          </Route> */}
+
+          {/* ----------------------------------------------------------- */}
+
+
+          <Route exact path='/'>
+            <Dashboard></Dashboard>
           </Route>
+
+          <Route path='/offerheader'>
+            <Header1></Header1>
+          </Route>
+
+
+
 
         </Switch>
 
 
-        <Footer />
+        {/* <Footer /> */}
 
       </Router>
+
+
+
 
 
     </>
