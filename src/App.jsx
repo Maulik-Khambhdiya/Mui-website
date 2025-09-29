@@ -26,6 +26,8 @@ import RugsAndMats from './pages/RugsAndMats';
 import Dashboard from './admin/Dashboard';
 import Header1 from './admin/Header1';
 import CreateForm from './pages/CreateForm';
+import NavigationMenu from './admin/NavigationMenu';
+import ItemList from './admin/ItemList';
 
 
 
@@ -108,11 +110,17 @@ const App = () => {
             <Dashboard></Dashboard>
           </Route>
 
-          <Route path='/offerheader'>
+          <Route path='/offersection'>
             <Header1></Header1>
           </Route>
 
+          <Route path='/navmenu'>
+            <NavigationMenu></NavigationMenu>
+          </Route>
 
+          <Route path='/itemlist'>
+            <ItemList></ItemList>
+          </Route>
 
 
         </Switch>
