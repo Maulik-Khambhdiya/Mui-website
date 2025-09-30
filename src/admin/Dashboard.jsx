@@ -48,7 +48,11 @@ const Dashboard = ({ children }) => {
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
-  const [openFurniture, setOpenFurniture] = React.useState(false);
+
+  // Keep Furniture dropdown open if user is on any furniture subpage
+  const [openFurniture, setOpenFurniture] = React.useState(
+    location.pathname.startsWith("/itemlist")
+  );
 
   const handleDrawerToggle = () => {
     if (!isClosing) {
@@ -109,19 +113,53 @@ const Dashboard = ({ children }) => {
                   <List component="div" disablePadding>
                     <ListItemButton
                       component={RouterLink}
-                      to="/itemlist/chairs"
-                      sx={{ pl: 4 }}
+                      to="/itemlist/modernfurnitures"
+                      sx={{
+                        pl: 4,
+                        backgroundColor: location.pathname === "/itemlist/modernfurnitures" ? "black" : "transparent",
+                        color: location.pathname === "/itemlist/modernfurnitures" ? "white" : "inherit",
+                        ":hover": {
+                          backgroundColor: "black",
+                          color: "white",
+                        }
+                      }}
                       onClick={handleDrawerClose}
                     >
-                      <ListItemText primary="Chairs" />
+                      <ListItemText primary="Modern Furniture" />
                     </ListItemButton>
+
                     <ListItemButton
                       component={RouterLink}
-                      to="/itemlist/tables"
-                      sx={{ pl: 4 }}
+                      to="/itemlist/classicfurnitures"
+                      sx={{
+                        pl: 4,
+                        backgroundColor: location.pathname === "/itemlist/classicfurnitures" ? "black" : "transparent",
+                        color: location.pathname === "/itemlist/classicfurnitures" ? "white" : "inherit",
+                        ":hover": {
+                          backgroundColor: "black",
+                          color: "white",
+                        }
+                      }}
                       onClick={handleDrawerClose}
                     >
-                      <ListItemText primary="Tables" />
+                      <ListItemText primary="Classic Furniture" />
+                    </ListItemButton>
+
+                    <ListItemButton
+                      component={RouterLink}
+                      to="/itemlist/rusticfurnitures"
+                      sx={{
+                        pl: 4,
+                        backgroundColor: location.pathname === "/itemlist/rusticfurnitures" ? "black" : "transparent",
+                        color: location.pathname === "/itemlist/rusticfurnitures" ? "white" : "inherit",
+                        ":hover": {
+                          backgroundColor: "black",
+                          color: "white",
+                        }
+                      }}
+                      onClick={handleDrawerClose}
+                    >
+                      <ListItemText primary="Rustic Furniture" />
                     </ListItemButton>
                   </List>
                 </Collapse>
@@ -228,9 +266,7 @@ const Dashboard = ({ children }) => {
             display: { xs: 'block', sm: 'none' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
-          ModalProps={{
-            keepMounted: true,
-          }}
+          ModalProps={{ keepMounted: true }}
         >
           {drawer}
         </Drawer>

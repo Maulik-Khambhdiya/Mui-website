@@ -88,16 +88,18 @@ const Furniture = () => {
                   },
                 }}
               >
-                <img
-                  src={modern}
-                  alt="Modern Furniture"
-                  className="image"
-                  style={{
-                    width: "100%",
+                <Link href='/modernfurniture'>
+                  <img
+                    src={modern}
+                    alt="Modern Furniture"
+                    className="image"
+                    style={{
+                      width: "100%",
 
-                    transition: "filter 0.3s ease",
-                  }}
-                />
+                      transition: "filter 0.3s ease",
+                    }}
+                  />
+                </Link>
 
                 <Box
                   className="hover-text"
@@ -136,16 +138,20 @@ const Furniture = () => {
                   },
                 }}
               >
-                <img
-                  src={classic}
-                  alt="Modern Furniture"
-                  className="image"
-                  style={{
-                    width: "100%",
 
-                    transition: "filter 0.3s ease",
-                  }}
-                />
+                <Link href='/classicfurniture'>
+                  <img
+                    src={classic}
+                    alt="Modern Furniture"
+                    className="image"
+                    style={{
+                      width: "100%",
+
+                      transition: "filter 0.3s ease",
+                    }}
+                  />
+                </Link>
+
 
                 <Box
                   className="hover-text"
@@ -185,16 +191,18 @@ const Furniture = () => {
                   },
                 }}
               >
-                <img
-                  src={rustic}
-                  alt="Modern Furniture"
-                  className="image"
-                  style={{
-                    width: "100%",
-                    // filter: "blur(0px)",
-                    transition: "filter 0.3s ease",
-                  }}
-                />
+                <Link href='/rusticfurniture'>
+                  <img
+                    src={rustic}
+                    alt="Modern Furniture"
+                    className="image"
+                    style={{
+                      width: "100%",
+                      // filter: "blur(0px)",
+                      transition: "filter 0.3s ease",
+                    }}
+                  />
+                </Link>
 
                 <Box
                   className="hover-text"

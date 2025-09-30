@@ -176,8 +176,8 @@ const Header = () => {
       }
 
     } catch (error) {
-       console.error("Login failed:", error);
-        alert("Login failed. Please check credentials.");
+      console.error("Login failed:", error);
+      alert("Login failed. Please check credentials.");
     }
 
 
@@ -187,6 +187,7 @@ const Header = () => {
 
   return (
     <>
+
       {/* header section start */}
       <AppBar position="static" color="white" sx={{
         backgroundColor: 'black', boxShadow: 'none', color: 'white', padding: '5px 0', '@media (max-width:1140px)': {

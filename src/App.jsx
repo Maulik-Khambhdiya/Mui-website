@@ -29,6 +29,10 @@ import CreateForm from './pages/CreateForm';
 import NavigationMenu from './admin/NavigationMenu';
 import ItemList from './admin/ItemList';
 import BestsellerProduct from './admin/Page\'s CSS/BestsellerProduct';
+import ModernFurniture from './pages/ModernFurniture';
+import ClassicFurniture from './pages/ClassicFurniture';
+import RusticFurniture from './pages/RusticFurniture';
+import Modern_Furniture from './admin/Modern_Furniture';
 
 
 
@@ -42,6 +46,8 @@ const App = () => {
 
         <Switch>
 
+          {/* ============Website Router start================ */}
+
           {/* <Route exact path='/'>
             <Home />
           </Route>
@@ -52,6 +58,18 @@ const App = () => {
 
           <Route path='/furniture'>
             <Furniture />
+          </Route>
+
+          <Route path='/modernfurniture'> 
+            <ModernFurniture></ModernFurniture>
+          </Route>
+
+          <Route path='/classicfurniture'> 
+            <ClassicFurniture></ClassicFurniture>
+          </Route>
+
+          <Route path='/rusticfurniture'> 
+            <RusticFurniture></RusticFurniture>
           </Route>
 
           <Route path='/lighting'>
@@ -99,13 +117,21 @@ const App = () => {
             <ShippingAndReturns />
           </Route> */}
 
+          {/* ============Website Router end================ */}
+
+
+
           {/* ----------------------------------------------------------- */}
+
           {/* <Route path='/admin'>
             <Admin />
           </Route> */}
 
           {/* ----------------------------------------------------------- */}
 
+
+
+            {/* ==============DashBoard Router start=============== */}
 
           <Route exact path='/'>
             <Dashboard></Dashboard>
@@ -123,9 +149,17 @@ const App = () => {
             <ItemList></ItemList>
           </Route>
 
+          <Route path='/moderndesign'>
+            <Modern_Furniture></Modern_Furniture>
+          </Route>
+
+
+
           <Route path='/bestsellerproduct'>
             <BestsellerProduct></BestsellerProduct>
           </Route>
+
+          {/* ==============DashBoard Router end=============== */}
 
 
         </Switch>
