@@ -28,6 +28,7 @@ import Header1 from './admin/Header1';
 import CreateForm from './pages/CreateForm';
 import NavigationMenu from './admin/NavigationMenu';
 import ItemList from './admin/ItemList';
+import BestsellerProduct from './admin/Page\'s CSS/BestsellerProduct';
 
 
 
@@ -120,6 +121,10 @@ const App = () => {
 
           <Route path='/itemlist'>
             <ItemList></ItemList>
+          </Route>
+
+          <Route path='/bestsellerproduct'>
+            <BestsellerProduct></BestsellerProduct>
           </Route>
 
 
