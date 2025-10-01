@@ -86,7 +86,7 @@ const Dashboard = ({ children }) => {
           if (text.name === "Furniture By Category") {
             const isActive = [
               "/moderndesign",
-              "/classicndesign",
+              "/classicdesign",
               "/rusticdesign"
             ].some(path => location.pathname.startsWith(path));
 
@@ -120,7 +120,7 @@ const Dashboard = ({ children }) => {
                   <List component="div" disablePadding>
                     <ListItemButton
                       component={RouterLink}
-                      to="/moderndesign" 
+                      to="/moderndesign"
                       sx={{
                         pl: 4,
                         backgroundColor: location.pathname === "/moderndesign" ? "black" : "transparent",
@@ -137,11 +137,11 @@ const Dashboard = ({ children }) => {
 
                     <ListItemButton
                       component={RouterLink}
-                      to="/classicndesign" 
+                      to="/classicdesign" 
                       sx={{
                         pl: 4,
-                        backgroundColor: location.pathname === "/classicndesign" ? "black" : "transparent",
-                        color: location.pathname === "/classicndesign" ? "white" : "inherit",
+                        backgroundColor: location.pathname === "/classicdesign" ? "black" : "transparent",
+                        color: location.pathname === "/classicdesign" ? "white" : "inherit",
                         ":hover": {
                           backgroundColor: "black",
                           color: "white",
@@ -154,7 +154,7 @@ const Dashboard = ({ children }) => {
 
                     <ListItemButton
                       component={RouterLink}
-                      to="/rusticdesign" 
+                      to="/rusticdesign"
                       sx={{
                         pl: 4,
                         backgroundColor: location.pathname === "/rusticdesign" ? "black" : "transparent",

@@ -95,7 +95,7 @@ const NavigationMenu = () => {
                                         <button
                                             type="submit"
                                             className="submit-button"
-                                            
+
                                         >
                                             Add Label
                                         </button>
@@ -105,27 +105,50 @@ const NavigationMenu = () => {
                         </DialogContent>
                     </Dialog>
 
-                    {/* 🔵 YOUR ORIGINAL TABLE (UNCHANGED) */}
+                    {/*  YOUR ORIGINAL TABLE (UNCHANGED) */}
                     <Box>
-                        <table style={{ width: "100%" }} border={1}>
-                            <tr>
-                                <th>No</th>
-                                <th>Label Name</th>
-                                <th>Label Path</th>
-                                <th>Remove</th>
-                                <th>Change</th>
-                            </tr>
-                            <tr>
-                                <td style={{ textAlign: "center" }}>1</td>
-                                <td style={{ textAlign: "center" }}>Best Seller</td>
-                                <td style={{ textAlign: "center" }}>/bestseller</td>
-                                <td style={{ textAlign: "center" }}>
-                                    <Button size="small" variant="outlined" color="error">Remove</Button>
-                                </td>
-                                <td style={{ textAlign: "center" }}>
-                                    <Button size="small" variant="outlined" color="secondary">Change</Button>
-                                </td>
-                            </tr>
+
+                        <table
+                            style={{
+                                width: "100%",
+                                borderCollapse: "separate",
+                                borderSpacing: "0 10px", // vertical spacing between rows
+                                textAlign: "center",     // center all content by default
+                            }}
+                        >
+                            <thead>
+                                <tr style={{ backgroundColor: "#c8f889ff", height: "50px" }}>
+                                    <th style={{ padding: "12px" }}>No</th>
+                                    <th style={{ padding: "12px" }}>Label Name</th>
+                                    <th style={{ padding: "12px" }}>Label Path</th>
+                                    <th style={{ padding: "12px" }}>Remove</th>
+                                    <th style={{ padding: "12px" }}>Change</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr
+                                    style={{
+                                        backgroundColor: "#ffffff",
+                                        boxShadow: "0px 2px 8px rgba(0,0,0,0.1)",
+                                        borderRadius: "8px",
+                                        height: "60px",
+                                    }}
+                                >
+                                    <td style={{ padding: "12px" }}>1</td>
+                                    <td style={{ padding: "12px" }}>Best Seller</td>
+                                    <td style={{ padding: "12px" }}>/bestseller</td>
+                                    <td style={{ padding: "12px" }}>
+                                        <Button size="small" variant="outlined" color="error">
+                                            Remove
+                                        </Button>
+                                    </td>
+                                    <td style={{ padding: "12px" }}>
+                                        <Button size="small" variant="outlined" color="secondary">
+                                            Change
+                                        </Button>
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </Box>
                 </Box>

@@ -41,7 +41,7 @@ const Modern_Furniture = () => {
                                 gap: "8px"
                             }}
                         >
-                            🛒 Item List
+                          🏙️ Add Modern Item 
                         </Typography>
 
                         <Button
@@ -88,9 +88,9 @@ const Modern_Furniture = () => {
                                         variant="outlined"
                                         margin="normal"
                                     />
-                                    
-                                   
-                                    
+
+
+
                                     <Field
                                         as={TextField}
                                         name="path"
@@ -102,13 +102,13 @@ const Modern_Furniture = () => {
                                     />
                                     <br /><br />
 
-                                     <input type="file"  name="image" />
+                                    <input type="file" name="image" required />
 
                                     <Box textAlign="center" mt={2}>
                                         <button
                                             type="submit"
                                             className="submit-button"
-                                            
+
                                         >
                                             Add Item
                                         </button>
@@ -120,31 +120,53 @@ const Modern_Furniture = () => {
 
                     {/*Your Original Table (Unchanged Layout) */}
                     <Box>
-                        <table style={{ width: "100%" }} border={1}>
-                            <tr>
-                                <th>No</th>
-                                <th>Item Image</th>
-                                <th>Item Name</th>
-                                <th>Item Path</th>
-                                
-                                <th>Remove</th>
-                                <th>Change</th>
-                            </tr>
-                            <tr>
-                                <td style={{ textAlign: "center" }}>1</td>
-                                <td style={{ textAlign: "center" }}>
-                                    <img src="https://via.placeholder.com/80x50" alt="Sample" />
-                                </td>
-                                <td style={{ textAlign: "center" }}>Chair</td>
-                                <td style={{ textAlign: "center" }}>/chair</td>
-                                
-                                <td style={{ textAlign: "center" }}>
-                                    <Button size="small" variant="outlined" color="error">Remove</Button>
-                                </td>
-                                <td style={{ textAlign: "center" }}>
-                                    <Button size="small" variant="outlined" color="secondary">Change</Button>
-                                </td>
-                            </tr>
+
+
+                        <table
+                            style={{
+                                width: "100%",
+                                borderCollapse: "separate",
+                                borderSpacing: "0 10px", // vertical spacing between rows
+                                textAlign: "center",     // center all content by default
+                            }}
+                        >
+                            <thead>
+                                <tr style={{ backgroundColor: "#c8f889ff", height: "50px" }}>
+                                    <th style={{ padding: "12px" }}>No</th>
+                                    <th style={{ padding: "12px" }}>Item Image</th>
+                                    <th style={{ padding: "12px" }}>Item Name</th>
+                                    <th style={{ padding: "12px" }}>Item Path</th>
+                                    <th style={{ padding: "12px" }}>Remove</th>
+                                    <th style={{ padding: "12px" }}>Change</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr
+                                    style={{
+                                        backgroundColor: "#ffffff",
+                                        boxShadow: "0px 2px 8px rgba(0,0,0,0.1)",
+                                        borderRadius: "8px",
+                                        height: "60px",
+                                    }}
+                                >
+                                    <td style={{ padding: "12px" }}>1</td>
+                                    <td style={{ padding: "12px" }}>
+                                        <img src="https://via.placeholder.com/80x50" alt="Sample" />
+                                    </td>
+                                    <td style={{ padding: "12px" }}>Chair</td>
+                                    <td style={{ padding: "12px" }}>/chair</td>
+                                    <td style={{ padding: "12px" }}>
+                                        <Button size="small" variant="outlined" color="error">
+                                            Remove
+                                        </Button>
+                                    </td>
+                                    <td style={{ padding: "12px" }}>
+                                        <Button size="small" variant="outlined" color="secondary">
+                                            Change
+                                        </Button>
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </Box>
                 </Box>

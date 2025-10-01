@@ -35,8 +35,8 @@ const Header1 = () => {
                             boxShadow: 3
                         }}>
                         <Typography variant="h5" sx={{ color: "#ffffff", fontWeight: 500 }}>👉 Header Offer</Typography>
-                        <Button  variant="contained"
-                           
+                        <Button variant="contained"
+
                             sx={{
                                 backgroundColor: "#ffffff",
                                 color: "#1976d2",
@@ -45,7 +45,7 @@ const Header1 = () => {
                                     backgroundColor: "#e3f2fd"
                                 }
                             }}
-                             onClick={() => setOpenHeaderDialog(true)}>
+                            onClick={() => setOpenHeaderDialog(true)}>
                             + Add
                         </Button>
                     </Box>
@@ -79,25 +79,45 @@ const Header1 = () => {
                     <br />
 
                     {/* Sample Table */}
+
+
                     <Box>
-                        <table style={{ width: "100%" }} border={1}>
+                        <table
+                            style={{
+                                width: "100%",
+                                borderCollapse: "separate",
+                                borderSpacing: "0 10px", // vertical spacing between rows
+                                textAlign: "center",     // center all content by default
+                            }}
+                        >
                             <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Offer Details</th>
-                                    <th>Remove</th>
-                                    <th>Change</th>
+                                <tr style={{ backgroundColor: "#c8f889ff", height: "50px" }}>
+                                    <th style={{ padding: "12px" }}>No</th>
+                                    <th style={{ padding: "12px" }}>Offer Details</th>
+                                    <th style={{ padding: "12px" }}>Remove</th>
+                                    <th style={{ padding: "12px" }}>Change</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td style={{ textAlign: "center" }}>1</td>
-                                    <td style={{ textAlign: "center" }}>Buy 1 Get 1 Free on Chairs</td>
-                                    <td style={{ textAlign: "center" }}>
-                                        <Button size="small" variant="outlined" color="error">Remove</Button>
+                                <tr
+                                    style={{
+                                        backgroundColor: "#ffffff",
+                                        boxShadow: "0px 2px 8px rgba(0,0,0,0.1)",
+                                        borderRadius: "8px",
+                                        height: "60px",
+                                    }}
+                                >
+                                    <td style={{ padding: "12px" }}>1</td>
+                                    <td style={{ padding: "12px" }}>Buy 1 Get 1 Free on Chairs</td>
+                                    <td style={{ padding: "12px" }}>
+                                        <Button size="small" variant="outlined" color="error">
+                                            Remove
+                                        </Button>
                                     </td>
-                                    <td style={{ textAlign: "center" }}>
-                                        <Button size="small" variant="outlined" color="secondary">Change</Button>
+                                    <td style={{ padding: "12px" }}>
+                                        <Button size="small" variant="outlined" color="secondary">
+                                            Change
+                                        </Button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -112,7 +132,7 @@ const Header1 = () => {
                 {/* ========== HERO BANNER SECTION ========== */}
                 <Box>
                     <Box
-                       display="flex"
+                        display="flex"
                         justifyContent="space-between"
                         alignItems="center"
                         sx={{
@@ -123,14 +143,14 @@ const Header1 = () => {
                         }}
                     >
                         <Typography
-                           variant="h5" sx={{ color: "#ffffff", fontWeight: 500 }}
+                            variant="h5" sx={{ color: "#ffffff", fontWeight: 500 }}
                         >
                             👉 Banner Offer (Hero Section)
                         </Typography>
 
                         <Button
                             variant="contained"
-                           
+
                             sx={{
                                 backgroundColor: "#ffffff",
                                 color: "#1976d2",
@@ -164,32 +184,48 @@ const Header1 = () => {
                             </Formik>
                         </DialogContent>
                     </Dialog>
-                                <br />
+                    <br />
                     {/* Sample Table */}
-                    <Box>
-                        <table style={{ width: "100%" }} border={1}>
+                   <table
+                            style={{
+                                width: "100%",
+                                borderCollapse: "separate",
+                                borderSpacing: "0 10px", // vertical spacing between rows
+                                textAlign: "center",     // center all content by default
+                            }}
+                        >
                             <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Banner Images</th>
-                                    <th>Remove</th>
-                                    <th>Change</th>
+                                <tr style={{ backgroundColor: "#c8f889ff", height: "50px" }}>
+                                    <th style={{ padding: "12px" }}>No</th>
+                                    <th style={{ padding: "12px" }}>Banner Image</th>
+                                    <th style={{ padding: "12px" }}>Remove</th>
+                                    <th style={{ padding: "12px" }}>Change</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td style={{ textAlign: "center" }}>1</td>
-                                    <td style={{ textAlign: "center" }}><img src="https://via.placeholder.com/100x50" alt="Sample" /></td>
-                                    <td style={{ textAlign: "center" }}>
-                                        <Button size="small" variant="outlined" color="error">Remove</Button>
+                                <tr
+                                    style={{
+                                        backgroundColor: "#ffffff",
+                                        boxShadow: "0px 2px 8px rgba(0,0,0,0.1)",
+                                        borderRadius: "8px",
+                                        height: "60px",
+                                    }}
+                                >
+                                    <td style={{ padding: "12px" }}>1</td>
+                                    <td style={{ padding: "12px" }}></td>
+                                    <td style={{ padding: "12px" }}>
+                                        <Button size="small" variant="outlined" color="error">
+                                            Remove
+                                        </Button>
                                     </td>
-                                    <td style={{ textAlign: "center" }}>
-                                        <Button size="small" variant="outlined" color="secondary">Change</Button>
+                                    <td style={{ padding: "12px" }}>
+                                        <Button size="small" variant="outlined" color="secondary">
+                                            Change
+                                        </Button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                    </Box>
                 </Box>
 
                 <br />
@@ -250,24 +286,42 @@ const Header1 = () => {
 
                     {/* Sample Table */}
                     <Box>
-                        <table style={{ width: "100%" }} border={1}>
+                       <table
+                            style={{
+                                width: "100%",
+                                borderCollapse: "separate",
+                                borderSpacing: "0 10px", // vertical spacing between rows
+                                textAlign: "center",     // center all content by default
+                            }}
+                        >
                             <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Banner Images</th>
-                                    <th>Remove</th>
-                                    <th>Change</th>
+                                <tr style={{ backgroundColor: "#c8f889ff", height: "50px" }}>
+                                    <th style={{ padding: "12px" }}>No</th>
+                                    <th style={{ padding: "12px" }}>Banner Image</th>
+                                    <th style={{ padding: "12px" }}>Remove</th>
+                                    <th style={{ padding: "12px" }}>Change</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td style={{ textAlign: "center" }}>1</td>
-                                    <td style={{ textAlign: "center" }}><img src="https://via.placeholder.com/100x50" alt="Sample" /></td>
-                                    <td style={{ textAlign: "center" }}>
-                                        <Button size="small" variant="outlined" color="error">Remove</Button>
+                                <tr
+                                    style={{
+                                        backgroundColor: "#ffffff",
+                                        boxShadow: "0px 2px 8px rgba(0,0,0,0.1)",
+                                        borderRadius: "8px",
+                                        height: "60px",
+                                    }}
+                                >
+                                    <td style={{ padding: "12px" }}>1</td>
+                                    <td style={{ padding: "12px" }}></td>
+                                    <td style={{ padding: "12px" }}>
+                                        <Button size="small" variant="outlined" color="error">
+                                            Remove
+                                        </Button>
                                     </td>
-                                    <td style={{ textAlign: "center" }}>
-                                        <Button size="small" variant="outlined" color="secondary">Change</Button>
+                                    <td style={{ padding: "12px" }}>
+                                        <Button size="small" variant="outlined" color="secondary">
+                                            Change
+                                        </Button>
                                     </td>
                                 </tr>
                             </tbody>

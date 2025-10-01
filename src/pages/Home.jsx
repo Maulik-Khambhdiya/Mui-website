@@ -53,6 +53,7 @@ import img9 from '../image/bathtub.jpg';
 import img10 from '../image/frame.jpg';
 import img11 from '../image/bookstand.jpg';
 import img12 from '../image/balcony.jpg';
+import { Link } from '@mui/material';
 
 
 
@@ -524,7 +525,7 @@ const Home = () => {
               <h1 style={{ fontSize: "45px" }}>ONLINE DESIGN SERVICES</h1>
               <p style={{ padding: "20px 0", fontSize: "18px", fontWeight: "500" }}>Get free help from our certified lighting design experts with any lighting projects</p>
 
-              <Button variant="contained" sx={{ fontSize: "15px", backgroundColor: "black", borderRadius: "0", padding: "10px 25px", ":hover": { backgroundColor: "white", color: "black" } }}>Make An Appointment</Button>
+             <Link href='/appointmentpage'><Button variant="contained" sx={{ fontSize: "15px", backgroundColor: "black", borderRadius: "0", padding: "10px 25px", ":hover": { backgroundColor: "white", color: "black" } }}>Make An Appointment</Button></Link> 
             </Grid>
           </Grid>
 

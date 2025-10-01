@@ -35,6 +35,7 @@ import RusticFurniture from './pages/RusticFurniture';
 import Modern_Furniture from './admin/Modern_Furniture';
 import Classic_Furniture from './admin/Classic_Furniture';
 import Rustic_Furniture from './admin/Rustic_Furniture';
+import AppointmentPage from './pages/AppointmentPage';
 
 
 
@@ -44,13 +45,13 @@ const App = () => {
     <>
       <Router>
 
-        {/* <Header /> */}
+        <Header />
 
         <Switch>
 
           {/* ============Website Router start================ */}
 
-          {/* <Route exact path='/'>
+          <Route exact path='/'>
             <Home />
           </Route>
 
@@ -95,6 +96,10 @@ const App = () => {
             <Helppage />
           </Route>
 
+          <Route path='/appointmentpage'>
+            <AppointmentPage></AppointmentPage>
+          </Route>
+
           <Route path='/customerStory'>
             <CustomerStories />
           </Route>
@@ -117,7 +122,7 @@ const App = () => {
 
           <Route path='/shippingandreturn'>
             <ShippingAndReturns />
-          </Route> */}
+          </Route>
 
           {/* ============Website Router end================ */}
 
@@ -133,9 +138,9 @@ const App = () => {
 
 
 
-            {/* ==============DashBoard Router start=============== */}
+          {/* ==============DashBoard Router start=============== */}
 
-          <Route exact path='/'>
+          {/* <Route exact path='/'>
             <Dashboard></Dashboard>
           </Route>
 
@@ -147,13 +152,11 @@ const App = () => {
             <NavigationMenu></NavigationMenu>
           </Route>
 
-          
-
           <Route path='/moderndesign'>
             <Modern_Furniture></Modern_Furniture>
           </Route>
 
-           <Route path='/classicndesign'>
+           <Route path='/classicdesign'>
             <Classic_Furniture></Classic_Furniture>
           </Route>
 
@@ -161,11 +164,9 @@ const App = () => {
             <Rustic_Furniture></Rustic_Furniture>
           </Route>
 
-
-
           <Route path='/bestsellerproduct'>
             <BestsellerProduct></BestsellerProduct>
-          </Route>
+          </Route> */}
 
           {/* ==============DashBoard Router end=============== */}
 
@@ -173,7 +174,7 @@ const App = () => {
         </Switch>
 
 
-        {/* <Footer /> */}
+        <Footer />
 
       </Router>
 
