@@ -27,12 +27,14 @@ import Dashboard from './admin/Dashboard';
 import Header1 from './admin/Header1';
 import CreateForm from './pages/CreateForm';
 import NavigationMenu from './admin/NavigationMenu';
-import ItemList from './admin/ItemList';
-import BestsellerProduct from './admin/Page\'s CSS/BestsellerProduct';
+
+import BestsellerProduct from './admin/BestsellerProduct';
 import ModernFurniture from './pages/ModernFurniture';
 import ClassicFurniture from './pages/ClassicFurniture';
 import RusticFurniture from './pages/RusticFurniture';
 import Modern_Furniture from './admin/Modern_Furniture';
+import Classic_Furniture from './admin/Classic_Furniture';
+import Rustic_Furniture from './admin/Rustic_Furniture';
 
 
 
@@ -145,12 +147,18 @@ const App = () => {
             <NavigationMenu></NavigationMenu>
           </Route>
 
-          <Route path='/itemlist'>
-            <ItemList></ItemList>
-          </Route>
+          
 
           <Route path='/moderndesign'>
             <Modern_Furniture></Modern_Furniture>
+          </Route>
+
+           <Route path='/classicndesign'>
+            <Classic_Furniture></Classic_Furniture>
+          </Route>
+
+           <Route path='/rusticdesign'>
+            <Rustic_Furniture></Rustic_Furniture>
           </Route>
 
 

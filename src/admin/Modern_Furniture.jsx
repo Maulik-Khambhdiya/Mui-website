@@ -18,7 +18,7 @@ const Modern_Furniture = () => {
             <Dashboard>
                 <Box>
 
-                    {/* ✅ Title + Add Button (Same Row, Styled) */}
+                    {/*  Title + Add Button (Same Row, Styled) */}
                     <Box
                         display="flex"
                         justifyContent="space-between"
@@ -61,7 +61,7 @@ const Modern_Furniture = () => {
                         </Button>
                     </Box>
 
-                    {/* ✅ Dialog with Formik Form */}
+                    {/* Dialog with Formik Form */}
                     <Dialog open={openDialog} onClose={handleClose}>
                         <DialogTitle>Add New Item</DialogTitle>
                         <DialogContent>
@@ -100,16 +100,7 @@ const Modern_Furniture = () => {
                                         variant="outlined"
                                         margin="normal"
                                     />
-                                    <Field
-                                        as={TextField}
-                                        name="order"
-                                        label="Item Order"
-                                        placeholder="e.g., 1"
-                                        type="number"
-                                        fullWidth
-                                        variant="outlined"
-                                        margin="normal"
-                                    />
+                                    <br /><br />
 
                                      <input type="file"  name="image" />
 
@@ -127,7 +118,7 @@ const Modern_Furniture = () => {
                         </DialogContent>
                     </Dialog>
 
-                    {/* ✅ Your Original Table (Unchanged Layout) */}
+                    {/*Your Original Table (Unchanged Layout) */}
                     <Box>
                         <table style={{ width: "100%" }} border={1}>
                             <tr>
@@ -135,7 +126,7 @@ const Modern_Furniture = () => {
                                 <th>Item Image</th>
                                 <th>Item Name</th>
                                 <th>Item Path</th>
-                                <th>Item Order</th>
+                                
                                 <th>Remove</th>
                                 <th>Change</th>
                             </tr>
@@ -146,7 +137,7 @@ const Modern_Furniture = () => {
                                 </td>
                                 <td style={{ textAlign: "center" }}>Chair</td>
                                 <td style={{ textAlign: "center" }}>/chair</td>
-                                <td style={{ textAlign: "center" }}>1</td>
+                                
                                 <td style={{ textAlign: "center" }}>
                                     <Button size="small" variant="outlined" color="error">Remove</Button>
                                 </td>

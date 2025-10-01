@@ -42,7 +42,7 @@ const Dashboard = ({ children }) => {
     { name: "Dashboard", path: "/" },
     { name: "Offer Section", path: "/offersection" },
     { name: "Navigation Menu", path: "/navmenu" },
-    { name: "Furniture Items", path: "/itemlist" },
+    { name: "Furniture By Category" }, // dropdown
     { name: "Best Seller", path: "/bestsellerproduct" }
   ];
 
@@ -51,7 +51,9 @@ const Dashboard = ({ children }) => {
 
   // Keep Furniture dropdown open if user is on any furniture subpage
   const [openFurniture, setOpenFurniture] = React.useState(
-    location.pathname.startsWith("/itemlist")
+    location.pathname.startsWith("/moderndesign") ||
+    location.pathname.startsWith("/classicdesign") ||
+    location.pathname.startsWith("/rusticdesign")
   );
 
   const handleDrawerToggle = () => {
@@ -80,8 +82,13 @@ const Dashboard = ({ children }) => {
 
       <List>
         {arrayName.map((text, index) => {
-          if (text.name === "Furniture Items") {
-            const isActive = location.pathname.startsWith("/itemlist");
+          // special case for Furniture dropdown
+          if (text.name === "Furniture By Category") {
+            const isActive = [
+              "/moderndesign",
+              "/classicndesign",
+              "/rusticdesign"
+            ].some(path => location.pathname.startsWith(path));
 
             return (
               <React.Fragment key={text.name}>
@@ -113,11 +120,11 @@ const Dashboard = ({ children }) => {
                   <List component="div" disablePadding>
                     <ListItemButton
                       component={RouterLink}
-                      to="/itemlist/modernfurnitures"
+                      to="/moderndesign" 
                       sx={{
                         pl: 4,
-                        backgroundColor: location.pathname === "/itemlist/modernfurnitures" ? "black" : "transparent",
-                        color: location.pathname === "/itemlist/modernfurnitures" ? "white" : "inherit",
+                        backgroundColor: location.pathname === "/moderndesign" ? "black" : "transparent",
+                        color: location.pathname === "/moderndesign" ? "white" : "inherit",
                         ":hover": {
                           backgroundColor: "black",
                           color: "white",
@@ -130,11 +137,11 @@ const Dashboard = ({ children }) => {
 
                     <ListItemButton
                       component={RouterLink}
-                      to="/itemlist/classicfurnitures"
+                      to="/classicndesign" 
                       sx={{
                         pl: 4,
-                        backgroundColor: location.pathname === "/itemlist/classicfurnitures" ? "black" : "transparent",
-                        color: location.pathname === "/itemlist/classicfurnitures" ? "white" : "inherit",
+                        backgroundColor: location.pathname === "/classicndesign" ? "black" : "transparent",
+                        color: location.pathname === "/classicndesign" ? "white" : "inherit",
                         ":hover": {
                           backgroundColor: "black",
                           color: "white",
@@ -147,11 +154,11 @@ const Dashboard = ({ children }) => {
 
                     <ListItemButton
                       component={RouterLink}
-                      to="/itemlist/rusticfurnitures"
+                      to="/rusticdesign" 
                       sx={{
                         pl: 4,
-                        backgroundColor: location.pathname === "/itemlist/rusticfurnitures" ? "black" : "transparent",
-                        color: location.pathname === "/itemlist/rusticfurnitures" ? "white" : "inherit",
+                        backgroundColor: location.pathname === "/rusticdesign" ? "black" : "transparent",
+                        color: location.pathname === "/rusticdesign" ? "white" : "inherit",
                         ":hover": {
                           backgroundColor: "black",
                           color: "white",
@@ -167,8 +174,8 @@ const Dashboard = ({ children }) => {
             );
           }
 
+          // default non-dropdown items
           const isActive = location.pathname === text.path;
-
           return (
             <ListItem key={text.name} disablePadding>
               <ListItemButton
@@ -255,7 +262,7 @@ const Dashboard = ({ children }) => {
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-        aria-label="mailbox folders"
+        aria-label="sidebar navigation"
       >
         <Drawer
           variant="temporary"
