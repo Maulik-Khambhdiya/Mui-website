@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import Dashboard from './Dashboard';
 import { Formik, Form, Field } from 'formik';
 import {
@@ -6,25 +6,26 @@ import {
     Dialog, DialogTitle, DialogContent
 } from '@mui/material';
 
-const NavigationMenu = () => {
-    const [openDialog, setOpenDialog] = useState(false);
+const Specific_item = () => {
 
-    const handleOpen = () => setOpenDialog(true);
-    const handleClose = () => setOpenDialog(false);
+        const [openDialog, setOpenDialog] = useState(false);
+    
+        const handleOpen = () => setOpenDialog(true);
+        const handleClose = () => setOpenDialog(false);
 
-    return (
-        <>
-            <Dashboard>
+  return (
+   <>
+    <Dashboard>
                 <Box>
 
-                    {/* 🔵 TITLE + ADD BUTTON */}
+                    {/*  Title + Add Button (Same Row, Styled) */}
                     <Box
                         display="flex"
                         justifyContent="space-between"
                         alignItems="center"
                         sx={{
                             backgroundColor: "#1976d2",
-                            padding: "8px 18px",
+                            padding: "12px 20px",
                             borderRadius: "8px",
                             boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
                             marginBottom: "20px"
@@ -40,7 +41,7 @@ const NavigationMenu = () => {
                                 gap: "8px"
                             }}
                         >
-                            📌 Navigation Menu
+                          🏙️ Add Item
                         </Typography>
 
                         <Button
@@ -60,36 +61,48 @@ const NavigationMenu = () => {
                         </Button>
                     </Box>
 
-                    {/* 🔵 DIALOG WITH FORMIK FORM */}
+                    {/* Dialog with Formik Form */}
                     <Dialog open={openDialog} onClose={handleClose}>
-                        <DialogTitle>Add Nav Label</DialogTitle>
+                        <DialogTitle>Add New Item</DialogTitle>
                         <DialogContent>
                             <Formik
-                                initialValues={{ label: '', path: '' }}
+                                initialValues={{
+                                    image: '',
+                                    name: '',
+                                    path: '',
+                                    order: ''
+                                }}
                                 onSubmit={(values) => {
                                     console.log("Submitted:", values);
                                     handleClose();
                                 }}
                             >
                                 <Form style={{ marginTop: 20 }}>
+
                                     <Field
                                         as={TextField}
-                                        name="label"
-                                        label="Nav-Label"
-                                        placeholder="e.g., Best Seller"
+                                        name="name"
+                                        label="Item Name"
+                                        placeholder="e.g., Chair"
                                         fullWidth
                                         variant="outlined"
                                         margin="normal"
                                     />
+
+
+
                                     <Field
                                         as={TextField}
                                         name="path"
-                                        label="Nav-Path"
-                                        placeholder="e.g., /bestseller"
+                                        label="Item Path"
+                                        placeholder="e.g., /chair"
                                         fullWidth
                                         variant="outlined"
                                         margin="normal"
                                     />
+                                    <br /><br />
+
+                                    <input type="file" name="image" required />
 
                                     <Box textAlign="center" mt={2}>
                                         <button
@@ -97,7 +110,7 @@ const NavigationMenu = () => {
                                             className="submit-button"
 
                                         >
-                                            Add Label
+                                            Add Item
                                         </button>
                                     </Box>
                                 </Form>
@@ -105,8 +118,9 @@ const NavigationMenu = () => {
                         </DialogContent>
                     </Dialog>
 
-                    {/*  YOUR ORIGINAL TABLE (UNCHANGED) */}
+                    {/*Your Original Table (Unchanged Layout) */}
                     <Box>
+
 
                         <table
                             style={{
@@ -119,8 +133,9 @@ const NavigationMenu = () => {
                             <thead>
                                 <tr style={{ backgroundColor: "#c8f889ff", height: "50px" }}>
                                     <th style={{ padding: "12px" }}>No</th>
-                                    <th style={{ padding: "12px" }}>Label Name</th>
-                                    <th style={{ padding: "12px" }}>Label Path</th>
+                                    <th style={{ padding: "12px" }}>Item Image</th>
+                                    <th style={{ padding: "12px" }}>Item Name</th>
+                                    <th style={{ padding: "12px" }}>Item Path</th>
                                     <th style={{ padding: "12px" }}>Remove</th>
                                     <th style={{ padding: "12px" }}>Change</th>
                                 </tr>
@@ -135,8 +150,11 @@ const NavigationMenu = () => {
                                     }}
                                 >
                                     <td style={{ padding: "12px" }}>1</td>
-                                    <td style={{ padding: "12px" }}>Best Seller</td>
-                                    <td style={{ padding: "12px" }}>/bestseller</td>
+                                    <td style={{ padding: "12px" }}>
+                                        <img src="https://via.placeholder.com/80x50" alt="Sample" />
+                                    </td>
+                                    <td style={{ padding: "12px" }}>Chair</td>
+                                    <td style={{ padding: "12px" }}>/chair</td>
                                     <td style={{ padding: "12px" }}>
                                         <Button size="small" variant="outlined" color="error">
                                             Remove
@@ -152,18 +170,9 @@ const NavigationMenu = () => {
                         </table>
                     </Box>
                 </Box>
-
-                {/* 🔵 DOTTED DIVIDER */}
-                <br />
-                <Divider sx={{
-                    borderStyle: 'dotted',
-                    borderColor: 'black',
-                    borderWidth: '2px',
-                }} />
-                <br />
             </Dashboard>
-        </>
-    );
-};
+   </>
+  )
+}
 
-export default NavigationMenu;
+export default Specific_item

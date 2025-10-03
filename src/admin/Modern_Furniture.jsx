@@ -3,12 +3,31 @@ import Dashboard from './Dashboard';
 import { Formik, Form, Field } from 'formik';
 import {
     TextField, Box, Typography, Divider, Button,
-    Dialog, DialogTitle, DialogContent
+    Dialog, DialogTitle, DialogContent,
+    FormControlLabel,
+    Switch
 } from '@mui/material';
 import ModernFurniture from '../pages/ModernFurniture';
+const SwitchField = ({ field, form, label }) => {
+    return (
+        <FormControlLabel
+            control={
+                <Switch
+                    checked={field.value}
+                    onChange={() => form.setFieldValue(field.name, !field.value)}
+                    color="primary"
+                />
+            }
+            label={label}
+        />
+    );
+};
 
 const Modern_Furniture = () => {
     const [openDialog, setOpenDialog] = useState(false);
+    const [inStock, setInStock] = useState(true);
+
+    const handleToggleInStock = () => setInStock((prev) => !prev);
 
     const handleOpen = () => setOpenDialog(true);
     const handleClose = () => setOpenDialog(false);
@@ -41,7 +60,7 @@ const Modern_Furniture = () => {
                                 gap: "8px"
                             }}
                         >
-                          🏙️ Add Modern Item 
+                            🏙️ Add Modern Item
                         </Typography>
 
                         <Button
@@ -89,20 +108,42 @@ const Modern_Furniture = () => {
                                         margin="normal"
                                     />
 
+                                    <br /><br />
+                                    <input type="file" name="image" required />
 
 
                                     <Field
                                         as={TextField}
-                                        name="path"
-                                        label="Item Path"
-                                        placeholder="e.g., /chair"
+                                        name="discount price"
+                                        label="Discount Price"
+                                        placeholder="e.g., $ 200"
                                         fullWidth
                                         variant="outlined"
                                         margin="normal"
                                     />
-                                    <br /><br />
 
-                                    <input type="file" name="image" required />
+                                    <Field
+                                        as={TextField}
+                                        name="original price"
+                                        label="Original Price"
+                                        placeholder="e.g., $ 300"
+                                        fullWidth
+                                        variant="outlined"
+                                        margin="normal"
+                                    />
+
+                                    <Field name="inStock" component={SwitchField} label="In Stock" />
+
+                                    <Field
+                                        as={TextField}
+                                        name="description"
+                                        label="Description"
+                                        fullWidth
+                                        variant="outlined"
+                                        margin="normal"
+                                    />
+
+
 
                                     <Box textAlign="center" mt={2}>
                                         <button
@@ -132,12 +173,15 @@ const Modern_Furniture = () => {
                         >
                             <thead>
                                 <tr style={{ backgroundColor: "#c8f889ff", height: "50px" }}>
-                                    <th style={{ padding: "12px" }}>No</th>
-                                    <th style={{ padding: "12px" }}>Item Image</th>
-                                    <th style={{ padding: "12px" }}>Item Name</th>
-                                    <th style={{ padding: "12px" }}>Item Path</th>
-                                    <th style={{ padding: "12px" }}>Remove</th>
-                                    <th style={{ padding: "12px" }}>Change</th>
+                                    <th style={{ fontSize: "14px", padding: "12px" }}>No</th>
+                                    <th style={{ fontSize: "14px", padding: "12px" }}>Item Name</th>
+                                    <th style={{ fontSize: "14px", padding: "12px" }}>Item Image</th>
+                                    <th style={{ fontSize: "14px", padding: "12px" }}>Discount Price</th>
+                                    <th style={{ fontSize: "14px", padding: "12px" }}>Original Price</th>
+                                    <th style={{ fontSize: "14px", padding: "12px" }}>Stock Availability</th>
+                                    <th style={{ fontSize: "14px", padding: "12px" }}>Description</th>
+                                    <th style={{ fontSize: "14px", padding: "12px" }}>Remove</th>
+                                    <th style={{ fontSize: "14px", padding: "12px" }}>Change</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -150,11 +194,16 @@ const Modern_Furniture = () => {
                                     }}
                                 >
                                     <td style={{ padding: "12px" }}>1</td>
+                                    <td style={{ padding: "12px" }}>Chair</td>
                                     <td style={{ padding: "12px" }}>
                                         <img src="https://via.placeholder.com/80x50" alt="Sample" />
                                     </td>
-                                    <td style={{ padding: "12px" }}>Chair</td>
-                                    <td style={{ padding: "12px" }}>/chair</td>
+                                    <td style={{ padding: "12px" }}>$ 230</td>
+                                    <td style={{ padding: "12px" }}>$ 300</td>
+                                    <td style={{ padding: "12px" }}>
+                                        <Switch checked={inStock} onChange={handleToggleInStock} color="primary" />
+                                    </td>
+                                    <td style={{ padding: "12px", fontSize: "14px" }}>A sleek, durable chair designed for everyday comfort.</td>
                                     <td style={{ padding: "12px" }}>
                                         <Button size="small" variant="outlined" color="error">
                                             Remove

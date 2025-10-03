@@ -24,7 +24,7 @@ import SitemapPage from './pages/SitemapPage ';
 import ShippingAndReturns from './pages/ShippingAndReturns';
 import RugsAndMats from './pages/RugsAndMats';
 import Dashboard from './admin/Dashboard';
-import Header1 from './admin/Header1';
+import Header1 from './admin/Offer';
 import CreateForm from './pages/CreateForm';
 import NavigationMenu from './admin/NavigationMenu';
 
@@ -36,6 +36,7 @@ import Modern_Furniture from './admin/Modern_Furniture';
 import Classic_Furniture from './admin/Classic_Furniture';
 import Rustic_Furniture from './admin/Rustic_Furniture';
 import AppointmentPage from './pages/AppointmentPage';
+import Specific_item from './admin/Specific_item';
 
 
 
@@ -45,13 +46,13 @@ const App = () => {
     <>
       <Router>
 
-        <Header />
+        {/* <Header /> */}
 
         <Switch>
 
           {/* ============Website Router start================ */}
 
-          <Route exact path='/'>
+          {/* <Route exact path='/'>
             <Home />
           </Route>
 
@@ -63,15 +64,15 @@ const App = () => {
             <Furniture />
           </Route>
 
-          <Route path='/modernfurniture'> 
+          <Route path='/modernfurniture'>
             <ModernFurniture></ModernFurniture>
           </Route>
 
-          <Route path='/classicfurniture'> 
+          <Route path='/classicfurniture'>
             <ClassicFurniture></ClassicFurniture>
           </Route>
 
-          <Route path='/rusticfurniture'> 
+          <Route path='/rusticfurniture'>
             <RusticFurniture></RusticFurniture>
           </Route>
 
@@ -122,7 +123,7 @@ const App = () => {
 
           <Route path='/shippingandreturn'>
             <ShippingAndReturns />
-          </Route>
+          </Route> */}
 
           {/* ============Website Router end================ */}
 
@@ -140,7 +141,7 @@ const App = () => {
 
           {/* ==============DashBoard Router start=============== */}
 
-          {/* <Route exact path='/'>
+          <Route exact path='/'>
             <Dashboard></Dashboard>
           </Route>
 
@@ -164,9 +165,13 @@ const App = () => {
             <Rustic_Furniture></Rustic_Furniture>
           </Route>
 
+          <Route path='/specific_item'>
+            <Specific_item></Specific_item>
+          </Route>
+
           <Route path='/bestsellerproduct'>
             <BestsellerProduct></BestsellerProduct>
-          </Route> */}
+          </Route>
 
           {/* ==============DashBoard Router end=============== */}
 
@@ -174,7 +179,7 @@ const App = () => {
         </Switch>
 
 
-        <Footer />
+        {/* <Footer /> */}
 
       </Router>
 

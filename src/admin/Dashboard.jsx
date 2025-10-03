@@ -20,6 +20,7 @@ import CategoryIcon from '@mui/icons-material/Category';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import LogoutIcon from '@mui/icons-material/Logout';
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
+import BedroomParentIcon from '@mui/icons-material/BedroomParent';
 import Collapse from '@mui/material/Collapse';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -35,6 +36,7 @@ const Dashboard = ({ children }) => {
     <LocalOfferIcon sx={{ fontSize: "32px" }} />,
     <DoubleArrowIcon sx={{ fontSize: "32px" }} />,
     <CategoryIcon sx={{ fontSize: "32px" }} />,
+    <BedroomParentIcon sx={{ fontSize: "32px" }} />,
     <StorefrontIcon sx={{ fontSize: "32px" }} />
   ];
 
@@ -43,6 +45,7 @@ const Dashboard = ({ children }) => {
     { name: "Offer Section", path: "/offersection" },
     { name: "Navigation Menu", path: "/navmenu" },
     { name: "Furniture By Category" }, // dropdown
+    {name:"Specific Items",path:"/specific_item"},
     { name: "Best Seller", path: "/bestsellerproduct" }
   ];
 
