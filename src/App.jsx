@@ -37,6 +37,8 @@ import Classic_Furniture from './admin/Classic_Furniture';
 import Rustic_Furniture from './admin/Rustic_Furniture';
 import AppointmentPage from './pages/AppointmentPage';
 import Specific_item from './admin/Specific_item';
+import FurnitureManager from './admin/FurnitureManager';
+import CartPage from './pages/CartPage';
 
 
 
@@ -52,7 +54,7 @@ const App = () => {
 
           {/* ============Website Router start================ */}
 
-          {/* <Route exact path='/'>
+          <Route exact path='/'>
             <Home />
           </Route>
 
@@ -109,6 +111,10 @@ const App = () => {
             <EventPage />
           </Route>
 
+          <Route path='/cartpage'>
+            <CartPage></CartPage>
+          </Route>
+
           <Route path='/featuredProject'>
             <FeaturedProject />
           </Route>
@@ -123,7 +129,7 @@ const App = () => {
 
           <Route path='/shippingandreturn'>
             <ShippingAndReturns />
-          </Route> */}
+          </Route>
 
           {/* ============Website Router end================ */}
 
@@ -141,37 +147,29 @@ const App = () => {
 
           {/* ==============DashBoard Router start=============== */}
 
-          <Route exact path='/'>
-            <Dashboard></Dashboard>
-          </Route>
+            {/* <Route exact path='/'>
+              <Dashboard></Dashboard>
+            </Route>
 
-          <Route path='/offersection'>
-            <Header1></Header1>
-          </Route>
+            <Route path='/offersection'>
+              <Header1></Header1>
+            </Route>
 
-          <Route path='/navmenu'>
-            <NavigationMenu></NavigationMenu>
-          </Route>
+            <Route path='/navmenu'>
+              <NavigationMenu></NavigationMenu>
+            </Route>
 
-          <Route path='/moderndesign'>
-            <Modern_Furniture></Modern_Furniture>
-          </Route>
+            <Route path='/furniturecategory'>
+            <FurnitureManager></FurnitureManager>
+            </Route>
 
-           <Route path='/classicdesign'>
-            <Classic_Furniture></Classic_Furniture>
-          </Route>
+            <Route path='/specific_item'>
+              <Specific_item></Specific_item>+
+            </Route>
 
-           <Route path='/rusticdesign'>
-            <Rustic_Furniture></Rustic_Furniture>
-          </Route>
-
-          <Route path='/specific_item'>
-            <Specific_item></Specific_item>
-          </Route>
-
-          <Route path='/bestsellerproduct'>
-            <BestsellerProduct></BestsellerProduct>
-          </Route>
+            <Route path='/bestsellerproduct'>
+              <BestsellerProduct></BestsellerProduct>
+            </Route> */}
 
           {/* ==============DashBoard Router end=============== */}
 
@@ -184,8 +182,17 @@ const App = () => {
       </Router>
 
 
+              {/* <Route path='/moderndesign'>
+            <Modern_Furniture></Modern_Furniture>
+          </Route>
 
+           <Route path='/classicdesign'>
+            <Classic_Furniture></Classic_Furniture>
+          </Route>
 
+           <Route path='/rusticdesign'>
+            <Rustic_Furniture></Rustic_Furniture>
+          </Route> */}
 
     </>
   )

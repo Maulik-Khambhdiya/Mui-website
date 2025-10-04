@@ -64,7 +64,7 @@ const itemData = [
     title: 'Bed',
     product: 'Unique Wooden Bed',
     price: '$ 100',
-    button: <Button className='btn' sx={{ fontWeight: "500", textTransform: "capitalize", width: "100%", fontSize: "15px", color: "black", border: "1px solid black", backgroundColor: "white", borderRadius: "0", ":hover": { backgroundColor: "black", color: "white" } }} >Add to Cart</Button>
+    button: <Button href='/cartpage' className='btn' sx={{ fontWeight: "500", textTransform: "capitalize", width: "100%", fontSize: "15px", color: "black", border: "1px solid black", backgroundColor: "white", borderRadius: "0", ":hover": { backgroundColor: "black", color: "white" } }} >Add to Cart</Button>
   },
   {
     img: img2,
