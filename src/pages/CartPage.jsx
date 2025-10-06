@@ -1,94 +1,61 @@
-// src/pages/CartPage.jsx
-import React, { useState } from "react";
-import { Container, Typography, Grid, Card, CardContent, CardMedia, Button, IconButton, TextField } from "@mui/material";
-import DeleteIcon from '@mui/icons-material/Delete';
+import React from "react";
+import { Box, Typography, Button } from "@mui/material";
+import { useHistory } from "react-router-dom";
 
 const CartPage = () => {
-  // Sample cart data (frontend only)
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: "Modern Sofa",
-      price: 499.99,
-      quantity: 1,
-      image: "https://via.placeholder.com/150", // replace with actual image URL
-    },
-    {
-      id: 2,
-      name: "Classic Armchair",
-      price: 299.99,
-      quantity: 2,
-      image: "https://via.placeholder.com/150",
-    },
-  ]);
-
-  // Handle quantity change
-  const handleQuantityChange = (id, value) => {
-    const updatedCart = cartItems.map(item =>
-      item.id === id ? { ...item, quantity: Number(value) } : item
-    );
-    setCartItems(updatedCart);
-  };
-
-  // Handle remove item
-  const handleRemoveItem = (id) => {
-    const updatedCart = cartItems.filter(item => item.id !== id);
-    setCartItems(updatedCart);
-  };
-
-  // Calculate total
-  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  const history = useHistory();
 
   return (
-    <Container sx={{ mt: 4 }}>
-      <Typography variant="h4" gutterBottom>
-        Your Cart
+    <Box
+      sx={{
+        padding: "60px 20px",
+        textAlign: "center",
+        backgroundColor: "#f7f7f7",
+        minHeight: "100vh",
+      }}
+    >
+      <Typography
+        variant="h4"
+        sx={{
+          fontWeight: "bold",
+          fontFamily: "sans-serif",
+          marginBottom: "20px",
+        }}
+      >
+        🛒 Your Shopping Cart
       </Typography>
-      {cartItems.length === 0 ? (
-        <Typography variant="h6">Your cart is empty.</Typography>
-      ) : (
-        <>
-          <Grid container spacing={3}>
-            {cartItems.map((item) => (
-              <Grid item xs={12} md={6} key={item.id}>
-                <Card sx={{ display: "flex", alignItems: "center" }}>
-                  <CardMedia
-                    component="img"
-                    sx={{ width: 150, height: 150, objectFit: "cover" }}
-                    image={item.image}
-                    alt={item.name}
-                  />
-                  <CardContent sx={{ flex: 1 }}>
-                    <Typography variant="h6">{item.name}</Typography>
-                    <Typography variant="body1">${item.price.toFixed(2)}</Typography>
-                    <TextField
-                      type="number"
-                      label="Quantity"
-                      size="small"
-                      value={item.quantity}
-                      onChange={(e) => handleQuantityChange(item.id, e.target.value)}
-                      inputProps={{ min: 1 }}
-                      sx={{ width: 100, mt: 1 }}
-                    />
-                  </CardContent>
-                  <IconButton color="error" onClick={() => handleRemoveItem(item.id)}>
-                    <DeleteIcon />
-                  </IconButton>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
 
-          <Typography variant="h5" sx={{ mt: 4 }}>
-            Total: ${totalPrice.toFixed(2)}
-          </Typography>
+      <Typography
+        variant="body1"
+        sx={{
+          fontFamily: "sans-serif",
+          color: "#555",
+          fontSize: "18px",
+          marginBottom: "30px",
+        }}
+      >
+        Your cart is currently empty. Start adding your favorite furniture!
+      </Typography>
 
-          <Button variant="contained" color="primary" sx={{ mt: 2 }}>
-            Proceed to Checkout
-          </Button>
-        </>
-      )}
-    </Container>
+      <Button
+        variant="contained"
+        sx={{
+          backgroundColor: "black",
+          color: "white",
+          padding: "10px 25px",
+          borderRadius: "8px",
+          textTransform: "none",
+          fontSize: "16px",
+          fontFamily: "sans-serif",
+          "&:hover": {
+            backgroundColor: "#333",
+          },
+        }}
+        onClick={() => history.push("/")}
+      >
+        Continue Shopping
+      </Button>
+    </Box>
   );
 };
 

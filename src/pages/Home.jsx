@@ -54,9 +54,40 @@ import img10 from '../image/frame.jpg';
 import img11 from '../image/bookstand.jpg';
 import img12 from '../image/balcony.jpg';
 import { Link } from '@mui/material';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 
-
+const products = [
+  {
+    id: 1,
+    name: "Magical Lunar Lamp",
+    price: 250,
+    oldPrice: 300,
+    image: lamphoveredImage,
+  },
+  {
+    id: 2,
+    name: "Coconut Shape Chair",
+    price: 450,
+    oldPrice: 500,
+    image: cocochair,
+  },
+  {
+    id: 3,
+    name: "Cat Wall-Mirror",
+    price: 150,
+    oldPrice: 200,
+    image: wallmirror,
+  },
+  {
+    id: 4,
+    name: "Ascent Staircase",
+    price: 850,
+    oldPrice: 1000,
+    image: staircase,
+  },
+  // Add more products here
+];
 
 const itemData = [
   {
@@ -145,8 +176,8 @@ const itemData = [
   },
 ];
 
-
 const Home = () => {
+  const history = useHistory()
 
 
   const herosettings = {
@@ -432,7 +463,32 @@ const Home = () => {
         <Container>
           <Grid container spacing={2} >
 
-            <Grid size={{ lg: 3, xs: 12, md: 6, sm: 6 }}>
+
+            {products.map((product) => (
+
+
+              <Grid size={{ lg: 3, xs: 12, md: 6, sm: 6 }}>
+                <Box sx={{ boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)" }}>
+
+                  <img src={product.image} alt="" style={{ width: "100%" }} />
+
+
+                  <Box className="image-detail" sx={{ padding: '10px 15px ' }}>
+
+                    <h2 style={{ paddingBottom: "10px", fontFamily: "sans-serif", fontSize: "20px" }}>{product.name} </h2>
+
+                    <span style={{ display: 'block' }}><p style={{ textDecoration: 'line-through', color: 'grey', fontWeight: "500", fontSize: '16px', display: 'inline-block', paddingRight: "10px" }}>${product.oldPrice}</p>${product.price}</span>
+
+                    <button onClick={() => history.push('/buynow',{product})}
+                      className='cart-button' style={{ marginTop: "10px", width: "100%", padding: '10px 15px', backgroundColor: "white", border: "1px solid black", fontFamily: "sans-serif", fontWeight: "bold" }}>Buy Now</button>
+
+                  </Box>
+                </Box>
+              </Grid>
+
+            ))}
+
+            {/* <Grid size={{ lg: 3, xs: 12, md: 6, sm: 6 }}>
               <Box sx={{ boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)" }}>
 
                 <img src={lamphoveredImage} alt="" style={{ width: "100%" }} />
@@ -444,7 +500,7 @@ const Home = () => {
 
                   <span style={{ display: 'block' }}><p style={{ textDecoration: 'line-through', color: 'grey', fontWeight: "500", fontSize: '16px', display: 'inline-block', paddingRight: "10px" }}>$ 300</p> $250</span>
 
-                  <button className='cart-button' style={{ marginTop: "10px", width: "100%", padding: '10px 15px', backgroundColor: "white", border: "1px solid black", fontFamily: "sans-serif", fontWeight: "bold" }}>Add To Cart</button>
+                  <button className='cart-button' style={{ marginTop: "10px", width: "100%", padding: '10px 15px', backgroundColor: "white", border: "1px solid black", fontFamily: "sans-serif", fontWeight: "bold" }}>Buy Now</button>
 
                 </Box>
               </Box>
@@ -462,7 +518,7 @@ const Home = () => {
 
                   <span style={{ display: 'block' }}><p style={{ textDecoration: 'line-through', color: 'grey', fontWeight: "500", fontSize: '16px', display: 'inline-block', paddingRight: "10px" }}>$ 500</p> $450</span>
 
-                  <button className='cart-button' style={{ marginTop: "10px", width: "100%", padding: '10px 15px', backgroundColor: "white", border: "1px solid black", fontFamily: "sans-serif", fontWeight: "bold" }}>Add To Cart</button>
+                  <button className='cart-button' style={{ marginTop: "10px", width: "100%", padding: '10px 15px', backgroundColor: "white", border: "1px solid black", fontFamily: "sans-serif", fontWeight: "bold" }}>Buy Now</button>
 
                 </Box>
               </Box>
@@ -480,7 +536,7 @@ const Home = () => {
 
                   <span style={{ display: 'block' }}><p style={{ textDecoration: 'line-through', color: 'grey', fontWeight: "500", fontSize: '16px', display: 'inline-block', paddingRight: "10px" }}>$ 200</p> $150</span>
 
-                  <button className='cart-button' style={{ marginTop: "10px", width: "100%", padding: '10px 15px', backgroundColor: "white", border: "1px solid black", fontFamily: "sans-serif", fontWeight: "bold" }}>Add To Cart</button>
+                  <button className='cart-button' style={{ marginTop: "10px", width: "100%", padding: '10px 15px', backgroundColor: "white", border: "1px solid black", fontFamily: "sans-serif", fontWeight: "bold" }}>Buy Now</button>
 
                 </Box>
               </Box>
@@ -498,11 +554,11 @@ const Home = () => {
 
                   <span style={{ display: 'block' }}><p style={{ textDecoration: 'line-through', color: 'grey', fontWeight: "500", fontSize: '16px', display: 'inline-block', paddingRight: "10px" }}>$ 1000</p> $850</span>
 
-                  <button className='cart-button' style={{ marginTop: "10px", width: "100%", padding: '10px 15px', backgroundColor: "white", border: "1px solid black", fontFamily: "sans-serif", fontWeight: "bold" }}>Add To Cart</button>
+                  <button className='cart-button' style={{ marginTop: "10px", width: "100%", padding: '10px 15px', backgroundColor: "white", border: "1px solid black", fontFamily: "sans-serif", fontWeight: "bold" }}>Buy Now</button>
 
                 </Box>
               </Box>
-            </Grid>
+            </Grid> */}
 
           </Grid>
 
@@ -525,7 +581,7 @@ const Home = () => {
               <h1 style={{ fontSize: "45px" }}>ONLINE DESIGN SERVICES</h1>
               <p style={{ padding: "20px 0", fontSize: "18px", fontWeight: "500" }}>Get free help from our certified lighting design experts with any lighting projects</p>
 
-             <Link href='/appointmentpage'><Button variant="contained" sx={{ fontSize: "15px", backgroundColor: "black", borderRadius: "0", padding: "10px 25px", ":hover": { backgroundColor: "white", color: "black" } }}>Make An Appointment</Button></Link> 
+              <Link href='/appointmentpage'><Button variant="contained" sx={{ fontSize: "15px", backgroundColor: "black", borderRadius: "0", padding: "10px 25px", ":hover": { backgroundColor: "white", color: "black" } }}>Make An Appointment</Button></Link>
             </Grid>
           </Grid>
 
@@ -736,7 +792,7 @@ const Home = () => {
                       style={{ width: "100%" }}
                     /></a>
                   <ImageListItemBar position="below" sx={{ fontFamily: "robot", fontWeight: "600", padding: "0 0 0 15px" }} title={item.product} />
-                  <ImageListItemBar sx={{ padding: "0 0 0 15px"}} position="below" title={item.price} />
+                  <ImageListItemBar sx={{ padding: "0 0 0 15px" }} position="below" title={item.price} />
                   <ImageListItemBar position="below" title={item.button} />
                 </ImageListItem>
               ))}

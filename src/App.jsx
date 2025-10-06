@@ -39,6 +39,7 @@ import AppointmentPage from './pages/AppointmentPage';
 import Specific_item from './admin/Specific_item';
 import FurnitureManager from './admin/FurnitureManager';
 import CartPage from './pages/CartPage';
+import BuyNowPage from './pages/BuyNowPage';
 
 
 
@@ -113,6 +114,10 @@ const App = () => {
 
           <Route path='/cartpage'>
             <CartPage></CartPage>
+          </Route>
+
+           <Route path='/buynow'>
+            <BuyNowPage></BuyNowPage>
           </Route>
 
           <Route path='/featuredProject'>
