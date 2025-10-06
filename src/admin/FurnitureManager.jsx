@@ -28,13 +28,22 @@ const SwitchField = ({ field, form, label }) => (
 );
 
 const FurnitureManager = () => {
-  
+
 
   const [openDialog, setOpenDialog] = useState(false);
   const [items, setItems] = useState([]);
 
   const handleOpen = () => setOpenDialog(true);
-  const handleClose = () => setOpenDialog(false);
+  const handleClose = () => {
+
+    
+
+   
+   
+    setOpenDialog(false)
+
+
+  }
 
   return (
     <Dashboard>
@@ -76,7 +85,7 @@ const FurnitureManager = () => {
                 originalPrice: "",
                 description: "",
                 inStock: true,
-                image: "", // store image URL here
+                image: "",
               }}
               onSubmit={(values, { resetForm }) => {
                 setItems([...items, { id: items.length + 1, ...values }]);
@@ -85,7 +94,7 @@ const FurnitureManager = () => {
               }}
             >
               {({ values, setFieldValue }) => (
-                <Form style={{ marginTop: 10 }}>
+                <Form encType="multipart/form-data" style={{ marginTop: 10 }}>
                   {/* Category */}
                   <Field
                     as={TextField}

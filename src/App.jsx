@@ -49,7 +49,7 @@ const App = () => {
     <>
       <Router>
 
-        {/* <Header /> */}
+        <Header />
 
         <Switch>
 
@@ -152,29 +152,29 @@ const App = () => {
 
           {/* ==============DashBoard Router start=============== */}
 
-            {/* <Route exact path='/'>
-              <Dashboard></Dashboard>
-            </Route>
+          {/* <Route exact path='/'>
+            <Dashboard></Dashboard>
+          </Route>
 
-            <Route path='/offersection'>
-              <Header1></Header1>
-            </Route>
+          <Route path='/offersection'>
+            <Header1></Header1>
+          </Route>
 
-            <Route path='/navmenu'>
-              <NavigationMenu></NavigationMenu>
-            </Route>
+          <Route path='/navmenu'>
+            <NavigationMenu></NavigationMenu>
+          </Route>
 
-            <Route path='/furniturecategory'>
+          <Route path='/furniturecategory'>
             <FurnitureManager></FurnitureManager>
-            </Route>
+          </Route>
 
-            <Route path='/specific_item'>
-              <Specific_item></Specific_item>+
-            </Route>
+          <Route path='/specific_item'>
+            <Specific_item></Specific_item>+
+          </Route>
 
-            <Route path='/bestsellerproduct'>
-              <BestsellerProduct></BestsellerProduct>
-            </Route> */}
+          <Route path='/bestsellerproduct'>
+            <BestsellerProduct></BestsellerProduct>
+          </Route> */}
 
           {/* ==============DashBoard Router end=============== */}
 
@@ -182,12 +182,12 @@ const App = () => {
         </Switch>
 
 
-        {/* <Footer /> */}
+        <Footer />
 
       </Router>
 
 
-              {/* <Route path='/moderndesign'>
+      {/* <Route path='/moderndesign'>
             <Modern_Furniture></Modern_Furniture>
           </Route>
 

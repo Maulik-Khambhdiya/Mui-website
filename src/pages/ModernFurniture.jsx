@@ -347,6 +347,8 @@ const ModernFurniture = () => {
 
                     <Grid container spacing={2}>
                         <Grid size={{ lg: 3, md: 3, sm: 6, xs: 6 }}>
+
+
                             <Box sx={{
                                 padding: "18px",
                                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -441,10 +443,6 @@ const ModernFurniture = () => {
 
 
                     </Grid>
-
-
-
-
 
                 </Box>
 
@@ -582,7 +580,7 @@ const ModernFurniture = () => {
 
 
 
-                 {/* kitchen section start  */}
+                {/* kitchen section start  */}
 
                 <Box sx={{ textAlign: 'center', padding: '10px 0' }}>
                     <Typography
