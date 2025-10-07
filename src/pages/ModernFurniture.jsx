@@ -1,5 +1,5 @@
-import React from 'react'
-import { Box, Container, Grid, Typography } from '@mui/material'
+import React, { useEffect, useState } from 'react'
+import { Box, Container, Grid, ListItem, Typography } from '@mui/material'
 import ceiling1 from '../image/ceiling1.jpg';
 import ceiling2 from '../image/ceiling2.jpg';
 import ceiling3 from '../image/ceiling3.jpg';
@@ -17,6 +17,7 @@ import walllight6 from '../image/walllight6.jpg';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import { Link as RouterLink } from 'react-router-dom';
+import axios from 'axios';
 
 
 function handleClick(event) {
@@ -26,6 +27,34 @@ function handleClick(event) {
 
 
 const ModernFurniture = () => {
+
+    // const [ini, setIni] = useState({
+    //     category: "modern",
+    //     name: "",
+    //     discountPrice: "",
+    //     originalPrice: "",
+    //     description: "",
+    //     inStock: true,
+    //     description: "",
+    //     images: []
+    // })
+    const [list, setList] = useState([])
+
+
+    const viewData = () => {
+        axios.get("http://localhost:3000/furnituremanager/")
+            .then((res) => {
+                setList(res.data.data)
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
+
+
+    useEffect(() => {
+        viewData()
+    }, [])
     return (
         <>
             <Container>
@@ -91,33 +120,43 @@ const ModernFurniture = () => {
                 <Box sx={{ padding: '10px 0' }}>
 
                     <Grid container spacing={2}>
-                        <Grid size={{ lg: 3, md: 3, sm: 6, xs: 6 }}>
-                            <Box sx={{
-                                padding: "18px",
-                                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                                ":hover": {
-                                    transform: "scale(1.03)",
-                                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
-                                    backgroundColor: "#f9f9f9",
-                                    cursor: "pointer",
-                                }
-                            }}>
-                                <img src={ceiling1} alt="" style={{ width: "100%", transition: "transform 0.3s ease" }} />
-                                <Box className="image-detail" sx={{ padding: '10px 15px ' }}>
-                                    <h2 style={{
-                                        fontSize: "18px",
-                                        paddingBottom: "10px", fontFamily: "sans-serif"
-                                    }}>Gypsum Ceiling Designs</h2>
+                        {
+                            list.map((item, index) => (
+                                <Grid size={{ lg: 3, md: 3, sm: 6, xs: 6 }}>
+                                    <Box sx={{
+                                        padding: "18px",
+                                        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                                        ":hover": {
+                                            transform: "scale(1.03)",
+                                            boxShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
+                                            backgroundColor: "#f9f9f9",
+                                            cursor: "pointer",
+                                        }
+                                    }}>
+                                        <img src={item.image} alt="" style={{ width: "100%", transition: "transform 0.3s ease" }} />
+                                        <Box className="image-detail" sx={{ padding: '10px 15px ' }}>
+                                            <h2 style={{
+                                                display: "inline-block",
+                                                fontSize: "18px",
+                                                paddingBottom: "10px", fontFamily: "sans-serif"
+                                            }}>{item.name}</h2>
 
-                                    <span style={{ display: 'block' }}>
-                                        <p style={{ textDecoration: 'line-through', color: 'grey', fontWeight: "500", fontSize: '16px', display: 'inline-block', paddingRight: "10px" }}>$ 159</p> $102
-                                    </span>
-                                    <button className='cart-button' style={{ marginTop: "10px", width: "100%", padding: '10px 15px', backgroundColor: "white", border: "1px solid black", fontFamily: "sans-serif", fontWeight: "bold" }}>Add To Cart</button>
-                                </Box>
-                            </Box>
-                        </Grid>
+                                            
 
-                        <Grid size={{ lg: 3, md: 3, sm: 6, xs: 6 }}>
+                                            <br />
+
+                                            <span style={{ display: 'block' }}>
+                                                <p style={{ textDecoration: 'line-through', color: 'grey', fontWeight: "500", fontSize: '16px', display: 'inline-block', paddingRight: "10px" }}>$ {item.originalPrice}</p> ${item.discountPrice}
+                                            </span>
+                                            <button className='cart-button' style={{ marginTop: "10px", width: "100%", padding: '10px 15px', backgroundColor: "white", border: "1px solid black", fontFamily: "sans-serif", fontWeight: "bold" }}>Add To Cart</button>
+                                        </Box>
+                                    </Box>
+                                </Grid>
+                            ))
+                        }
+
+
+                        {/* <Grid size={{ lg: 3, md: 3, sm: 6, xs: 6 }}>
                             <Box sx={{
                                 padding: "18px",
                                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -181,9 +220,7 @@ const ModernFurniture = () => {
                                     <button className='cart-button' style={{ marginTop: "10px", width: "100%", padding: '10px 15px', backgroundColor: "white", border: "1px solid black", fontFamily: "sans-serif", fontWeight: "bold" }}>Add To Cart</button>
                                 </Box>
                             </Box>
-                        </Grid>
-
-
+                        </Grid> */}
 
                     </Grid>
 
@@ -365,6 +402,10 @@ const ModernFurniture = () => {
                                         fontSize: "18px",
                                         paddingBottom: "10px", fontFamily: "sans-serif"
                                     }}>Gypsum Ceiling Designs</h2>
+
+
+
+
 
                                     <span style={{ display: 'block' }}>
                                         <p style={{ textDecoration: 'line-through', color: 'grey', fontWeight: "500", fontSize: '16px', display: 'inline-block', paddingRight: "10px" }}>$ 159</p> $102

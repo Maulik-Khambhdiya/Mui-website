@@ -136,52 +136,42 @@ const Header = () => {
 
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZDNkYTIyOTQyYTA0OTRhNGQ5ZGFmMCIsImlhdCI6MTc1ODcxNDQxNn0.wMt0i29Uw7i6yixucpWqQ_M9uWg3YiQwjwJg91INvnU'
 
-  useEffect(() => {
-
-    const savedRole = localStorage.getItem('role');
-    if (savedRole) {
-      setRole(savedRole);
-    }
-  }, []);
-
   const handleLogin = (values, { resetForm }) => {
-    try {
-
-      axios.post("http://localhost:3000/users/signup/login", values, {
-        headers:
-        {
-          Authorization: token
-        }
-      })
-        .then(() => {
-          console.log("Login Successful");
-          resetForm()
-          history.push('/')
-        })
-        .catch((error) => {
-          console.log(error);
-
-        })
-
-      const userRole = 'user'
-
-      localStorage.setItem('role', userRole);
-
-
-      setRole(userRole);
-      if (userRole === "admin") {
-        history.push('/dashboard');
-      } else {
-        history.push('/');
+    axios.post("http://localhost:3000/users/signup/login", values, {
+      headers: {
+        Authorization: token
       }
+    })
+      .then((res) => {
+        console.log("Login Successful");
 
-    } catch (error) {
-      console.error("Login failed:", error);
-      alert("Login failed. Please check credentials.");
-    }
+        const userRole = res.data.loginUser.role;
+  
 
+        if (userRole) {
+          console.log("===>", userRole);
 
-  }
+          setRole(userRole);
+          localStorage.setItem('role', userRole);
+
+          if (userRole === "admin") {
+            history.push('/dashboard');
+          } else {
+            history.push('/');
+          }
+        } else {
+          console.error("Role not received from backend");
+        }
+
+        resetForm();
+        setOpen(false);
+      })
+      .catch((error) => {
+        console.log("Login error:", error);
+        alert("Login failed");
+      });
+  };
+
   //------------------end handle login------------------------------------//
 
 

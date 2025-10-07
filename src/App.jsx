@@ -116,7 +116,7 @@ const App = () => {
             <CartPage></CartPage>
           </Route>
 
-           <Route path='/buynow'>
+          <Route path='/buynow'>
             <BuyNowPage></BuyNowPage>
           </Route>
 
@@ -152,7 +152,7 @@ const App = () => {
 
           {/* ==============DashBoard Router start=============== */}
 
-          {/* <Route exact path='/'>
+          <Route exact path='/dashboard'>
             <Dashboard></Dashboard>
           </Route>
 
@@ -174,7 +174,7 @@ const App = () => {
 
           <Route path='/bestsellerproduct'>
             <BestsellerProduct></BestsellerProduct>
-          </Route> */}
+          </Route>
 
           {/* ==============DashBoard Router end=============== */}
 
