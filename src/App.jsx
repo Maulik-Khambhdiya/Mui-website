@@ -2,9 +2,7 @@ import './App.css';
 import React from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Header from './pages/Header';
 import Home from './pages/Home';
-import Footer from './pages/Footer';
 import {
   BrowserRouter as Router,
   Switch,
@@ -43,17 +41,14 @@ import BuyNowPage from './pages/BuyNowPage';
 
 
 
+
 const App = () => {
 
   return (
     <>
       <Router>
-
-        <Header />
-
         <Switch>
-
-          {/* ============Website Router start================ */}
+          {/* ============ Public Routes start================ */}
 
           <Route exact path='/'>
             <Home />
@@ -136,23 +131,18 @@ const App = () => {
             <ShippingAndReturns />
           </Route>
 
-          {/* ============Website Router end================ */}
 
 
 
-          {/* ----------------------------------------------------------- */}
 
-          {/* <Route path='/admin'>
-            <Admin />
-          </Route> */}
 
-          {/* ----------------------------------------------------------- */}
-
+          {/* ============Public Routes end================ */}
 
 
           {/* ==============DashBoard Router start=============== */}
 
-          <Route exact path='/dashboard'>
+
+          <Route path='/dashboard'>
             <Dashboard></Dashboard>
           </Route>
 
@@ -175,16 +165,25 @@ const App = () => {
           <Route path='/bestsellerproduct'>
             <BestsellerProduct></BestsellerProduct>
           </Route>
-
-          {/* ==============DashBoard Router end=============== */}
-
-
         </Switch>
-
-
-        <Footer />
-
       </Router>
+
+
+
+      {/* ==============DashBoard Router end=============== */}
+
+
+
+
+
+
+      {/* ----------------------------------------------------------- */}
+
+      {/* <Route path='/admin'>
+            <Admin />
+          </Route> */}
+
+      {/* ----------------------------------------------------------- */}
 
 
       {/* <Route path='/moderndesign'>

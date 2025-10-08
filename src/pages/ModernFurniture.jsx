@@ -18,6 +18,7 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import { Link as RouterLink } from 'react-router-dom';
 import axios from 'axios';
+import PublicLayout from './PublicLayout';
 
 
 function handleClick(event) {
@@ -57,6 +58,8 @@ const ModernFurniture = () => {
     }, [])
     return (
         <>
+
+        <PublicLayout>
             <Container>
 
                 <Box>
@@ -751,6 +754,8 @@ const ModernFurniture = () => {
                 </Box>
                 {/* Kitchen section end  */}
             </Container >
+
+            </PublicLayout>
         </>
     )
 }

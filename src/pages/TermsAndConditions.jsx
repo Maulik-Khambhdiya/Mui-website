@@ -1,8 +1,11 @@
 import React from 'react';
 import { Box, Container, Typography, Divider } from '@mui/material';
+import PublicLayout from './PublicLayout';
 
 const TermsAndConditions = () => {
   return (
+<>
+    <PublicLayout>
     <Box sx={{ backgroundColor: '#fdfdfd', py: 6 }}>
       <Container maxWidth="md">
         {/* Page Title */}
@@ -92,6 +95,9 @@ const TermsAndConditions = () => {
         </Typography>
       </Container>
     </Box>
+
+    </PublicLayout>
+    </>
   );
 };
 

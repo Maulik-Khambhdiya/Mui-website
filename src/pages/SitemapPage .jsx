@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import { Link as RouterLink } from 'react-router-dom';
+import PublicLayout from './PublicLayout';
 
 
 function handleClick(event) {
@@ -20,6 +21,7 @@ function handleClick(event) {
 const SitemapPage = () => {
     return (
         <>
+        <PublicLayout>
             <Container>
 
                 <Box>
@@ -111,6 +113,8 @@ const SitemapPage = () => {
                     </Container>
                 </Box>
             </Container>
+
+            </PublicLayout>
         </>
     );
 };

@@ -3,6 +3,7 @@ import React from 'react'
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import { Link as RouterLink } from 'react-router-dom';
+import PublicLayout from './PublicLayout';
 
 
 function handleClick(event) {
@@ -16,7 +17,7 @@ function handleClick(event) {
 const Story = () => {
     return (
         <>
-
+<PublicLayout>
             <Container>
                 <Box>
                     <div role="presentation" onClick={handleClick}>
@@ -136,6 +137,8 @@ const Story = () => {
 
                 </Box>
             </Container>
+
+            </PublicLayout>
         </>
     )
 }

@@ -155,6 +155,8 @@ const Header = () => {
           localStorage.setItem('role', userRole);
 
           if (userRole === "admin") {
+            console.log("=========");
+            
             history.push('/dashboard');
           } else {
             history.push('/');

@@ -1,11 +1,15 @@
 import React from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { useHistory } from "react-router-dom";
+import PublicLayout from "./PublicLayout";
 
 const CartPage = () => {
   const history = useHistory();
 
   return (
+<>
+        <PublicLayout>
+        
     <Box
       sx={{
         padding: "60px 20px",
@@ -56,6 +60,8 @@ const CartPage = () => {
         Continue Shopping
       </Button>
     </Box>
+</PublicLayout>
+    </>
   );
 };
 

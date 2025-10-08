@@ -15,6 +15,7 @@ import admin3 from '../image/admin3.jpg'
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import { Link as RouterLink } from 'react-router-dom';
+import PublicLayout from './PublicLayout';
 
 
 function handleClick(event) {
@@ -72,7 +73,10 @@ const quickReviews = [
 
 const CustomerStories = () => {
     return (
-        <><Container>
+        <>
+        
+        <PublicLayout>
+        <Container>
 
             <Box>
                     <div role="presentation" onClick={handleClick}>
@@ -240,6 +244,8 @@ const CustomerStories = () => {
                 </Container>
             </Box>
         </Container>
+
+        </PublicLayout>
         </>
     );
 };

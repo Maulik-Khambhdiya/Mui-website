@@ -3,6 +3,7 @@ import { Box, Typography, Accordion, AccordionSummary, AccordionDetails, Button,
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import { Link as RouterLink } from 'react-router-dom';
+import PublicLayout from './PublicLayout';
 
 
 function handleClick(event) {
@@ -13,6 +14,7 @@ function handleClick(event) {
 const Helppage = () => {
   return (
     <>
+    <PublicLayout>
       <Container>
         <Box>
           <div role="presentation" onClick={handleClick}>
@@ -131,6 +133,7 @@ const Helppage = () => {
           </Box>
         </Box>
       </Container>
+      </PublicLayout>
     </>
 
   );

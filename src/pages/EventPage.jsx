@@ -3,6 +3,7 @@ import { Container, Typography, Grid, Card, CardContent, Button, Box } from '@mu
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import { Link as RouterLink } from 'react-router-dom';
+import PublicLayout from './PublicLayout';
 
 
 function handleClick(event) {
@@ -43,6 +44,8 @@ const events = [
 const EventPage = () => {
     return (
         <>
+
+        <PublicLayout>
         <Container maxWidth="lg" sx={{ py: 8 }}>
 
             <Box>
@@ -122,6 +125,7 @@ const EventPage = () => {
                 ))}
             </Grid>
         </Container>
+        </PublicLayout>
         </>
     )
 }

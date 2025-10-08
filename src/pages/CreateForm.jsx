@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import PublicLayout from './PublicLayout';
 
 
 const CreateForm = () => {
@@ -79,7 +80,11 @@ const CreateForm = () => {
 
 
     return (
-        <> <Box
+
+        <> 
+        
+        <PublicLayout>
+        <Box
             sx={{
 
                 maxWidth: 400,
@@ -196,7 +201,10 @@ const CreateForm = () => {
                     ))
                 }
             </table>
-        </Box></>
+        </Box>
+        
+        </PublicLayout>
+        </>
 
 
 

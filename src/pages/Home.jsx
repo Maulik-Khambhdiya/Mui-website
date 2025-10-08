@@ -55,6 +55,7 @@ import img11 from '../image/bookstand.jpg';
 import img12 from '../image/balcony.jpg';
 import { Link } from '@mui/material';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import PublicLayout from './PublicLayout';
 
 
 const products = [
@@ -190,6 +191,9 @@ const Home = () => {
 
   return (
     <>
+    <PublicLayout>
+
+    
       {/* main start */}
 
 
@@ -836,6 +840,8 @@ const Home = () => {
 
       {/* service section end */}
       {/* main end */}
+
+      </PublicLayout>
     </>
   )
 }

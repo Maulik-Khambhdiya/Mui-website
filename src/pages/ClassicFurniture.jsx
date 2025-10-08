@@ -18,6 +18,7 @@ import walllight6 from '../image/walllight6.jpg';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import { Link as RouterLink } from 'react-router-dom';
+import PublicLayout from './PublicLayout';
 
 
 function handleClick(event) {
@@ -29,6 +30,8 @@ function handleClick(event) {
 const ClassicFurniture = () => {
   return (
     <>
+
+    <PublicLayout>
             <Container>
 
                 <Box>
@@ -714,6 +717,8 @@ const ClassicFurniture = () => {
                 </Box>
                 {/* Kitchen section end  */}
             </Container >
+
+            </PublicLayout>
         </>
   )
 }

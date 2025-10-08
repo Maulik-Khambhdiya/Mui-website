@@ -13,6 +13,7 @@ import {
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import { Link as RouterLink } from 'react-router-dom';
+import PublicLayout from './PublicLayout';
 
 
 function handleClick(event) {
@@ -60,6 +61,7 @@ const FeaturedProject = () => {
   return (
 
     <>
+    <PublicLayout>
       <Container sx={{ paddingY: 6 }}>
 
         <Box>
@@ -139,6 +141,7 @@ const FeaturedProject = () => {
           ))}
         </Grid>
       </Container>
+      </PublicLayout>
       </>
       );
 };
