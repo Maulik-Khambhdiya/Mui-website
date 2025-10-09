@@ -38,7 +38,7 @@ const Dashboard = ({ children }) => {
   ];
 
   const arrayName = [
-    { name: "Dashboard", path: "/" },
+    { name: "Dashboard", path: "/dashboard" },
     { name: "Offer Section", path: "/offersection" },
     { name: "Navigation Menu", path: "/navmenu" },
     { name: "Furniture By Category", path: "/furniturecategory" }, 
@@ -137,7 +137,7 @@ const Dashboard = ({ children }) => {
               variant="h6"
               noWrap
               component={RouterLink}
-              to="/productdashboard"
+              to="/dashboard"
               style={{ textDecoration: "none", color: "white" }}
             >
               Student Record Dashboard

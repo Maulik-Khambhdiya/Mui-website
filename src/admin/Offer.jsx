@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Dashboard from './Dashboard';
 import { Formik, Form, Field } from 'formik';
 import {
@@ -16,48 +16,75 @@ import {
 } from '@mui/material';
 import "../admin/Page's CSS/offer.css";
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+import axios from 'axios';
 
 const Offer = () => {
-    // State for each offer type
-    const [headerOffers, setHeaderOffers] = useState([
-        { id: 1, text: 'Buy 1 Get 1 Free on Chairs' },
-    ]);
-    const [heroBanners, setHeroBanners] = useState([
-        { id: 1, imageUrl: null },
-    ]);
-    const [mainBanners, setMainBanners] = useState([
-        { id: 1, imageUrl: null },
-    ]);
+    const [offers, setOffers] = useState([]);
+
     const [openDialog, setOpenDialog] = useState(false);
 
-    // Combine all offers into one array for displaying
-    const combinedOffers = [
-        ...headerOffers.map((offer) => ({ ...offer, type: 'Header Offer' })),
-        ...heroBanners.map((banner) => ({ ...banner, type: 'Hero Banner' })),
-        ...mainBanners.map((banner) => ({ ...banner, type: 'Main Banner' })),
-    ];
+    const combinedOffers = offers.map((offer) => {
+        let typeLabel = "";
+        if (offer.offerType === "headerOffer") typeLabel = "Header Offer";
+        else if (offer.offerType === "heroBanner") typeLabel = "Hero Banner";
+        else if (offer.offerType === "mainBanner") typeLabel = "Main Banner";
+
+        return { ...offer, type: typeLabel };
+    });
+
+
 
     // Handle form submission based on offerType
-    const handleSubmit = (values, { resetForm }) => {
-        if (values.offerType === 'headerOffer') {
-            setHeaderOffers((prev) => [
-                ...prev,
-                { id: prev.length + 1, text: values.text },
-            ]);
-        } else if (values.offerType === 'heroBanner') {
-            setHeroBanners((prev) => [
-                ...prev,
-                { id: prev.length + 1, imageUrl: values.heroBanner },
-            ]);
-        } else if (values.offerType === 'mainBanner') {
-            setMainBanners((prev) => [
-                ...prev,
-                { id: prev.length + 1, imageUrl: values.mainBanner },
-            ]);
+
+
+    const fetchOffers = async () => {
+        try {
+            const response = await axios.get("http://localhost:3000/offer/");
+            setOffers(response.data.data);
+        } catch (error) {
+            console.error("Error fetching offers:", error);
         }
-        resetForm();
-        setOpenDialog(false);
     };
+
+    useEffect(() => {
+        fetchOffers();
+    }, []);
+
+    const handleSubmit = async (values, { resetForm }) => {
+        try {
+            const formData = new FormData();
+            formData.append("offerType", values.offerType);
+
+            if (values.offerType === "headerOffer") {
+                formData.append("text", values.text);
+            } else {
+                const file = values[values.offerType];
+                formData.append("image", file);
+            }
+
+            await axios.post("http://localhost:3000/offer/", formData, {
+                headers: { "Content-Type": "multipart/form-data" },
+            });
+
+            resetForm();
+            setOpenDialog(false);
+            fetchOffers();
+        } catch (error) {
+            console.error("Error adding offer:", error);
+        }
+    };
+
+    const handleDelete = (deleteId) => {
+        axios.delete(`http://localhost:3000/offer/${deleteId}`)
+            .then((res) => {
+                console.log("offer deleted successfully");
+                fetchOffers();
+            })
+            .catch((error) => {
+                console.log(error);
+
+            })
+    }
 
     return (
         <Dashboard>
@@ -92,8 +119,6 @@ const Offer = () => {
                             initialValues={{
                                 offerType: 'headerOffer',
                                 text: '',
-                                heroBanner: null,
-                                mainBanner: null,
                             }}
                             onSubmit={handleSubmit}
                         >
@@ -216,21 +241,7 @@ const Offer = () => {
                                             size="small"
                                             variant="outlined"
                                             color="error"
-                                            onClick={() => {
-                                                if (offer.type === 'Header Offer') {
-                                                    setHeaderOffers((prev) =>
-                                                        prev.filter((o) => o.id !== offer.id)
-                                                    );
-                                                } else if (offer.type === 'Hero Banner') {
-                                                    setHeroBanners((prev) =>
-                                                        prev.filter((b) => b.id !== offer.id)
-                                                    );
-                                                } else if (offer.type === 'Main Banner') {
-                                                    setMainBanners((prev) =>
-                                                        prev.filter((b) => b.id !== offer.id)
-                                                    );
-                                                }
-                                            }}
+                                            onClick={() => handleDelete(offer._id)}
                                         >
                                             Remove
                                         </Button>
