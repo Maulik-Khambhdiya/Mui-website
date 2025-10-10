@@ -34,6 +34,7 @@ import { Field, Form, Formik } from 'formik';
 import CloseIcon from '@mui/icons-material/Close';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import { useCart } from '../context/Cartcontext';
 
 
 
@@ -50,6 +51,7 @@ const pages = [{ page: 'HOME', path: '/' },
 
 const Header = () => {
 
+  const { cartItems } = useCart();
 
   //-----------------------------add to cart drawer start----------------//
   const [cartDrawerOpen, setCartDrawerOpen] = React.useState(false);
@@ -146,7 +148,7 @@ const Header = () => {
         console.log("Login Successful");
 
         const userRole = res.data.loginUser.role;
-  
+
 
         if (userRole) {
           console.log("===>", userRole);
@@ -156,7 +158,7 @@ const Header = () => {
 
           if (userRole === "admin") {
             console.log("=========");
-            
+
             history.push('/dashboard');
           } else {
             history.push('/');
@@ -174,7 +176,22 @@ const Header = () => {
       });
   };
 
+  const [offer, setOffer] = useState([])
   //------------------end handle login------------------------------------//
+  useEffect(() => {
+    viewOffer();
+  }, []);
+
+  const viewOffer = (req, res) => {
+    axios.get("http://localhost:3000/offer/")
+      .then((res) => {
+        setOffer(res.data.data)
+      })
+      .catch((error) => {
+        console.log("offer cann't view");
+
+      })
+  }
 
 
   return (
@@ -189,21 +206,17 @@ const Header = () => {
         <Container maxWidth="xl">
           <div className="slider-container">
             <Slider {...settings}>
-              <div>
-                <h3 style={{ fontFamily: 'sans-serif', fontSize: '12px' }}>Don't Miss Out! 40% OFF All Furniture + Free Delivery</h3>
-              </div>
-              <div>
-                <h3 style={{ fontFamily: 'sans-serif', fontSize: '12px' }}>Shop Now and Save Big! Up to 60% OFF on All Furniture!</h3>
-              </div>
-              <div>
-                <h3 style={{ fontFamily: 'sans-serif', fontSize: '12px' }}>Furniture on Sale – Get Up to 50% OFF Your Favorite Pieces!</h3>
-              </div>
-              <div>
-                <h3 style={{ fontFamily: 'sans-serif', fontSize: '12px' }}>Furnish Your Home and Save! 20% OFF Everything + Bonus Deals!</h3>
-              </div>
-              <div>
-                <h3 style={{ fontFamily: 'sans-serif', fontSize: '12px' }}>Massive Clearance Sale – Up to 70% OFF on Select Furniture!</h3>
-              </div>
+
+
+              {offer.map((item, index) => (
+                <div key={index}>
+                  <h3 style={{ fontFamily: 'sans-serif', fontSize: '12px' }}>
+                    {item.text}
+                  </h3>
+                </div>
+              ))}
+
+
             </Slider>
           </div>
         </Container>
@@ -416,9 +429,9 @@ const Header = () => {
                 </li>
 
                 <li style={{ margin: '0 10px' }}>
-                  <Button onClick={() => setCartDrawerOpen(true)} sx={{ backgroundColor: "transparent", border: "none", minWidth: 0 }}>
+                  <Button onClick={() =>{ setCartDrawerOpen(true); history.push("/cartpage");}} sx={{ backgroundColor: "transparent", border: "none", minWidth: 0 }}>
                     <Tooltip title="Cart">
-                      <Badge badgeContent={4} color="secondary">
+                      <Badge badgeContent={cartItems.length} color="secondary">
                         <ShoppingCartIcon
                           sx={{
                             padding: "5px",
@@ -453,14 +466,26 @@ const Header = () => {
                     <Typography variant="h6" gutterBottom sx={{ color: 'white' }}>
                       Your Cart
                     </Typography>
+
+
                     <List>
-                      <ListItem>
-                        <ListItemText primary="Item 1" secondary="Quantity: 1" sx={{ color: 'white' }} />
-                      </ListItem>
-                      <ListItem>
-                        <ListItemText primary="Item 2" secondary="Quantity: 2" sx={{ color: 'white' }} />
-                      </ListItem>
+                      {cartItems.length === 0 ? (
+                        <Typography sx={{ color: 'white', padding: '10px' }}>
+                          Your cart is empty.
+                        </Typography>
+                      ) : (
+                        cartItems.map((item, index) => (
+                          <ListItem key={index}>
+                            <ListItemText
+                              primary={item.product}
+                              secondary={`Price: ${item.price}`}
+                              sx={{ color: 'white' }}
+                            />
+                          </ListItem>
+                        ))
+                      )}
                     </List>
+
                     <Button
                       variant="contained"
                       fullWidth
@@ -569,9 +594,11 @@ const Header = () => {
         >
           {/* Help Button */}
           <Tooltip title="Help">
-            <h3 style={{ margin: 0, cursor: 'pointer' }} onClick={handleOpen('help')}>
-              <InfoIcon className='header-icon' sx={{ fontSize: '35px', padding: '5px', color: 'white' }} />
-            </h3>
+            <Link href='/helppage'>
+              <h3 style={{ margin: 0, cursor: 'pointer' }} >
+                <InfoIcon className='header-icon' sx={{ fontSize: '35px', padding: '5px', color: 'white' }} />
+              </h3>
+            </Link>
           </Tooltip>
 
           {/* Track My Order Button */}
@@ -581,29 +608,7 @@ const Header = () => {
             </h3>
           </Tooltip>
 
-          {/* Help Dialog */}
-          <Dialog open={openDialog === 'help'} onClose={handleClose1}>
-            <DialogTitle>
-              Help
-              <IconButton
-                aria-label="close"
-                onClick={handleClose1}
-                sx={{
-                  position: 'absolute',
-                  right: 8,
-                  top: 8,
-                  color: (theme) => theme.palette.grey[500],
-                }}
-              >
-                <CloseIcon />
-              </IconButton>
-            </DialogTitle>
-            <DialogContent dividers>
-              <Typography>
-                <Link href='/helppage'>Click here to get Help....</Link>
-              </Typography>
-            </DialogContent>
-          </Dialog>
+
 
           {/* Track My Order Dialog */}
           <Dialog open={openDialog === 'track'} onClose={handleClose1}>
