@@ -27,7 +27,7 @@ const BuyNowPage = () => {
     <>
       <PublicLayout>
 
-        <Box sx={{ p: { xs: 2, md: 6 }, backgroundColor: "#f9f9f9", minHeight: "100vh" }}>
+        <Box sx={{ p: { xs: 2, md: 6 }, backgroundColor: "#f9f9f9", minHeight: "30vh" }}>
           <Typography variant="h4" sx={{ textAlign: "center", mb: 6, fontWeight: "bold", color: "#333" }}>
             Checkout
           </Typography>
