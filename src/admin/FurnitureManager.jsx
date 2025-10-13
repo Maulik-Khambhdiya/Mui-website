@@ -28,22 +28,11 @@ const SwitchField = ({ field, form, label }) => (
 );
 
 const FurnitureManager = () => {
-
-
   const [openDialog, setOpenDialog] = useState(false);
   const [items, setItems] = useState([]);
 
   const handleOpen = () => setOpenDialog(true);
-  const handleClose = () => {
-
-    
-
-   
-   
-    setOpenDialog(false)
-
-
-  }
+  const handleClose = () => setOpenDialog(false);
 
   return (
     <Dashboard>
@@ -85,12 +74,39 @@ const FurnitureManager = () => {
                 originalPrice: "",
                 description: "",
                 inStock: true,
-                image: "",
+                image: null,
               }}
-              onSubmit={(values, { resetForm }) => {
-                setItems([...items, { id: items.length + 1, ...values }]);
-                resetForm();
-                handleClose();
+              onSubmit={async (values, { resetForm }) => {
+                
+                const formData = new FormData();
+                formData.append("category", values.category);
+                formData.append("name", values.name);
+                formData.append("discountPrice", values.discountPrice);
+                formData.append("originalPrice", values.originalPrice);
+                formData.append("description", values.description);
+                formData.append("inStock", values.inStock);
+                formData.append("image", values.image); 
+
+                try {
+                  const res = await fetch("http://localhost:3000/furnituremanager/", { // Adjust your backend URL
+                    method: "POST",
+                    body: formData,
+                  });
+
+                  const data = await res.json();
+
+                  if (res.ok) {
+                    console.log("Furniture added:", data);
+                    // Assuming backend returns the created item with id and imageUrl
+                    setItems([...items, data]);
+                    resetForm();
+                    handleClose();
+                  } else {
+                    console.error("Server error:", data.error);
+                  }
+                } catch (err) {
+                  console.error("Upload failed:", err);
+                }
               }}
             >
               {({ values, setFieldValue }) => (
@@ -125,8 +141,7 @@ const FurnitureManager = () => {
                       onChange={(event) => {
                         const file = event.currentTarget.files[0];
                         if (file) {
-                          const imageUrl = URL.createObjectURL(file);
-                          setFieldValue("image", imageUrl); // store URL
+                          setFieldValue("image", file); // Store File object
                         }
                       }}
                     />
@@ -134,7 +149,7 @@ const FurnitureManager = () => {
                     {values.image && (
                       <Box mt={2}>
                         <img
-                          src={values.image}
+                          src={URL.createObjectURL(values.image)}
                           alt="Preview"
                           style={{ width: "100px", borderRadius: "8px" }}
                         />
@@ -171,7 +186,7 @@ const FurnitureManager = () => {
                   />
 
                   <Box textAlign="center" mt={2}>
-                    <button className="submit-button">
+                    <button type="submit" className="submit-button">
                       Add Item
                     </button>
                   </Box>
@@ -199,36 +214,74 @@ const FurnitureManager = () => {
               </tr>
             </thead>
             <tbody>
-              <tr style={{ backgroundColor: "#fff" }}>
-                <td>1</td>
-                <td>Modern</td>
-                <td>Chair</td>
-                <td>
-                  <img
-                    src="https://via.placeholder.com/60"
-                    alt="Chair"
-                    style={{ width: "60px", borderRadius: "4px" }}
-                  />
-                </td>
-                <td>$200</td>
-                <td>$300</td>
-                <td>✅ Yes</td>
-                <td>A sleek modern chair with premium finish.</td>
-                <td style={{ padding: "12px" }}>
-                  <Button size="small" variant="outlined" color="error">
-                    Remove
-                  </Button>
-                </td>
-                <td style={{ padding: "12px" }}>
-                  <Button size="small" variant="outlined" color="secondary">
-                    Change
-                  </Button>
-                </td>
-              </tr>
+              {items.map((item, index) => (
+                <tr key={item.id || index} style={{ backgroundColor: "#fff" }}>
+                  <td>{index + 1}</td>
+                  <td>{item.category}</td>
+                  <td>{item.name}</td>
+                  <td>
+                    <img
+                      src={item.imageUrl || "https://via.placeholder.com/60"}
+                      alt={item.name}
+                      style={{ width: "60px", borderRadius: "4px" }}
+                    />
+                  </td>
+                  <td>${item.discountPrice}</td>
+                  <td>${item.originalPrice}</td>
+                  <td>{item.inStock ? "✅ Yes" : "❌ No"}</td>
+                  <td>{item.description}</td>
+                  <td style={{ padding: "12px" }}>
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      color="error"
+                      onClick={() =>
+                        setItems(items.filter((_, i) => i !== index))
+                      }
+                    >
+                      Remove
+                    </Button>
+                  </td>
+                  <td style={{ padding: "12px" }}>
+                    <Button size="small" variant="outlined" color="secondary">
+                      Change
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+
+              {/* Sample fallback row if no items */}
+              {items.length === 0 && (
+                <tr style={{ backgroundColor: "#fff" }}>
+                  <td>1</td>
+                  <td>Modern</td>
+                  <td>Chair</td>
+                  <td>
+                    <img
+                      src="https://via.placeholder.com/60"
+                      alt="Chair"
+                      style={{ width: "60px", borderRadius: "4px" }}
+                    />
+                  </td>
+                  <td>$200</td>
+                  <td>$300</td>
+                  <td>✅ Yes</td>
+                  <td>A sleek modern chair with premium finish.</td>
+                  <td style={{ padding: "12px" }}>
+                    <Button size="small" variant="outlined" color="error">
+                      Remove
+                    </Button>
+                  </td>
+                  <td style={{ padding: "12px" }}>
+                    <Button size="small" variant="outlined" color="secondary">
+                      Change
+                    </Button>
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </Box>
-
       </Box>
     </Dashboard>
   );
